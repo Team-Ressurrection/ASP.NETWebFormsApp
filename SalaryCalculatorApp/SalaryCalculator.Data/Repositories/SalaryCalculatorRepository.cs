@@ -100,5 +100,25 @@ namespace SalaryCalculator.Data.Repositories
 
             return entry;
         }
+
+        public int SaveChanges()
+        {
+            return this.Context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            this.Context.Dispose();
+        }
+
+        public void Delete(int id)
+        {
+            var entity = this.GetById(id);
+
+            if (entity != null)
+            {
+                this.Delete(entity);
+            }
+        }
     }
 }

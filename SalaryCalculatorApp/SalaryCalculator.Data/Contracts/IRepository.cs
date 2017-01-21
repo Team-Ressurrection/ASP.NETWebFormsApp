@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SalaryCalculator.Data.Contracts
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> : IDisposable where T : class 
     {
         T GetById(object id);
 
@@ -26,5 +26,11 @@ namespace SalaryCalculator.Data.Contracts
         void Update(T entity);
 
         void Delete(T entity);
+
+        void Delete(int id);
+
+        int SaveChanges();
+
+        void Dispose();
     }
 }
