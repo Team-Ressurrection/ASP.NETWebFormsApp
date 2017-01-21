@@ -20,22 +20,24 @@ namespace SalaryCalculator.Data.Services
 
         public void Create(User user)
         {
-            throw new NotImplementedException();
+            this.users.Add(user);
+            this.users.SaveChanges();
         }
 
         public void DeleteById(int id)
         {
-            throw new NotImplementedException();
+            this.users.Delete(id);
+            this.users.SaveChanges();
         }
 
         public IQueryable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return this.users.All;
         }
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+            return this.users.GetById(id);
         }
 
         public IQueryable<User> GetTop(int count)
