@@ -33,7 +33,7 @@ namespace SalaryCalculator.Data.Models
         public string LastName { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(ValidationConstants.PersonalIdLength)]
         [RegularExpression(ValidationConstants.PersonalIdCharacters)]
         public string PersonalId { get; set; }
 

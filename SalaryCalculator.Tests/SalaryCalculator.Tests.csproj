@@ -79,6 +79,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Data.Models.User\EmployeeTests.cs" />
+    <Compile Include="Data.Models.User\RemunerationBillTests.cs" />
     <Compile Include="Data.Models.User\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
