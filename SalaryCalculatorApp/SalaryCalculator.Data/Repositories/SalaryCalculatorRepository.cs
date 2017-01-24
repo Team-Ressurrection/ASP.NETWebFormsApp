@@ -14,6 +14,11 @@ namespace SalaryCalculator.Data.Repositories
     {
         public SalaryCalculatorRepository(ISalaryCalculatorDbContext context)
         {
+            if (context == null)
+            {
+                throw new ArgumentNullException("SalaryCalculatorDbContext cannot be null");
+            }
+
             this.Context = context;
             this.DbSet = this.Context.Set<T>();
         }
@@ -36,6 +41,10 @@ namespace SalaryCalculator.Data.Repositories
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>> filterExpression)
         {
+            if (filterExpression == null)
+            {
+                throw new ArgumentNullException("Filter expression cannot be null");
+            }
             return this.GetAll<object>(filterExpression, null);
         }
 

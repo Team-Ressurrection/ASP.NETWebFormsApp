@@ -79,9 +79,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Data.Models.User\EmployeeTests.cs" />
-    <Compile Include="Data.Models.User\RemunerationBillTests.cs" />
+    <Compile Include="Data.DbContext\SalaryCalculatorDbContextTests.cs" />
+    <Compile Include="Data.Models.Employee\EmployeeTests.cs" />
+    <Compile Include="Data.Models.RemunerationBill\RemunerationBillTests.cs" />
     <Compile Include="Data.Models.User\UserTests.cs" />
+    <Compile Include="Data.Repository\SalaryCalculatorRepositoryTests.cs" />
+    <Compile Include="Data.Services\EmployeeServicesTests.cs" />
+    <Compile Include="Mocks\FakeEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +110,7 @@
       <Name>SalaryCalculatorApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
