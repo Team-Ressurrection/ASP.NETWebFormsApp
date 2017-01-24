@@ -56,6 +56,15 @@
                         <li><a runat="server" href="~/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                         <li><a runat="server" href="~/About"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                         <li><a runat="server" href="~/Contact"><span class="glyphicon glyphicon-phone"></span> Contact</a></li>
+                        <li class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Calculate contracts <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="nav-item"><a class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add
+                            Labor Contract</a></li>
+                        <li class="nav-item"><a class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add
+                            Non-Labor Contract</a></li><li class="nav-item"><a class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add Freelance</a></li>
+                    </ul>
+                        </li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
