@@ -36,7 +36,7 @@ namespace SalaryCalculator.Data.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            return this.GetAll(null);
+            return this.GetAll();
         }
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>> filterExpression)
@@ -83,18 +83,33 @@ namespace SalaryCalculator.Data.Repositories
 
         public void Add(T entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("Entity cannot be null");
+            }
+
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Added;
         }
 
         public void Update(T entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("Entity cannot be null");
+            }
+
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Modified;
         }
 
         public void Delete(T entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("Entity cannot be null");
+            }
+
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Deleted;
         }

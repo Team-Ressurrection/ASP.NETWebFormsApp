@@ -116,21 +116,21 @@ namespace SalaryCalculator.Tests.Data.Repository
         }
 
         [Test]
-        public void ShouldReturnTaskWithCorrectResult_WhenItemIsFound()
+        public void ShouldReturnCorrectCountOfItem_WhenItemIsFound()
         {
             var mockDbSet = new Mock<DbSet<FakeEmployee>>();
             var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
             mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
+            var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
             // Setup Data
-            var fakeMatchingModel = new Mock<FakeEmployee>();
-            fakeMatchingModel.SetupGet(model => model.Id).Returns(1);
+            var fakeModel = new Mock<FakeEmployee>();
+            fakeModel.SetupGet(model => model.Id).Returns(1);
 
             var fakeData = new List<FakeEmployee>()
             {
-                fakeMatchingModel.Object,
+                fakeModel.Object,
                 new Mock<FakeEmployee>().Object,
                 new Mock<FakeEmployee>().Object,
                 new Mock<FakeEmployee>().Object,
@@ -147,11 +147,81 @@ namespace SalaryCalculator.Tests.Data.Repository
 
             Expression<Func<FakeEmployee, bool>> filter = (FakeEmployee model) => model.Id == 1;
 
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
+            var actualReturnedCollection = repo.GetAll(filter);
 
-            var expectedCollection = new List<FakeEmployee>() { fakeMatchingModel.Object };
+            var expectedCollection = new List<FakeEmployee>() { fakeModel.Object };
 
             Assert.That(actualReturnedCollection.Count(), Is.Not.Null.And.EquivalentTo(expectedCollection));
+        }
+
+        [Test]
+        public void Add_ShouldThrowArgumentNullException_WhenEntityIsNullable()
+        {
+            var mockDbSet = new Mock<DbSet<FakeEmployee>>();
+            var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
+            mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
+
+            var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
+
+            Assert.That(()=> repo.Add(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Entity cannot be null"));
+        }
+
+        [Test]
+        public void Delete_ShouldThrowArgumentNullException_WhenEntityIsNullable()
+        {
+            var mockDbSet = new Mock<DbSet<FakeEmployee>>();
+            var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
+            mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
+
+            var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
+
+            Assert.That(() => repo.Delete(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Entity cannot be null"));
+        }
+
+        [Test]
+        public void Update_ShouldThrowArgumentNullException_WhenEntityIsNullable()
+        {
+            var mockDbSet = new Mock<DbSet<FakeEmployee>>();
+            var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
+            mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
+
+            var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
+
+            Assert.That(() => repo.Update(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Entity cannot be null"));
+        }
+
+        [Test]
+        public void GetAll_ShouldReturnAllData_WhenIsCalled()
+        {
+            var mockDbSet = new Mock<DbSet<FakeEmployee>>();
+            var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
+            mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
+
+            var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
+
+            // Setup Data
+            var fakeModel = new Mock<FakeEmployee>();
+
+            var fakeData = new List<FakeEmployee>()
+            {
+                fakeModel.Object,
+                new Mock<FakeEmployee>().Object,
+                new Mock<FakeEmployee>().Object,
+                new Mock<FakeEmployee>().Object,
+                new Mock<FakeEmployee>().Object,
+                new Mock<FakeEmployee>().Object,
+                new Mock<FakeEmployee>().Object
+            }
+            .AsQueryable();
+
+            mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.Provider).Returns(fakeData.Provider);
+            mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.Expression).Returns(fakeData.Expression);
+            mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
+            mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
+
+            var employees = repo.GetAll();
+
+            Assert.AreEqual(fakeData.Count(), employees.Count());
         }
     }
 }
