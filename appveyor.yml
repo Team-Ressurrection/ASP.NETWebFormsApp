@@ -3,9 +3,9 @@ branches:
   only:
   - master
 before_build:
-- ps: nuget restore ./ASP.NETWebFormsApp/SalaryCalculatorApp.sln
+- ps: nuget restore ./SalaryCalculatorApp/SalaryCalculatorApp.sln
 build:
-  project: ./ASP.NETWebFormsApp/SalaryCalculatorApp.sln
+  project: ./SalaryCalculatorApp/SalaryCalculatorApp.sln
   verbosity: minimal
 notifications:
 - provider: Email
