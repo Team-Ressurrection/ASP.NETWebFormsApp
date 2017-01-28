@@ -20,6 +20,10 @@ namespace SalaryCalculator.Data.Services
 
         public void Create(Employee employee)
         {
+            if (employee == null)
+            {
+                throw new ArgumentNullException("Employee cannot be null");
+            }
             this.employees.Add(employee);
             this.employees.SaveChanges();
         }
