@@ -2,10 +2,17 @@ version: 1.0.{build}
 branches:
   only:
   - master
+configuration: Release
+assembly_info:
+ patch: true
+ file: '**\AssemblyInfo.*'
+ assembly_version: '{version}'
+ assembly_file_version: '{version}'
+ assembly_informational_version: '{version}'
 before_build:
-- ps: nuget restore ./SalaryCalculatorApp/SalaryCalculatorApp.sln
+- ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
 build:
-  project: ./SalaryCalculatorApp/SalaryCalculatorApp.sln
+  project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
   verbosity: minimal
 notifications:
 - provider: Email
@@ -14,3 +21,12 @@ notifications:
   on_build_success: true
   on_build_failure: true
   on_build_status_changed: true
+  
+environment:
+    COVERALLS_REPO_TOKEN:
+      secure: ig7j7rMbwuoEVu3h03ij9T3DHsvUaN6Go
+test_script:
+- ps: >-
+    .\SalaryCalculatorApp\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe "-targetargs:""SalaryCalculator.Tests\bin\$env:CONFIGURATION\SalaryCalculator.Tests.dll"" /noshadow" -output:opencoverCoverage.xml
+    
+    $env:APPVEYOR_BUILD_NUMBER
