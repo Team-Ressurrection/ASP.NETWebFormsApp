@@ -200,6 +200,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="JobContracts\CreateFreelanceContract.aspx" />
+    <Content Include="JobContracts\CreateLaborContract.aspx" />
+    <Content Include="JobContracts\CreateNonLaborContract.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -383,6 +386,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="JobContracts\CreateFreelanceContract.aspx.cs">
+      <DependentUpon>CreateFreelanceContract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobContracts\CreateFreelanceContract.aspx.designer.cs">
+      <DependentUpon>CreateFreelanceContract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobContracts\CreateLaborContract.aspx.cs">
+      <DependentUpon>CreateLaborContract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobContracts\CreateLaborContract.aspx.designer.cs">
+      <DependentUpon>CreateLaborContract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobContracts\CreateNonLaborContract.aspx.cs">
+      <DependentUpon>CreateNonLaborContract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobContracts\CreateNonLaborContract.aspx.designer.cs">
+      <DependentUpon>CreateNonLaborContract.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -413,6 +437,10 @@
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SalaryCalculator.MVP\SalaryCalculator.MVP.csproj">
+      <Project>{25ca6833-25e3-4298-923c-3c2413ca88ee}</Project>
+      <Name>SalaryCalculator.MVP</Name>
+    </ProjectReference>
     <ProjectReference Include="SalaryCalculator.Data.Models\SalaryCalculator.Data.Models.csproj">
       <Project>{4264c89d-df98-4da8-943c-08da4d33ec37}</Project>
       <Name>SalaryCalculator.Data.Models</Name>
