@@ -38,7 +38,7 @@ input[type="select"] {
 }
 
 .blur-photo {
-    background-image: url("../Images/background.jpg");
+    background-image: url("../Images/background2.jpg");
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);

@@ -15,7 +15,7 @@
                 You can easily calculate your social security income and social securities taxes.           
             </p>
             <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
+                <a class="btn btn-info" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
             </p>
         </div>
         <div class="col-md-4 jumbotron">
@@ -25,7 +25,7 @@
                 In just seconds you can get your net wage.           
             </p>
             <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-info" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
             </p>
         </div>
         <div class="col-md-4 jumbotron">
@@ -34,7 +34,7 @@
                 You can easily your income as freelancer.
             </p>
             <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-info" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
             </p>
         </div>
     </div>
