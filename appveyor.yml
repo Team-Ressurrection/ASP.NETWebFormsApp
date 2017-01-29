@@ -9,6 +9,9 @@ assembly_info:
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
+platform:
+  - x86
+  - Any CPU
 before_build:
   - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
 build:
