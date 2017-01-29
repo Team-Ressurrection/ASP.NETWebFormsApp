@@ -12,6 +12,12 @@ assembly_info:
 platform:
   - x64
   - Any CPU
+matrix:
+  allow_failures:
+    - platform: Any CPU
+      configuration: Release
+    - platform: x64
+      configuration: Release
 before_build:
   - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
 build:
