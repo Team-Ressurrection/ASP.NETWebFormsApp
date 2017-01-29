@@ -72,7 +72,7 @@ namespace SalaryCalculator.Tests.Data.Services
             var emplService = new EmployeeService(mockedRepository.Object);
 
             var employee = new FakeEmployee();
-            employee.Id = "2";
+            employee.Id = 2;
             emplService.Create(employee);
             emplService.DeleteById(2);
 
@@ -87,7 +87,7 @@ namespace SalaryCalculator.Tests.Data.Services
             var emplService = new EmployeeService(mockedRepository.Object);
 
             var employee = new FakeEmployee();
-            employee.Id = "2";
+            employee.Id = 2;
             emplService.Create(employee);
 
             mockedRepository.Verify(r => r.GetAll(), Times.Once);

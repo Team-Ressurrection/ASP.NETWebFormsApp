@@ -126,7 +126,7 @@ namespace SalaryCalculator.Tests.Data.Repository
 
             // Setup Data
             var fakeModel = new Mock<FakeEmployee>();
-            fakeModel.SetupGet(model => model.Id).Returns("1");
+            fakeModel.SetupGet(model => model.Id).Returns(1);
 
             var fakeData = new List<FakeEmployee>()
             {
@@ -145,7 +145,7 @@ namespace SalaryCalculator.Tests.Data.Repository
             mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
-            Expression<Func<FakeEmployee, bool>> filter = (FakeEmployee model) => model.Id == "1";
+            Expression<Func<FakeEmployee, bool>> filter = (FakeEmployee model) => model.Id == 1;
 
             var actualReturnedCollection = repo.GetAll(filter);
 
