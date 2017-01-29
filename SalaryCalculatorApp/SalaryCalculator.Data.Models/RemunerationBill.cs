@@ -34,7 +34,7 @@ namespace SalaryCalculator.Data.Models
         public decimal IncomeTax { get; set; }
 
         [Required]
-        public string EmployeeId { get; set; }
+        public int EmployeeId { get; set; }
 
         [ForeignKey("EmployeeId")]
         public virtual Employee Employee { get; set; }

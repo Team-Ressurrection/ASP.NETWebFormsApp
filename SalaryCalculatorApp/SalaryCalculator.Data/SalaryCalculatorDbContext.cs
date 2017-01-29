@@ -23,10 +23,8 @@ namespace SalaryCalculator.Data
             return new SalaryCalculatorDbContext();
         }
 
-        IDbSet<Employee> Employees { get; set; }
+        public IDbSet<Employee> Employees { get; set; }
 
-//        IDbSet<User> Users { get; set; }
-
-        IDbSet<RemunerationBill> RemunerationBills { get; set; }
+        public IDbSet<RemunerationBill> RemunerationBills { get; set; }
     }
 }

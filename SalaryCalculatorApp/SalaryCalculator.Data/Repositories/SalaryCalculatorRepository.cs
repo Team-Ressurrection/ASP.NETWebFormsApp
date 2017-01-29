@@ -36,7 +36,7 @@ namespace SalaryCalculator.Data.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            return this.GetAll();
+            return this.GetAll(null);
         }
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>> filterExpression)

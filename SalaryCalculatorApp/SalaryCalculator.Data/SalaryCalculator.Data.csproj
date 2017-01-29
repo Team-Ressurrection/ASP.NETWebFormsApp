@@ -60,6 +60,7 @@
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\ISalaryCalculatorDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Repositories\SalaryCalculatorRepository.cs" />
     <Compile Include="SalaryCalculatorDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

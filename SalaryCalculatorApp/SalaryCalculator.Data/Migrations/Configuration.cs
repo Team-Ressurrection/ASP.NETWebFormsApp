@@ -12,20 +12,20 @@ namespace SalaryCalculator.Data.Migrations
             this.AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(SalaryCalculator.Data.SalaryCalculatorDbContext context)
+        protected override void Seed(SalaryCalculatorDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            if (context.Employees.Any())
+            {
+                return;
+            }
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var seed = new SeedData();
+
+            seed.Employees.ToList().ForEach(x => context.Employees.Add(x));
+
+            seed.RemunerationBills.ToList().ForEach(x => context.RemunerationBills.Add(x));
+
+            context.SaveChanges();
         }
     }
 }
