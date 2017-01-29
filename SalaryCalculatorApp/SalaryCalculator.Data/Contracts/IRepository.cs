@@ -31,6 +31,8 @@ namespace SalaryCalculator.Data.Contracts
 
         int SaveChanges();
 
+#pragma warning disable CS0108 // 'IRepository<T>.Dispose()' hides inherited member 'IDisposable.Dispose()'. Use the new keyword if hiding was intended.
         void Dispose();
+#pragma warning restore CS0108 // 'IRepository<T>.Dispose()' hides inherited member 'IDisposable.Dispose()'. Use the new keyword if hiding was intended.
     }
 }
