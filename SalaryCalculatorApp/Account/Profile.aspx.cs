@@ -13,5 +13,10 @@ namespace SalaryCalculatorApp.Account
         {
 
         }
+
+        protected void ButtonLoad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
