@@ -204,6 +204,9 @@
     <Content Include="JobContracts\CreateFreelanceContract.aspx" />
     <Content Include="JobContracts\CreateLaborContract.aspx" />
     <Content Include="JobContracts\CreateNonLaborContract.aspx" />
+    <Content Include="Reports\Freelance.aspx" />
+    <Content Include="Reports\Labor.aspx" />
+    <Content Include="Reports\NonLabor.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -411,6 +414,27 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Freelance.aspx.cs">
+      <DependentUpon>Freelance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Freelance.aspx.designer.cs">
+      <DependentUpon>Freelance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Labor.aspx.cs">
+      <DependentUpon>Labor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Labor.aspx.designer.cs">
+      <DependentUpon>Labor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\NonLabor.aspx.cs">
+      <DependentUpon>NonLabor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\NonLabor.aspx.designer.cs">
+      <DependentUpon>NonLabor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
