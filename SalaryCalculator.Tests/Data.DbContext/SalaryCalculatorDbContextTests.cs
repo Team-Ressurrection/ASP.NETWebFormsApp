@@ -19,19 +19,19 @@ namespace SalaryCalculator.Tests.Data.DbContext
         [Test]
         public void ConstructorWhenPassed_ShouldCreateInstance()
         {
-            IdentityDbContext<User> dbContext = new SalaryCalculatorDbContext();
+            var dbContext = new SalaryCalculatorDbContext();
 
-            Assert.IsInstanceOf<SalaryCalculatorDbContext>(dbContext);
+            Assert.IsInstanceOf(typeof(IdentityDbContext<User>), dbContext);
         }
 
         [Test]
         public void DbContext_ShouldHave_DbSetPropertyEmployees()
         {
-            ISalaryCalculatorDbContext dbContext = new SalaryCalculatorDbContext();
+            ISalaryCalculatorDbContext dbContext = SalaryCalculatorDbContext.Create();
 
             var dbSetEmployees = dbContext.Set<FakeEmployee>();
 
-            Assert.IsInstanceOf(typeof(IDbSet<Employee>), dbSetEmployees);
+            Assert.IsInstanceOf(typeof(DbSet<Employee>), dbSetEmployees);
         }
     }
 }
