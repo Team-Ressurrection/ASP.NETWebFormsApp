@@ -1,11 +1,9 @@
-﻿using SalaryCalculator.Data.Contracts;
+﻿using System;
+using System.Linq;
+
+using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SalaryCalculator.Data.Services
 {

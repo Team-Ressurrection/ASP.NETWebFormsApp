@@ -19,9 +19,9 @@ matrix:
     - platform: x64
       configuration: Release
 before_build:
-  - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
+  - ps: nuget restore .\WebApplication1\WebApplication1.sln
 build:
-  project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
+  project: .\WebApplication1\WebApplication1.sln
   verbosity: minimal
 notifications:
   - provider: Email
@@ -33,8 +33,3 @@ notifications:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: ig7j7rMbwuoEVu3h03ij9T3DHsvUaN6Go
-test_script:
-  - ps: >-
-      .\SalaryCalculatorApp\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe "-targetargs:""SalaryCalculator.Tests\bin\$env:CONFIGURATION\SalaryCalculator.Tests.dll"" /noshadow" -output:opencoverCoverage.xml
-    
-      $env:APPVEYOR_BUILD_NUMBER

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SalaryCalculator.Data.Models.Constants
+﻿namespace SalaryCalculator.Data.Models.Constants
 {
     public static class ValidationConstants
     {

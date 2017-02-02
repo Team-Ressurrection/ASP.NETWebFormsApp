@@ -1,8 +1,0 @@
-language: csharp
-solution: SalaryCalculatorApp.sln
-install:
-  - nuget restore SalaryCalculatorApp.sln
-  - nuget install NUnit.Runners -Version 3.6.0 -OutputDirectory testrunner
-script:
-  - xbuild /p:Configuration=Release SalaryCalculatorApp.sln
-  - mono ./testrunner/NUnit.Runners.3.6.0/tools/nunit-console.exe ./SalaryCalculator.Tests/bin/Release/SalaryCalculator.Tests.dll

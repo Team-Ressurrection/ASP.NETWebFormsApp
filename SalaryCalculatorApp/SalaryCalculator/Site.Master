@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SalaryCalculator.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Salary Calculator Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+
+    <form runat="server">
+        <div class="blur-photo">
+        </div>
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/"><span class="glyphicon glyphicon-euro"></span>Salary Calculator</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li><a runat="server" href="~/About"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+                        <li><a runat="server" href="~/Contact"><span class="glyphicon glyphicon-phone"></span> Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Calculate contracts <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="nav-item"><a runat="server" href="~/JobContracts/CreateLaborContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add
+                            Labor Contract</a></li>
+                                <li class="nav-item"><a runat="server" href="~/JobContracts/CreateNonLaborContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add
+                            Non-Labor Contract</a></li>
+                                <li class="nav-item"><a runat="server" href="~/JobContracts/CreateFreelanceContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add Freelance</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Reports <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="nav-item"><a runat="server" href="~/Reports/Labor" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Labor reports</a></li>
+                                <li class="nav-item"><a runat="server" href="~/Reports/NonLabor" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Non-Labor reports</a></li>
+                                <li class="nav-item"><a runat="server" href="~/Reports/Freelance" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Freelance reports</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a runat="server" href="~/Settings/Administrator"><span class="glyphicon glyphicon-settings"></span> Settings</a></li>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                                <li><a runat="server" href="~/Account/Login"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Profile" title="User Profile">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer class="jumbotron">
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p class="text-muted">
+                    Made by Team Ressurrection for Telerik Academy's ASP.NET Web Forms Application's Course.
+            <a href="https://github.com/Team-Ressurrection/ASP.NETWebFormsApp">View source</a>
+                </p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

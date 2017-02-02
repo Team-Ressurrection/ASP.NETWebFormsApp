@@ -1,11 +1,8 @@
-﻿using SalaryCalculator.Data.Models.Constants;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+
+using SalaryCalculator.Data.Models.Constants;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SalaryCalculator.Data.Models
 {
@@ -18,7 +15,7 @@ namespace SalaryCalculator.Data.Models
         public DateTime CreatedDate { get; set; }
 
         [Required]
-        [Range(0,ValidationConstants.MaxSocialSecurityIncome)]
+        [Range(0, ValidationConstants.MaxSocialSecurityIncome)]
         public decimal SocialSecurityIncome { get; set; }
 
         [Required]

@@ -1,7 +1,7 @@
-﻿using SalaryCalculator.Data.Models.Constants;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
+using SalaryCalculator.Data.Models.Constants;
 
 namespace SalaryCalculator.Data.Models
 {

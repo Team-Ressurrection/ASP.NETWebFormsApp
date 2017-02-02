@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SalaryCalculator.Data.Contracts
 {
-    public interface IRepository<T> : IDisposable where T : class 
+    public interface IRepository<T> : IDisposable where T : class
     {
         T GetById(object id);
 
@@ -31,8 +29,6 @@ namespace SalaryCalculator.Data.Contracts
 
         int SaveChanges();
 
-#pragma warning disable CS0108 // 'IRepository<T>.Dispose()' hides inherited member 'IDisposable.Dispose()'. Use the new keyword if hiding was intended.
         void Dispose();
-#pragma warning restore CS0108 // 'IRepository<T>.Dispose()' hides inherited member 'IDisposable.Dispose()'. Use the new keyword if hiding was intended.
     }
 }
