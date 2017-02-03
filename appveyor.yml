@@ -31,7 +31,7 @@ notifications:
     on_build_status_changed: true
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: CZDmYTh9UiE3JnlnrlnR6GpzUiX99rUcA
+    secure: OJTmJKD0G0fegxWKNeL19zzxVU5WfXz3V
 after_test: 
   - SalaryCalculatorApp\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"SalaryCalculatorApp\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single  SalaryCalculatorApp\SalaryCalculator.Tests\bin\Debug\SalaryCalculator.Tests.dll" -output:coverage.xml
 
