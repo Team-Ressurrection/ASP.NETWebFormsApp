@@ -6,6 +6,7 @@ using NUnit.Framework;
 
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Models.Constants;
+using SalaryCalculator.Tests.Mocks;
 
 namespace SalaryCalculator.Tests.Data.EmployeeModels
 {
@@ -71,6 +72,15 @@ namespace SalaryCalculator.Tests.Data.EmployeeModels
             var empl = new Employee();
 
             Assert.AreEqual(null, empl.PersonalId);
+        }
+
+        [Test]
+        public void WhenPersonalIdIsSetWithCorrectValue_ShouldSet_PersonalIdProperty()
+        {
+            var empl = new Employee();
+
+            empl.PersonalId = "8801124520";
+            Assert.AreEqual("8801124520", empl.PersonalId);
         }
 
         [TestCase("Georgi Georgiev Vasilev")]
@@ -208,6 +218,16 @@ namespace SalaryCalculator.Tests.Data.EmployeeModels
                             .Any();
 
             Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void PropertyRemunerationBIll_ShouldSetCorrectly_ValueOfIDBill()
+        {
+            var empl = new Employee();
+
+            empl.RemunerationBills.Add(new FakeRemunerationBill());
+
+            Assert.AreEqual(empl.RemunerationBills.Count, 1);
         }
     }
 }
