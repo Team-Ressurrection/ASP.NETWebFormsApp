@@ -33,5 +33,5 @@ environment:
   COVERALLS_REPO_TOKEN:
     secure: 7BKA9CrHX8UVQbjHB0XsmSJb/EmkSQKDSW8LJ8C14S9oGW7vrvAd/5krwICdwu92
 after_test:
-  - SalaryCalculatorApp\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"SalaryCalculatorApp\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single SalaryCalculatorApp\SalaryCalculator.Tests\bin\Debug\SalaryCalculator.Tests.dll" -output:coverage.xml
+  - SalaryCalculatorApp\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"SalaryCalculatorApp\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single  SalaryCalculator.Tests\bin\debug\SalaryCalculator.Tests.dll" -output:coverage.xml
   - SalaryCalculatorApp\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover coverage.xml
