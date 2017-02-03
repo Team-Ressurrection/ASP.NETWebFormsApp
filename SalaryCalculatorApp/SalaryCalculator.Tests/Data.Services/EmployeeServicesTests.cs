@@ -61,33 +61,34 @@ namespace SalaryCalculator.Tests.Data.Services
 
         }
 
-        //[Test]
-        //public void Delete_ShouldInvokeOnce_WhenValidId_IsPassedCorrectly()
-        //{
-        //    var mockedRepository = new Mock<IRepository<Employee>>();
+        [Test]
+        public void Delete_ShouldInvokeOnce_WhenValidId_IsPassedCorrectly()
+        {
+            var mockedRepository = new Mock<IRepository<Employee>>();
 
-        //    var emplService = new EmployeeService(mockedRepository.Object);
+            var emplService = new EmployeeService(mockedRepository.Object);
 
-        //    var employee = new FakeEmployee();
-        //    employee.Id = 2;
-        //    emplService.Create(employee);
-        //    emplService.DeleteById(2);
+            Employee employee = new FakeEmployee();
+            employee.Id = 2;
+            emplService.Create(employee);
+            emplService.DeleteById(2);
 
-        //    mockedRepository.Verify(r => r.Delete(It.IsAny<Employee>()), Times.Once);
-        //}
+            mockedRepository.Verify(r => r.Delete(It.IsAny<int>()), Times.Once);
+        }
 
-        //[Test]
-        //public void GetAll_ShouldInvokeOnlyOnce()
-        //{
-        //    var mockedRepository = new Mock<IRepository<Employee>>();
+        [Test]
+        public void GetAll_ShouldInvokeOnlyOnce()
+        {
+            var mockedRepository = new Mock<IRepository<Employee>>();
 
-        //    var emplService = new EmployeeService(mockedRepository.Object);
+            var emplService = new EmployeeService(mockedRepository.Object);
 
-        //    var employee = new FakeEmployee();
-        //    employee.Id = 2;
-        //    emplService.Create(employee);
+            var employee = new FakeEmployee();
+            employee.Id = 2;
+            emplService.Create(employee);
 
-        //    mockedRepository.Verify(r => r.GetAll(), Times.Once);
-        //}
+            emplService.GetAll();
+            mockedRepository.Verify(r => r.All, Times.Once);
+        }
     }
 }
