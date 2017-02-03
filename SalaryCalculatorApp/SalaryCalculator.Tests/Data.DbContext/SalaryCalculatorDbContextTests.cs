@@ -21,14 +21,13 @@ namespace SalaryCalculator.Tests.Data.DbContext
             Assert.IsInstanceOf(typeof(IdentityDbContext<User>), dbContext);
         }
 
-        //[Test]
-        //public void DbContext_ShouldHave_DbSetPropertyEmployees()
-        //{
-        //    ISalaryCalculatorDbContext dbContext = SalaryCalculatorDbContext.Create();
+        [Test]
+        public void DbContext_ShouldCreateInstance_WhenCreateMethodIsInvoked()
+        {
+            ISalaryCalculatorDbContext dbContext = SalaryCalculatorDbContext.Create();
 
-        //    var dbSetEmployees = dbContext.Set<FakeEmployee>();
 
-        //    Assert.IsInstanceOf(typeof(DbSet<Employee>), dbSetEmployees);
-        //}
+            Assert.IsInstanceOf(typeof(IdentityDbContext<User>), dbContext);
+        }
     }
 }
