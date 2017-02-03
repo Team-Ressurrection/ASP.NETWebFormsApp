@@ -19,9 +19,9 @@ matrix:
     - platform: x64
       configuration: Release
 before_build:
-  - ps: nuget restore .\WebApplication1\WebApplication1.sln
+  - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
 build:
-  project: .\WebApplication1\WebApplication1.sln
+  project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
   verbosity: minimal
 notifications:
   - provider: Email
