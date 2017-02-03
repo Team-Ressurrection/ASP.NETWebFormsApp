@@ -5,12 +5,14 @@ using NUnit.Framework;
 
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Models.Constants;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalaryCalculator.Tests.Data.RemunerationBillModels
 {
     public class RemunerationBillTests
     {
         private const string CreatedDateProperty = "CreatedDate";
+        private const string IdProperty = "Id";
         private const string GrossSalaryProperty = "GrossSalary";
         private const string SocialSecurityIncomeProperty = "SocialSecurityIncome";
         private const string IncomeTaxProperty = "IncomeTax";
@@ -95,6 +97,35 @@ namespace SalaryCalculator.Tests.Data.RemunerationBillModels
             Assert.IsTrue(result);
         }
 
+        [Test]
+        public void PropertyWithKeyAttribute_ShouldReturnTrue()
+        {
+            var bill = new RemunerationBill();
+
+            var result = bill.GetType()
+                             .GetProperty(IdProperty)
+                             .GetCustomAttributes(false)
+                             .Where(x => x.GetType() == typeof(KeyAttribute))
+                             .Any();
+
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void PropertyWithForeignKeyAttribute_ShouldReturnTrue()
+        {
+            var bill = new RemunerationBill();
+
+            var result = bill.GetType()
+                             .GetProperty("Employee")
+                             .GetCustomAttributes(false)
+                             .Where(x => x.GetType() == typeof(ForeignKeyAttribute))
+                             .Any();
+
+            Assert.IsTrue(result);
+        }
+
+        [TestCase(SocialSecurityIncomeProperty)]
         public void SocialSecurityIncomeProperty_WithRangeAttribute_MustReturnMaxSocialSecurityIncomeValue(string propertyName)
         {
             var bill = new RemunerationBill();
