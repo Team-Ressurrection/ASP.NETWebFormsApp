@@ -10,7 +10,6 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
 platform:
-  - x64
   - Any CPU
 matrix:
   allow_failures:
