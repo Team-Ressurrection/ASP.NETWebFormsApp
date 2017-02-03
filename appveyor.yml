@@ -32,4 +32,4 @@ notifications:
     on_build_status_changed: true
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: ig7j7rMbwuoEVu3h03ij9T3DHsvUaN6Go
+    secure: CZDmYTh9UiE3JnlnrlnR6GpzUiX99rUcA
