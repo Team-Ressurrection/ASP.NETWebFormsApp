@@ -102,10 +102,12 @@
   <ItemGroup>
     <Compile Include="Data.DbContext\SalaryCalculatorDbContextTests.cs" />
     <Compile Include="Data.EmployeeModels\EmployeesTests.cs" />
+    <Compile Include="Data.Services\UserServicesTests.cs" />
     <Compile Include="Data.UserModels\UserTests.cs" />
     <Compile Include="Data.RemunerationBillModels\RemunerationBillTests.cs" />
     <Compile Include="Data.Repository\SalaryCalculatorRepositoryTests.cs" />
     <Compile Include="Data.Services\EmployeeServicesTests.cs" />
+    <Compile Include="Mocks\FakeUser.cs" />
     <Compile Include="Mocks\FakeEmployee.cs" />
     <Compile Include="Mocks\FakeRemunerationBill.cs" />
     <Compile Include="Data.Seed\Constructor_Should.cs" />
