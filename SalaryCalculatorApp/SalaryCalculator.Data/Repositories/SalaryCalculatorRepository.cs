@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 
 using SalaryCalculator.Data.Contracts;
+using Bytes2you.Validation;
 
 namespace SalaryCalculator.Data.Repositories
 {
@@ -13,10 +14,7 @@ namespace SalaryCalculator.Data.Repositories
     {
         public SalaryCalculatorRepository(ISalaryCalculatorDbContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException("SalaryCalculatorDbContext cannot be null");
-            }
+            Guard.WhenArgument<ISalaryCalculatorDbContext>(context, "context").IsNull();
 
             this.Context = context;
             this.DbSet = this.Context.Set<T>();

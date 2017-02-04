@@ -4,6 +4,7 @@ using System.Linq;
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
+using Bytes2you.Validation;
 
 namespace SalaryCalculator.Data.Services
 {
@@ -18,10 +19,8 @@ namespace SalaryCalculator.Data.Services
 
         public void Create(Employee employee)
         {
-            if (employee == null)
-            {
-                throw new ArgumentNullException("Employee cannot be null");
-            }
+            Guard.WhenArgument(employee, "employee").IsNull().Throw();
+
             this.employees.Add(employee);
             this.employees.SaveChanges();
         }

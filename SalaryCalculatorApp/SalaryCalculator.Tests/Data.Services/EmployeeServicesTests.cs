@@ -30,7 +30,7 @@ namespace SalaryCalculator.Tests.Data.Services
 
             var emplService = new EmployeeService(mockedRepository.Object);
 
-            Assert.That(() => emplService.Create(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Employee cannot be null"));
+            Assert.That(() => emplService.Create(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null"));
         }
 
         [Test]
