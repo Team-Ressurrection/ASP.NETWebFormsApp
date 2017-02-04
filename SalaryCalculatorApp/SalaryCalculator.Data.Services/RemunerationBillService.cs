@@ -3,6 +3,7 @@
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
+using System;
 
 namespace SalaryCalculator.Data.Services
 {
@@ -17,6 +18,11 @@ namespace SalaryCalculator.Data.Services
 
         public void Create(RemunerationBill bill)
         {
+            if (bill == null)
+            {
+                throw new ArgumentNullException("RemunerationBill cannot be null");
+            }
+
             this.remunerationBills.Add(bill);
             this.remunerationBills.SaveChanges();
         }
