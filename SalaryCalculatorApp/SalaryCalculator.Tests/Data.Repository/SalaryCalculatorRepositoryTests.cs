@@ -22,7 +22,7 @@ namespace SalaryCalculator.Tests.Data.Repository
             ISalaryCalculatorDbContext nullableDbContext = null;
             Assert.That(
                 () => new SalaryCalculatorRepository<FakeEmployee>(nullableDbContext),
-                Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("SalaryCalculatorDbContext"));
+                Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null"));
         }
 
         [Test]

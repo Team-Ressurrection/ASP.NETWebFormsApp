@@ -28,7 +28,5 @@ namespace SalaryCalculator.Data.Contracts
         void Delete(int id);
 
         int SaveChanges();
-
-        void Dispose();
     }
 }

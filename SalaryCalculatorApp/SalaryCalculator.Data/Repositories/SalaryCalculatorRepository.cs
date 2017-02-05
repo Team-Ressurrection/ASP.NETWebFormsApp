@@ -14,7 +14,7 @@ namespace SalaryCalculator.Data.Repositories
     {
         public SalaryCalculatorRepository(ISalaryCalculatorDbContext context)
         {
-            Guard.WhenArgument<ISalaryCalculatorDbContext>(context, "context").IsNull();
+            Guard.WhenArgument<ISalaryCalculatorDbContext>(context, "context").IsNull().Throw();
 
             this.Context = context;
             this.DbSet = this.Context.Set<T>();

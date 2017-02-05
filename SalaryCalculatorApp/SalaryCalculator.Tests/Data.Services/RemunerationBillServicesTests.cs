@@ -152,6 +152,7 @@ namespace SalaryCalculator.Tests.Data.Services
         }
 
         [Test]
+        [Ignore("Not finished test.")]
         public void UpdateById_ShouldInvokeOnceAndUpdateBill()
         {
             var mockedRepository = new Mock<IRepository<RemunerationBill>>();
