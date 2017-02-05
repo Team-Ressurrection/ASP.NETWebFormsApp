@@ -122,6 +122,7 @@
     <Compile Include="Data.Seed\Constructor_Should.cs" />
     <Compile Include="Mvp.Models\ReportNonLaborModelTests.cs" />
     <Compile Include="Mvp.Presenters\ReportNonLaborPresenterTests.cs" />
+    <Compile Include="Mvp.Views\ReportNonLaborViewTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -150,9 +151,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mvp.Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
