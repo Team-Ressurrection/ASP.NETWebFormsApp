@@ -73,15 +73,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Models\IReportNonLaborModel.cs" />
+    <Compile Include="Models\ReportNonLaborModel.cs" />
+    <Compile Include="Presenters\IReportNonLaborPresenter.cs" />
+    <Compile Include="Presenters\ReportNonLaborPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IReportNonLaborView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Presenters\" />
-    <Folder Include="Views\" />
+    <ProjectReference Include="..\SalaryCalculator.Data.Models\SalaryCalculator.Data.Models.csproj">
+      <Project>{6749F324-CE2A-44FB-9607-BF9C2644AFEF}</Project>
+      <Name>SalaryCalculator.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalaryCalculator.Data.Services\SalaryCalculator.Data.Services.csproj">
+      <Project>{22D57E20-40F1-45D7-A553-9F8044F54549}</Project>
+      <Name>SalaryCalculator.Data.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
