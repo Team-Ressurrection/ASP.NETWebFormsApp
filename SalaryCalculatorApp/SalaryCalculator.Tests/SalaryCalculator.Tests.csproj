@@ -116,7 +116,6 @@
     <Compile Include="Mocks\FakeEmployee.cs" />
     <Compile Include="Mocks\FakeRemunerationBill.cs" />
     <Compile Include="Data.Seed\Constructor_Should.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

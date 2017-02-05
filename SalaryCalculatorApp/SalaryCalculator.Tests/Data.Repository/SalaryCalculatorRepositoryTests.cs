@@ -81,7 +81,7 @@ namespace SalaryCalculator.Tests.Data.Repository
             Expression<Func<FakeEmployee, bool>> filter = null;
             Assert.That(
             () => repo.GetAll(filter),
-            Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Filter expression"));
+            Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null."));
         }
 
         //[Test]
@@ -162,7 +162,7 @@ namespace SalaryCalculator.Tests.Data.Repository
 
             var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
-            Assert.That(() => repo.Add(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Entity cannot be null"));
+            Assert.That(() => repo.Add(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null."));
         }
 
         [Test]
@@ -174,7 +174,7 @@ namespace SalaryCalculator.Tests.Data.Repository
 
             var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
-            Assert.That(() => repo.Delete(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Entity cannot be null"));
+            Assert.That(() => repo.Delete(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null."));
         }
 
         [Test]
@@ -186,7 +186,7 @@ namespace SalaryCalculator.Tests.Data.Repository
 
             var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
-            Assert.That(() => repo.Update(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Entity cannot be null"));
+            Assert.That(() => repo.Update(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null."));
         }
 
         //[Test]

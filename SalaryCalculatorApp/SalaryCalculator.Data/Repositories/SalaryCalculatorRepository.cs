@@ -38,10 +38,8 @@ namespace SalaryCalculator.Data.Repositories
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>> filterExpression)
         {
-            if (filterExpression == null)
-            {
-                throw new ArgumentNullException("Filter expression cannot be null");
-            }
+            Guard.WhenArgument<Expression<Func<T, bool>>>(filterExpression, "filterExpression").IsNull().Throw();
+
             return this.GetAll<object>(filterExpression, null);
         }
 
@@ -80,10 +78,7 @@ namespace SalaryCalculator.Data.Repositories
 
         public void Add(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("Entity cannot be null");
-            }
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
 
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Added;
@@ -91,10 +86,7 @@ namespace SalaryCalculator.Data.Repositories
 
         public void Update(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("Entity cannot be null");
-            }
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
 
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Modified;
@@ -102,10 +94,7 @@ namespace SalaryCalculator.Data.Repositories
 
         public void Delete(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("Entity cannot be null");
-            }
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
 
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Deleted;
