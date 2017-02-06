@@ -19,5 +19,10 @@ namespace SalaryCalculator.Reports
             this.AllNonLaborContracts.DataSource = this.Model.NonLaborContracts.ToList();
             this.AllNonLaborContracts.DataBind();
         }
+
+        protected void AllNonLaborContracts_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this.AllNonLaborContracts.PageIndex = e.NewPageIndex;
+        }
     }
 }
