@@ -73,15 +73,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\IProfileModel.cs" />
+    <Compile Include="Models\IReportLaborModel.cs" />
     <Compile Include="Models\IReportNonLaborModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
+    <Compile Include="Models\ReportLaborModel.cs" />
     <Compile Include="Models\ReportNonLaborModel.cs" />
     <Compile Include="Presenters\IProfilePresenter.cs" />
+    <Compile Include="Presenters\IReportLaborPresenter.cs" />
     <Compile Include="Presenters\IReportNonLaborPresenter.cs" />
     <Compile Include="Presenters\ProfilePresenter.cs" />
+    <Compile Include="Presenters\ReportLaborPresenter.cs" />
     <Compile Include="Presenters\ReportNonLaborPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IProfileView.cs" />
+    <Compile Include="Views\IReportLaborView.cs" />
     <Compile Include="Views\IReportNonLaborView.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,25 @@
+﻿using Bytes2you.Validation;
+
+using WebFormsMvp;
+
+using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Mvp.Views;
+
+namespace SalaryCalculator.Mvp.Presenters
+{
+    public class ReportLaborPresenter : Presenter<IReportLaborView>, IReportLaborPresenter
+    {
+        private readonly IEmployeePaycheckService paycheckService;
+
+        public ReportLaborPresenter(IReportLaborView view, IEmployeePaycheckService paycheckService)
+            : base(view)
+        {
+            Guard.WhenArgument<IEmployeePaycheckService>(paycheckService, "paycheckService")
+                 .IsNull()
+                 .Throw();
+
+            this.paycheckService = paycheckService;
+            this.View.Model.LaborContracts = this.paycheckService.GetAll();
+        }
+    }
+}
