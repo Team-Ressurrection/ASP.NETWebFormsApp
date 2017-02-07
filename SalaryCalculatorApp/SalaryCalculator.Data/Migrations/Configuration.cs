@@ -25,6 +25,8 @@ namespace SalaryCalculator.Data.Migrations
 
             seed.RemunerationBills.ToList().ForEach(x => context.RemunerationBills.Add(x));
 
+            seed.EmployeePaychecks.ToList().ForEach(x => context.EmployeePayChecks.Add(x));
+
             context.SaveChanges();
         }
     }

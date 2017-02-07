@@ -11,11 +11,44 @@ namespace SalaryCalculator.Data.Migrations
         {
             this.Employees = GetEmployees();
             this.RemunerationBills = GetRemunerationBills();
+            this.EmployeePaychecks = GetEmployeePaychecks();
         }
+
+        public IEnumerable<EmployeePaycheck> EmployeePaychecks { get; set; }
 
         public IEnumerable<Employee> Employees { get; set; }
 
         public IEnumerable<RemunerationBill> RemunerationBills { get; set; }
+
+        private IEnumerable<EmployeePaycheck> GetEmployeePaychecks()
+        {
+            var paychecks = new List<EmployeePaycheck>();
+
+            for (int i = 1; i < 27; i++)
+            {
+                int day = i + 1;
+                decimal grossSalary = 600 + i + 10;
+                decimal netWage = 440 + i + 2;
+                decimal incomeTax = 26 + i;
+                decimal socialSecurity = 600 * 0.75m;
+                decimal personalInsurance = 96.32m + i + 1;
+                decimal fixedBonus = 100m;
+                decimal nonFixedBonus = 50m;
+                paychecks.Add(new EmployeePaycheck()
+                {
+                    CreatedDate = new DateTime(2017, 02, day),
+                    EmployeeId = 1,
+                    GrossSalary = grossSalary,
+                    NetWage = netWage,
+                    IncomeTax = incomeTax,
+                    SocialSecurityIncome = socialSecurity,
+                    PersonalInsurance = 98.55m,
+                    GrossFixedBonus = fixedBonus * 0.8m* i,
+                    GrossNonFixedBonus = nonFixedBonus * 0.75m * i
+                });
+            }
+            return paychecks;
+        }
 
         public IEnumerable<Employee> GetEmployees()
         {

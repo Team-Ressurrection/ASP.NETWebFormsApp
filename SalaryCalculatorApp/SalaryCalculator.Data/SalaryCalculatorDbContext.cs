@@ -21,5 +21,7 @@ namespace SalaryCalculator.Data
         public IDbSet<Employee> Employees { get; set; }
 
         public IDbSet<RemunerationBill> RemunerationBills { get; set; }
+
+        public IDbSet<EmployeePaycheck> EmployeePayChecks { get; set; }
     }
 }
