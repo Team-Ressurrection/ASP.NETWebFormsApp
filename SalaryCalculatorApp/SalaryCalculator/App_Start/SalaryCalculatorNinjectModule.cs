@@ -30,8 +30,10 @@ namespace SalaryCalculator.App_Start
             this.Bind<ISalaryCalculatorDbContext>().To<SalaryCalculatorDbContext>().InRequestScope();
             this.Bind(typeof(IRepository<>)).To(typeof(SalaryCalculatorRepository<>));
             this.Bind<IRemunerationBillService>().To<RemunerationBillService>();
+            this.Bind<IEmployeePaycheckService>().To<EmployeePaycheckService>();
 
             this.Bind<IReportNonLaborPresenter>().To<ReportNonLaborPresenter>();
+            this.Bind<IReportLaborPresenter>().To<ReportLaborPresenter>();
 
             this.Bind<IPresenterFactory>().To<SalaryCalculatorPresenterFactory>().InSingletonScope();
 
