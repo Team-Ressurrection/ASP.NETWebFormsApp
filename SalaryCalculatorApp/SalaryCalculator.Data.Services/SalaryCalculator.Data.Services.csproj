@@ -68,6 +68,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IEmployeePaycheckService.cs" />
+    <Compile Include="EmployeePaycheckService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="RemunerationBillService.cs" />
     <Compile Include="EmployeeService.cs" />
