@@ -1,17 +1,29 @@
-﻿using System;
+﻿using SalaryCalculator.Mvp.Models;
+using SalaryCalculator.Mvp.Presenters;
+using SalaryCalculator.Mvp.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebFormsMvp;
+using WebFormsMvp.Web;
 
 namespace SalaryCalculator.Reports
 {
-    public partial class Labor : System.Web.UI.Page
+    [PresenterBinding(typeof(ReportLaborPresenter))]
+    public partial class Labor : MvpPage<ReportLaborModel>, IReportLaborView
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.AllLaborContracts.DataSource = this.Model.LaborContracts.ToList();
+            this.AllLaborContracts.DataBind();
+        }
 
+        protected void AllLaborContracts_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this.AllLaborContracts.PageIndex = e.NewPageIndex;
         }
     }
 }
