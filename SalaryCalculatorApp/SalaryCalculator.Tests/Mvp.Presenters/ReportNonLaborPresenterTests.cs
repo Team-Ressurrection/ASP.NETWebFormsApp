@@ -33,7 +33,7 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
             var view = new Mock<IReportNonLaborView>();
             var service = new Mock<IRemunerationBillService>();
             var repo = new Mock<IRepository<RemunerationBill>>();
-            var bill = new FakeRemunerationBill();
+            var bill = new FakeEmployeePaycheck();
 
             IReportNonLaborPresenter presenter = new ReportNonLaborPresenter(view.Object, service.Object);
 

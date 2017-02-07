@@ -136,7 +136,7 @@ namespace SalaryCalculator.Tests.Data.Services
 
             var billService = new RemunerationBillService(mockedRepository.Object);
 
-            RemunerationBill mockedBill = new FakeRemunerationBill();
+            RemunerationBill mockedBill = new  FakeRemunerationBill();
             RemunerationBill mockedBill2 = new FakeRemunerationBill();
             RemunerationBill mockedBill3 = new FakeRemunerationBill();
             mockedBill.Id = 2;
@@ -159,7 +159,7 @@ namespace SalaryCalculator.Tests.Data.Services
 
             var billService = new RemunerationBillService(mockedRepository.Object);
 
-            RemunerationBill mockedBill = new FakeRemunerationBill();
+            RemunerationBill mockedBill = new  FakeRemunerationBill();
             RemunerationBill mockedBill2 = new FakeRemunerationBill();
             RemunerationBill mockedBill3 = new FakeRemunerationBill();
             mockedBill.Id = 2;
@@ -171,7 +171,7 @@ namespace SalaryCalculator.Tests.Data.Services
             billService.Create(mockedBill3);
 
             billService.GetById(2);
-            billService.UpdateById(2,mockedBill);
+            billService.UpdateById(2, mockedBill);
             mockedRepository.Verify(r => r.Update(mockedBill), Times.Once);
         }
     }

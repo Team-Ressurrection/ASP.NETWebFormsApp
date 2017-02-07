@@ -23,5 +23,16 @@ namespace SalaryCalculator.Tests.Mvp.Models
 
             Assert.IsInstanceOf<IEnumerable<RemunerationBill>>(model.NonLaborContracts);
         }
+
+        [Test]
+        public void WhenPropertyLaborContracts_IsSetProperly_ShouldReturnIEnumerable()
+        {
+            var model = new ReportNonLaborModel();
+            var mockedBill = new FakeRemunerationBill();
+            var collection = new List<FakeRemunerationBill>() { mockedBill };
+            model.NonLaborContracts = collection;
+
+            Assert.AreEqual(collection, model.NonLaborContracts);
+        }
     }
 }
