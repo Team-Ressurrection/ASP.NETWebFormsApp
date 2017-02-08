@@ -15,8 +15,11 @@ namespace SalaryCalculator.Reports
     [PresenterBinding(typeof(ReportLaborPresenter))]
     public partial class Labor : MvpPage<ReportLaborModel>, IReportLaborView
     {
+        public event EventHandler<EventArgs> GetAll;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.GetAll?.Invoke(sender, new EventArgs());
             this.AllLaborContracts.DataSource = this.Model.LaborContracts.ToList();
             this.AllLaborContracts.DataBind();
         }

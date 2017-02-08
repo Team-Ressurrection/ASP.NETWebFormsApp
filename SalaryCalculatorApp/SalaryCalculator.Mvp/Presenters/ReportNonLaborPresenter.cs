@@ -22,6 +22,11 @@ namespace SalaryCalculator.Mvp.Presenters
                  .Throw();
 
             this.remunerationBillService = remunerationBillService;
+            this.View.GetAll += GetAll;
+        }
+
+        public void GetAll(object sender, System.EventArgs e)
+        {
             this.View.Model.NonLaborContracts = this.remunerationBillService.GetAll();
         }
     }

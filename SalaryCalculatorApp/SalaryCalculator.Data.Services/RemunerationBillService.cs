@@ -48,10 +48,7 @@ namespace SalaryCalculator.Data.Services
 
         public void UpdateById(int id, RemunerationBill updateBill)
         {
-            var billToUpdate = this.remunerationBills.GetById(id);
-
-            billToUpdate.EmployeeId = updateBill.EmployeeId;
-
+            this.remunerationBills.Update(updateBill);
             this.remunerationBills.SaveChanges();
         }
     }

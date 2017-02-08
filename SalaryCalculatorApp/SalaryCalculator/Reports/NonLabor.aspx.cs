@@ -14,8 +14,12 @@ namespace SalaryCalculator.Reports
     [PresenterBinding(typeof(ReportNonLaborPresenter))]
     public partial class NonLabor : MvpPage<ReportNonLaborModel>, IReportNonLaborView
     {
+        public event EventHandler<EventArgs> GetAll;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.GetAll?.Invoke(sender, e);
+
             this.AllNonLaborContracts.DataSource = this.Model.NonLaborContracts.ToList();
             this.AllNonLaborContracts.DataBind();
         }
