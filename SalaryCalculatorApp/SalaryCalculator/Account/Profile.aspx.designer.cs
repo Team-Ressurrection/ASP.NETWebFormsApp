@@ -13,6 +13,15 @@ namespace SalaryCalculator.Account {
     public partial class Profile {
         
         /// <summary>
+        /// ImageID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImageID;
+        
+        /// <summary>
         /// FileUpload control.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,14 @@ namespace SalaryCalculator.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonLoad;
+        
+        /// <summary>
+        /// DetailsView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FormView DetailsView;
     }
 }

@@ -1,4 +1,6 @@
-﻿using WebFormsMvp;
+﻿using System;
+
+using WebFormsMvp;
 
 using SalaryCalculator.Mvp.Views;
 
@@ -6,6 +8,8 @@ namespace SalaryCalculator.Mvp.Presenters
 {
     public interface IProfilePresenter : IPresenter<IProfileView>
     {
-        bool ValidateFile(bool isValidFile, string fileName);
+        void GetUser(object sender, EventArgs e);
+
+        void UpdateUser(object sender, EventArgs e);
     }
 }

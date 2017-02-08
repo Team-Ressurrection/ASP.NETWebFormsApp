@@ -2,16 +2,23 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent" CssClass="jumbotron">
     <h1>User profile</h1>
-    <asp:Image ImageUrl="../Images/default.png" runat="server"/>
-    <asp:FileUpload ID="FileUpload" runat="server" />
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator" 
-        runat="server" 
-        Text="* Image path required." 
-        ControlToValidate="FileUpload" 
-        SetFocusOnError="true" 
+    <asp:Image ID="ImageID" runat="server" Width="200" Height="200"/>
+    <asp:FileUpload ID="FileUpload" runat="server"/>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator"
+        runat="server"
+        Text="* Image path required."
+        ControlToValidate="FileUpload"
+        SetFocusOnError="true"
         Display="Dynamic">
     </asp:RequiredFieldValidator>
-    <asp:Button ID="ButtonLoad" runat="server" OnClick="ButtonLoad_Click" Text="Upload photo" CssClass="btn btn-warning"/>
-    <p><%: Context.User.Identity.GetUserId() %></p>
-    <p><%: Context.User.Identity.Name %></p>
+    <asp:Button ID="ButtonLoad" runat="server" OnClick="ButtonLoad_Click" Text="Upload photo" CssClass="btn btn-warning" />
+    <asp:FormView runat="server" ID="DetailsView" AutoGenerateRows="false">
+        <ItemTemplate>
+            <div>
+                <%# Context.User.Identity.GetUserName() %>
+                <br />
+                <%# Context.User.Identity.Name %>
+            </div>
+        </ItemTemplate>
+    </asp:FormView>
 </asp:Content>

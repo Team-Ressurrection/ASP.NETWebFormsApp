@@ -21,30 +21,31 @@ namespace SalaryCalculator.Mvp.Presenters
             Guard.WhenArgument<IUserService>(userService, "userService").IsNull().Throw();
 
             this.userService = userService;
+
+            this.View.GetUser += GetUser;
+            this.View.UpdateUser += UpdateUser;
         }
 
-        public User GetUser(string id)
-        {
-            Guard.WhenArgument<string>(id, "id").IsNullOrEmpty().Throw();
-
-            return this.View.Model.User = this.userService.GetById(id);
-        }
-
-        public bool ValidateFile(bool isValidFile, string fileName)
+        public void UpdateUser(object sender, EventArgs e)
         {
             var imagePath = string.Empty;
-            isValidFile = false;
 
-            var fileExtension = Path.GetExtension(fileName).ToLower();
+            var fileExtension = Path.GetExtension(this.View.Model.User.ImagePath).ToLower();
             var allowedExtensions = new string[] { ".gif", ".png", ".jpeg", ".jpg" };
             for (int i = 0; i < allowedExtensions.Length; i++)
             {
-                if (fileExtension == allowedExtensions[i])
+                if (fileExtension.EndsWith(allowedExtensions[i]))
                 {
-                    isValidFile = true;
+                    this.userService.UpdateById(sender.ToString(), sender as User);
                 }
             }
-            return isValidFile;
+        }
+
+        public void GetUser(object sender, EventArgs e)
+        {
+            Guard.WhenArgument<EventArgs>(e, "e").IsNull().Throw();
+
+            this.View.Model.User = this.userService.GetById(sender.ToString());
         }
     }
 }

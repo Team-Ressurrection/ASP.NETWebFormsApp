@@ -45,7 +45,8 @@ namespace SalaryCalculator.Data.Services
 
         public void UpdateById(string id, User updateUser)
         {
-            throw new NotImplementedException();
+            this.users.Update(updateUser);
+            this.users.SaveChanges();
         }
     }
 }
