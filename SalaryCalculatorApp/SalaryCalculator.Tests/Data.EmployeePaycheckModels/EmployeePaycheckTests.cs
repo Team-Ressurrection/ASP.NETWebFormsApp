@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
+
+using SalaryCalculator.Data.Models;
 
 namespace SalaryCalculator.Tests.Data.EmployeePaycheckModels
 {
-    class EmployeePaycheckTests
+    [TestFixture]
+    public class EmployeePaycheckTests
     {
-        // TODO:
+        [Test]
+        public void Constructor_ShouldCreateInstance_WhenAllParametersArePassedCorrectly()
+        {
+            var paycheckService = new EmployeePaycheck();
+
+            Assert.IsInstanceOf<EmployeePaycheck>(paycheckService);
+        }
     }
 }

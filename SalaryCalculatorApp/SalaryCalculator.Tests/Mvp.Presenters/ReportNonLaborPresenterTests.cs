@@ -27,7 +27,6 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
         }
 
         [Test]
-        [Ignore("Not finished test.")]
         public void Constructor_ShouldCreateInstanceCorrectly_WhenAllParametersArePassed()
         {
             var view = new Mock<IReportNonLaborView>();

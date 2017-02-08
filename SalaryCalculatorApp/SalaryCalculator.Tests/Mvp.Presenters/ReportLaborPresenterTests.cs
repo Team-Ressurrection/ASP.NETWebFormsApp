@@ -33,12 +33,8 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
         {
             var view = new Mock<IReportLaborView>();
             var service = new Mock<IEmployeePaycheckService>();
-            var repo = new Mock<IRepository<EmployeePaycheck>>();
-            var bill = new FakeEmployeePaycheck();
 
-            IReportLaborPresenter presenter = new ReportLaborPresenter(view.Object, service.Object);
-
-            Assert.IsInstanceOf<IReportLaborPresenter>(presenter);
+            Assert.IsInstanceOf<IReportLaborPresenter>(new ReportLaborPresenter(view.Object, service.Object));
         }
     }
 }
