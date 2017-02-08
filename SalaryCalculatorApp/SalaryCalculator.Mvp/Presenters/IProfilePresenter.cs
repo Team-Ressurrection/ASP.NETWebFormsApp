@@ -6,5 +6,6 @@ namespace SalaryCalculator.Mvp.Presenters
 {
     public interface IProfilePresenter : IPresenter<IProfileView>
     {
+        bool ValidateFile(bool isValidFile, string fileName);
     }
 }
