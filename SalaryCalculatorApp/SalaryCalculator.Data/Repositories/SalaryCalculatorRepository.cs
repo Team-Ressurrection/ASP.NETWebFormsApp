@@ -121,7 +121,7 @@ namespace SalaryCalculator.Data.Repositories
             this.Context.Dispose();
         }
 
-        public void Delete(int id)
+        public void Delete(object id)
         {
             var entity = this.GetById(id);
 

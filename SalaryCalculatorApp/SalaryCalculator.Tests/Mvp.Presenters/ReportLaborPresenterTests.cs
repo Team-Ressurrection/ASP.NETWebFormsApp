@@ -3,6 +3,7 @@ using NUnit.Framework;
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Mvp.Models;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebFormsMvp;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters
 {
@@ -27,7 +29,6 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
         }
 
         [Test]
-        [Ignore("Not finished test.")]
         public void Constructor_ShouldCreateInstanceCorrectly_WhenAllParametersArePassed()
         {
             var view = new Mock<IReportLaborView>();

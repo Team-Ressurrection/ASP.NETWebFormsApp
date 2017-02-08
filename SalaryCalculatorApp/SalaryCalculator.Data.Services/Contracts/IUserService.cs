@@ -10,11 +10,11 @@ namespace SalaryCalculator.Data.Services.Contracts
 
         IQueryable<User> GetAll();
 
-        User GetById(int id);
+        User GetById(string id);
 
-        void UpdateById(int id, User updateUser);
+        void UpdateById(string id, User updateUser);
 
-        void DeleteById(int id);
+        void DeleteById(string id);
 
         void Create(User User);
     }

@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Data.DbContext\SalaryCalculatorDbContextTests.cs" />
     <Compile Include="Data.EmployeeModels\EmployeesTests.cs" />
+    <Compile Include="Data.EmployeePaycheckModels\EmployeePaycheckTests.cs" />
     <Compile Include="Data.Services\RemunerationBillServicesTests.cs" />
     <Compile Include="Data.Services\UserServicesTests.cs" />
     <Compile Include="Data.UserModels\UserTests.cs" />

@@ -22,7 +22,7 @@ namespace SalaryCalculator.Data.Services
             this.users.SaveChanges();
         }
 
-        public void DeleteById(int id)
+        public void DeleteById(string id)
         {
             this.users.Delete(id);
             this.users.SaveChanges();
@@ -33,7 +33,7 @@ namespace SalaryCalculator.Data.Services
             return this.users.All;
         }
 
-        public User GetById(int id)
+        public User GetById(string id)
         {
             return this.users.GetById(id);
         }
@@ -43,7 +43,7 @@ namespace SalaryCalculator.Data.Services
             return this.users.All.Take(count);
         }
 
-        public void UpdateById(int id, User updateUser)
+        public void UpdateById(string id, User updateUser)
         {
             throw new NotImplementedException();
         }

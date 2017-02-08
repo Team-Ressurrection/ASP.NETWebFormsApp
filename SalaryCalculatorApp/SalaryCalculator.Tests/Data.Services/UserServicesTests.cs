@@ -64,9 +64,9 @@ namespace SalaryCalculator.Tests.Data.Services
             User user = new FakeUser();
             user.Id = "lskdjaskldjlskajdklasjdlkasjdlkasjdlk";
             userService.Create(user);
-            userService.DeleteById(1);
+            userService.DeleteById("1");
 
-            mockedRepository.Verify(r => r.Delete(It.IsAny<int>()), Times.Once);
+            mockedRepository.Verify(r => r.Delete(It.IsAny<string>()), Times.Once);
         }
 
         [Test]

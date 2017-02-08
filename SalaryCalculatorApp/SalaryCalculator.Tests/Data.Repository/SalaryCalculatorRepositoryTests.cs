@@ -36,7 +36,7 @@ namespace SalaryCalculator.Tests.Data.Repository
         }
 
         [Test]
-        [Ignore("Not finished test.")]
+        //[Ignore("Not finished test.")]
         public void AddMethod_ShouldInvokedOnce_WhenParameterIsPassedCorrectly()
         {
             var fakeDbSet = new Mock<DbSet<FakeEmployee>>();
@@ -54,7 +54,7 @@ namespace SalaryCalculator.Tests.Data.Repository
 
             repo.Add(fakeDbModel);
 
-            mockDbContext.Verify(mock => mock.Entry(It.IsAny<FakeEmployee>()), Times.Once());
+            mockDbContext.Verify(mock => mock.Entry<FakeEmployee>(It.IsAny<FakeEmployee>()), Times.Once());
         }
 
         [Test]

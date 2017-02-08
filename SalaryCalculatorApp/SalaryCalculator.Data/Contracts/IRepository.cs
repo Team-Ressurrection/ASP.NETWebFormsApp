@@ -25,7 +25,7 @@ namespace SalaryCalculator.Data.Contracts
 
         void Delete(T entity);
 
-        void Delete(int id);
+        void Delete(object id);
 
         int SaveChanges();
     }
