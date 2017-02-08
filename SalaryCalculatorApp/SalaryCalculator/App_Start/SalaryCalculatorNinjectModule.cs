@@ -28,13 +28,14 @@ namespace SalaryCalculator.App_Start
         public override void Load()
         {
             this.Bind<ISalaryCalculatorDbContext>().To<SalaryCalculatorDbContext>().InRequestScope();
-            this.Bind(typeof(IRepository<>)).To(typeof(SalaryCalculatorRepository<>));
-            this.Bind<IRemunerationBillService>().To<RemunerationBillService>();
-            this.Bind<IEmployeePaycheckService>().To<EmployeePaycheckService>();
-            this.Bind<IUserService>().To<UserService>();
+            this.Bind(typeof(IRepository<>)).To(typeof(SalaryCalculatorRepository<>)).InSingletonScope();
+            this.Bind<IRemunerationBillService>().To<RemunerationBillService>().InRequestScope();
+            this.Bind<IEmployeePaycheckService>().To<EmployeePaycheckService>().InRequestScope();
+            this.Bind<IUserService>().To<UserService>().InRequestScope();
 
             this.Bind<IReportNonLaborPresenter>().To<ReportNonLaborPresenter>();
             this.Bind<IReportLaborPresenter>().To<ReportLaborPresenter>();
+            this.Bind<IProfilePresenter>().To<ProfilePresenter>();
 
             this.Bind<IPresenterFactory>().To<SalaryCalculatorPresenterFactory>().InSingletonScope();
 
