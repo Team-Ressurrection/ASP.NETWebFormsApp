@@ -4,20 +4,20 @@ using System.Linq;
 using WebFormsMvp;
 using WebFormsMvp.Binder;
 
+using Ninject;
 using Ninject.Activation;
 using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using Ninject.Parameters;
-using Ninject;
-
-using SalaryCalculator.Factory;
-using SalaryCalculator.Data.Services.Contracts;
-using SalaryCalculator.Data.Services;
-using SalaryCalculator.Data.Contracts;
-using SalaryCalculator.Data;
-using SalaryCalculator.Data.Repositories;
 using Ninject.Web.Common;
+
+using SalaryCalculator.Data;
+using SalaryCalculator.Data.Contracts;
+using SalaryCalculator.Data.Repositories;
+using SalaryCalculator.Data.Services;
+using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Factory;
 using SalaryCalculator.Mvp.Presenters;
 
 namespace SalaryCalculator.App_Start
@@ -31,6 +31,7 @@ namespace SalaryCalculator.App_Start
             this.Bind(typeof(IRepository<>)).To(typeof(SalaryCalculatorRepository<>));
             this.Bind<IRemunerationBillService>().To<RemunerationBillService>();
             this.Bind<IEmployeePaycheckService>().To<EmployeePaycheckService>();
+            this.Bind<IUserService>().To<UserService>();
 
             this.Bind<IReportNonLaborPresenter>().To<ReportNonLaborPresenter>();
             this.Bind<IReportLaborPresenter>().To<ReportLaborPresenter>();

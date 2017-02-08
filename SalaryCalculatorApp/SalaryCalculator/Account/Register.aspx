@@ -20,6 +20,22 @@
                 </div>
             </div>
             <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="CompanyName" CssClass="col-md-2 control-label">Company Name</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="CompanyName" CssClass="form-control"/>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="CompanyName"
+                        CssClass="text-danger" ErrorMessage="The company name field is required." />
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="CompanyAddress" CssClass="col-md-2 control-label">Company Address</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="CompanyAddress" CssClass="form-control"/>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="CompanyAddress"
+                        CssClass="text-danger" ErrorMessage="The company address field is required." />
+                </div>
+            </div>
+            <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
                 <div class="col-md-10">
                     <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
