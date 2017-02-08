@@ -1,14 +1,23 @@
-﻿using System;
+﻿using SalaryCalculator.Mvp.Models;
+using SalaryCalculator.Mvp.Presenters;
+using SalaryCalculator.Mvp.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebFormsMvp;
+using WebFormsMvp.Binder;
+using WebFormsMvp.Web;
 
 namespace SalaryCalculator.JobContracts
 {
-    public partial class CreateLaborContract : System.Web.UI.Page
+    [PresenterBinding(typeof(CreateLaborContractPresenter))]
+    public partial class CreateLaborContract : MvpPage<CreateLaborContractModel>, ICreateLaborContractView
     {
+        public event EventHandler<EventArgs> CreatePaycheck;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
