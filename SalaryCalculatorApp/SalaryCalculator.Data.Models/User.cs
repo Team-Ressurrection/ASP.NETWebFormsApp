@@ -8,6 +8,12 @@ namespace SalaryCalculator.Data.Models
 {
     public class User : IdentityUser
     {
+        public string CompanyName { get; set; }
+
+        public string CompanyAddress { get; set; }
+
+        public string ImagePath { get; set; }
+
         public ClaimsIdentity GenerateUserIdentity(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
