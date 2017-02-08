@@ -13,5 +13,28 @@ namespace SalaryCalculator.JobContracts
         {
 
         }
+
+        protected void CalculateWage_Click(object sender, EventArgs e)
+        {
+            this.FirstNameLabel.Visible = false;
+            this.FirstName.Visible = false;
+            this.MiddleNameLabel.Visible = false;
+            this.MiddleName.Visible = false;
+            this.LastNameLabel.Visible = false;
+            this.LastName.Visible = false;
+            this.BirthDateLabel.Visible = false;
+            this.BirthDate.Visible = false;
+            this.ContractValueLabel.Visible = false;
+            this.ContractValue.Visible = false;
+            this.CalculateWage.Visible = false;
+
+            this.SaveDocument.Visible = true;
+            this.SmetkaIzplateniSumi.Visible = true;
+        }
+
+        protected void SaveDocument_Click(object sender, EventArgs e)
+        {
+            // TODO:
+        }
     }
 }

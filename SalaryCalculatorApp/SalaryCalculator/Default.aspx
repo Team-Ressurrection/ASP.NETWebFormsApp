@@ -19,22 +19,24 @@
             </p>
         </div>
         <div class="col-md-4 jumbotron">
-            <h2>NON-LABOR CONTRACTS</h2>
+            <h2>LABOR CONTRACTS</h2>
             <p>
                 You can easily calculate your social security income and social securities taxes.
-                In just seconds you can get your net wage.           
+                In just seconds you can get your net wage.
+                For more information about legislation visit National Revenue Agency site.          
             </p>
             <p>
-                <a class="btn btn-info" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-info" href="http://www.nap.bg/page?id=387">NRA &raquo;</a>
             </p>
         </div>
         <div class="col-md-4 jumbotron">
             <h2>FREELANCE CONTRACTS</h2>
             <p>
                 You can easily your income as freelancer.
+                For social security information visit National Social Security Institute
             </p>
             <p>
-                <a class="btn btn-info" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-info" href="http://www.nssi.bg/legislationbg">NSSI &raquo;</a>
             </p>
         </div>
     </div>
