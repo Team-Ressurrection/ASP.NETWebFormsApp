@@ -1,22 +1,22 @@
-﻿using SalaryCalculator.Mvp.Models;
-using SalaryCalculator.Mvp.Presenters;
-using SalaryCalculator.Mvp.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using System;
+
 using WebFormsMvp;
 using WebFormsMvp.Binder;
 using WebFormsMvp.Web;
+
+using SalaryCalculator.Mvp.EventsArguments;
+using SalaryCalculator.Mvp.Models;
+using SalaryCalculator.Mvp.Presenters;
+using SalaryCalculator.Mvp.Views;
 
 namespace SalaryCalculator.JobContracts
 {
     [PresenterBinding(typeof(CreateLaborContractPresenter))]
     public partial class CreateLaborContract : MvpPage<CreateLaborContractModel>, ICreateLaborContractView
     {
-        public event EventHandler<EventArgs> CreatePaycheck;
+        public event EventHandler<PaycheckEventArgs> CalculatePaycheck;
+
+        public event EventHandler<PaycheckEventArgs> CreatePaycheck;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,6 +33,8 @@ namespace SalaryCalculator.JobContracts
             this.LastName.Visible = false;
             this.BirthDateLabel.Visible = false;
             this.BirthDate.Visible = false;
+            this.PersonalIdLabel.Visible = false;
+            this.PersonalId.Visible = false;
             this.GrossBaseSalaryLabel.Visible = false;
             this.GrossBaseSalary.Visible = false;
             this.FixedBonusLabel.Visible = false;
@@ -41,13 +43,16 @@ namespace SalaryCalculator.JobContracts
             this.NonFixedBonus.Visible = false;
             this.CalculateWage.Visible = false;
 
-            this.SaveDocument.Visible = true;
-            this.Paycheck.Visible = true;
-        }
+            this.DetailsViewPaycheck.Visible = true;
 
-        protected void SaveDocument_Click(object sender, EventArgs e)
-        {
-            // TODO:
+
+            var args = new PaycheckEventArgs((decimal.Parse)(this.GrossBaseSalary.Text), (decimal.Parse)(this.FixedBonus.Text), (decimal.Parse)(this.NonFixedBonus.Text));
+
+            this.CalculatePaycheck?.Invoke(this, args);
+            this.CreatePaycheck?.Invoke(this.Model.EmployeePaycheck, args);
+
+            this.DetailsViewPaycheck.DataSource = new[] { this.Model.EmployeePaycheck };
+            this.DetailsViewPaycheck.DataBind();
         }
     }
 }

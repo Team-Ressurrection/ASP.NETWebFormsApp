@@ -74,6 +74,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsArguments\IPaycheckEventArgs.cs" />
+    <Compile Include="EventsArguments\PaycheckEventArgs.cs" />
     <Compile Include="Models\CreateLaborContractModel.cs" />
     <Compile Include="Models\IProfileModel.cs" />
     <Compile Include="Models\ICreateLaborContractModel.cs" />

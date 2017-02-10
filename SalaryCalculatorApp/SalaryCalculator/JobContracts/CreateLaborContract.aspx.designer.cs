@@ -67,6 +67,24 @@ namespace SalaryCalculator.JobContracts {
         protected global::System.Web.UI.WebControls.TextBox LastName;
         
         /// <summary>
+        /// PersonalIdLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PersonalIdLabel;
+        
+        /// <summary>
+        /// PersonalId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PersonalId;
+        
+        /// <summary>
         /// BirthDateLabel control.
         /// </summary>
         /// <remarks>
@@ -148,21 +166,12 @@ namespace SalaryCalculator.JobContracts {
         protected global::System.Web.UI.WebControls.Button CalculateWage;
         
         /// <summary>
-        /// SaveDocument control.
+        /// DetailsViewPaycheck control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveDocument;
-        
-        /// <summary>
-        /// Paycheck control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Paycheck;
+        protected global::System.Web.UI.WebControls.GridView DetailsViewPaycheck;
     }
 }
