@@ -48,7 +48,7 @@ namespace SalaryCalculator.Mvp.Presenters
 
             decimal grossSalary = this.GetGrossSalary(parameters);
             bool isMaximum = this.CheckMaxSocialSecurityIncome(grossSalary);
-            paycheck.SocialSecurityIncome = !isMaximum ? ValidationConstants.MaxSocialSecurityIncome : e.GrossFixedBonus + e.GrossNonFixedBonus + e.GrossSalary;
+            paycheck.SocialSecurityIncome = isMaximum ? ValidationConstants.MaxSocialSecurityIncome : e.GrossFixedBonus + e.GrossNonFixedBonus + e.GrossSalary;
 
             paycheck.PersonalInsurance = this.GetPersonalInsurance(paycheck.SocialSecurityIncome ,PersonalInsurancePercent);
             paycheck.IncomeTax = (grossSalary - paycheck.PersonalInsurance)*IncomeTaxPercent;

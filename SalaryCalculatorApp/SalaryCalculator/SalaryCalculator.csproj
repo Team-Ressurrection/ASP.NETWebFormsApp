@@ -416,8 +416,9 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Factory\ISalaryCalculatorPresenterFactory.cs" />
-    <Compile Include="Factory\SalaryCalculatorPresenterFactory.cs" />
+    <Compile Include="Factories\ISalaryCalculatorModelFactory.cs" />
+    <Compile Include="Factories\ISalaryCalculatorPresenterFactory.cs" />
+    <Compile Include="Factories\SalaryCalculatorPresenterFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

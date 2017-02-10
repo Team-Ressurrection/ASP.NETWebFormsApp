@@ -19,6 +19,7 @@ using SalaryCalculator.Data.Services;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Factory;
 using SalaryCalculator.Mvp.Presenters;
+using SalaryCalculator.Data.Models;
 
 namespace SalaryCalculator.App_Start
 {
@@ -32,6 +33,11 @@ namespace SalaryCalculator.App_Start
             this.Bind<IRemunerationBillService>().To<RemunerationBillService>().InRequestScope();
             this.Bind<IEmployeePaycheckService>().To<EmployeePaycheckService>().InRequestScope();
             this.Bind<IUserService>().To<UserService>().InRequestScope();
+
+            this.Bind<User>().ToSelf();
+            this.Bind<Employee>().ToSelf();
+            this.Bind<RemunerationBill>().ToSelf();
+            this.Bind<EmployeePaycheck>().ToSelf();
 
             this.Bind<IReportNonLaborPresenter>().To<ReportNonLaborPresenter>();
             this.Bind<IReportLaborPresenter>().To<ReportLaborPresenter>();

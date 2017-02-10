@@ -126,6 +126,7 @@
     <Compile Include="Mvp.Models\ProfileModelTests.cs" />
     <Compile Include="Mvp.Models\ReportLaborModelTests.cs" />
     <Compile Include="Mvp.Models\ReportNonLaborModelTests.cs" />
+    <Compile Include="Mvp.Presenters\CreateLaborContractPresenterTests.cs" />
     <Compile Include="Mvp.Presenters\ProfilePresenterTests.cs" />
     <Compile Include="Mvp.Presenters\ReportLaborPresenterTests.cs" />
     <Compile Include="Mvp.Presenters\ReportNonLaborPresenterTests.cs" />
