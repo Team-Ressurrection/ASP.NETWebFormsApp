@@ -46,8 +46,10 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
             var user = new FakeUser();
             user.Id = "11111111";
             view.Setup(x => x.Model.User).Returns(user as User);
-            service.Setup(x => x.GetById(user.Id)).Verifiable();
+            service.Setup(x => x.GetById(user.Id));
             presenter.GetUser(randomStringId, eventArgs.Object);
+
+            service.Verify(x => x.GetById(user.Id), Times.Once);
         }
 
         [Test]
@@ -64,8 +66,13 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
             user.Id = "11111111";
             user.ImagePath = "default.png";
             view.Setup(x => x.Model.User).Returns(user as User);
+            service.Setup(x => x.Create(user as User)).Verifiable();
             service.Setup(x => x.UpdateById(user.Id, user as User)).Verifiable();
+
             presenter.UpdateUser(randomStringId, eventArgs.Object);
+
+            service.Verify(x => x.UpdateById(user.Id, user), Times.AtMostOnce);
+
         }
     }
 }
