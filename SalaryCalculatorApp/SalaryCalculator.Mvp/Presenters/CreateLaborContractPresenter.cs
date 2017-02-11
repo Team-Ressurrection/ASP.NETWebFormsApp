@@ -34,6 +34,10 @@ namespace SalaryCalculator.Mvp.Presenters
 
         public void CalculatePaycheck(object sender, PaycheckEventArgs e)
         {
+            Guard.WhenArgument<decimal>(e.GrossFixedBonus, "GrossFixedBonus").IsLessThan(0).Throw();
+            Guard.WhenArgument<decimal>(e.GrossNonFixedBonus, "GrossNonFixedBonus").IsLessThan(0).Throw();
+            Guard.WhenArgument<decimal>(e.GrossSalary, "GrossSalary").IsLessThan(0).Throw();
+
             var paycheck = new EmployeePaycheck();
             paycheck.CreatedDate = DateTime.Now;
             paycheck.EmployeeId = 1;
@@ -61,6 +65,8 @@ namespace SalaryCalculator.Mvp.Presenters
 
         public void CreatePaycheck(object sender, PaycheckEventArgs e)
         {
+            Guard.WhenArgument<EmployeePaycheck>(this.View.Model.EmployeePaycheck, "EmployeePaycheck").IsNull().IsNotInstanceOfType(typeof(EmployeePaycheck)).Throw();
+
             this.paycheckService.Create(this.View.Model.EmployeePaycheck);
         }
         private decimal GetPersonalInsurance(decimal salary, decimal personalInsurancePercent)
