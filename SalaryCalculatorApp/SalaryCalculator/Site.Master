@@ -87,7 +87,6 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Profile" 
                                     title="User Profile">Hello, <%: Context.User.Identity.GetUserName()  %> !
-                                    <%: Context.User.Identity.GetUserId() %>
                                     </a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
