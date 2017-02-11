@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 using SalaryCalculator.Data.Models.Constants;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalaryCalculator.Data.Models
 {

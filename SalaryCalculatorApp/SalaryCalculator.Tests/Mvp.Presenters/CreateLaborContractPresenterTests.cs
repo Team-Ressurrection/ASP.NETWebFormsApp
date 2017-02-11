@@ -1,4 +1,7 @@
-﻿using Moq;
+﻿using System;
+
+using Moq;
+
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Services.Contracts;
@@ -6,11 +9,6 @@ using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters
 {

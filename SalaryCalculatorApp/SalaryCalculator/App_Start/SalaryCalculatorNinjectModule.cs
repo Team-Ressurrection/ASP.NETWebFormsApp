@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Linq;
 
-using WebFormsMvp;
-using WebFormsMvp.Binder;
-
 using Ninject;
 using Ninject.Activation;
-using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using Ninject.Parameters;
 using Ninject.Web.Common;
+
+using WebFormsMvp;
+using WebFormsMvp.Binder;
 
 using SalaryCalculator.Data;
 using SalaryCalculator.Data.Contracts;

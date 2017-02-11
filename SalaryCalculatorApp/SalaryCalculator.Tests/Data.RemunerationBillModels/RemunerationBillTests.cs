@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Models.Constants;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalaryCalculator.Tests.Data.RemunerationBillModels
 {

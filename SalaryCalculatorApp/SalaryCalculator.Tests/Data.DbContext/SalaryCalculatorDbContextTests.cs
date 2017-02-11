@@ -1,12 +1,10 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-using Microsoft.AspNet.Identity.EntityFramework;
 using NUnit.Framework;
 
 using SalaryCalculator.Data;
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
-using SalaryCalculator.Tests.Mocks;
 
 namespace SalaryCalculator.Tests.Data.DbContext
 {

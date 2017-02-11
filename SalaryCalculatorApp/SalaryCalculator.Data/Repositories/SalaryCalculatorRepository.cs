@@ -5,8 +5,9 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 
-using SalaryCalculator.Data.Contracts;
 using Bytes2you.Validation;
+
+using SalaryCalculator.Data.Contracts;
 
 namespace SalaryCalculator.Data.Repositories
 {

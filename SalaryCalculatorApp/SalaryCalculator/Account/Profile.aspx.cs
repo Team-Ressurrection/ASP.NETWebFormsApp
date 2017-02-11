@@ -6,7 +6,6 @@ using WebFormsMvp.Web;
 using SalaryCalculator.Mvp.Models;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
-using System.Web;
 
 namespace SalaryCalculator.Account
 {

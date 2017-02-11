@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 
 using Moq;
+
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Contracts;

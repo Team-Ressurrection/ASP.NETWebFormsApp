@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 
+using Bytes2you.Validation;
+
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
-using System;
-using Bytes2you.Validation;
 
 namespace SalaryCalculator.Data.Services
 {

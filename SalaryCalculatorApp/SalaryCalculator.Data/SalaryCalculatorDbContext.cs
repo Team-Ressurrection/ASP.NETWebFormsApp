@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+
+using Microsoft.AspNet.Identity.EntityFramework;
 
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using SalaryCalculator.Data.Models;
 

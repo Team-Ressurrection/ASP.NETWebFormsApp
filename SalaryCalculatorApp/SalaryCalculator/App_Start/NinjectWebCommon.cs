@@ -1,17 +1,18 @@
+using System;
+using System.Web;
+
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
+using Ninject;
+using Ninject.Web.Common;
+
+using WebFormsMvp.Binder;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(SalaryCalculator.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(SalaryCalculator.App_Start.NinjectWebCommon), "Stop")]
 
 namespace SalaryCalculator.App_Start
 {
-    using System;
-    using System.Web;
-
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-    using WebFormsMvp.Binder;
-
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
