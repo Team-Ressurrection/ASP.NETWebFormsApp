@@ -15,6 +15,8 @@ namespace SalaryCalculator.Data.Services
 
         public EmployeeService(IRepository<Employee> employees)
         {
+            Guard.WhenArgument(employees, "Employees").IsNull().Throw();
+
             this.employees = employees;
         }
 
@@ -28,6 +30,8 @@ namespace SalaryCalculator.Data.Services
 
         public void DeleteById(int id)
         {
+            Guard.WhenArgument<int>(id, "id").IsLessThanOrEqual<int>(0).Throw();
+
             this.employees.Delete(id);
             this.employees.SaveChanges();
         }
@@ -39,6 +43,8 @@ namespace SalaryCalculator.Data.Services
 
         public Employee GetById(int id)
         {
+            Guard.WhenArgument<int>(id, "id").IsLessThanOrEqual<int>(0).Throw();
+
             return this.employees.GetById(id);
         }
 
@@ -49,7 +55,8 @@ namespace SalaryCalculator.Data.Services
 
         public void UpdateById(int id, Employee updateUser)
         {
-            throw new NotImplementedException();
+            this.employees.Update(updateUser);
+            this.employees.SaveChanges();
         }
     }
 }

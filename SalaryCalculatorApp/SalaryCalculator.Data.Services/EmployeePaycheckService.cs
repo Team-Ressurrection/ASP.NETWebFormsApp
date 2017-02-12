@@ -14,6 +14,8 @@ namespace SalaryCalculator.Data.Services
 
         public EmployeePaycheckService(IRepository<EmployeePaycheck> employeePaychecks)
         {
+            Guard.WhenArgument(employeePaychecks, "EmployeePaycheck").IsNull().Throw();
+
             this.employeePaychecks = employeePaychecks;
         }
 
@@ -27,6 +29,8 @@ namespace SalaryCalculator.Data.Services
 
         public void DeleteById(int id)
         {
+            Guard.WhenArgument<int>(id, "id").IsLessThanOrEqual<int>(0).Throw();
+
             this.employeePaychecks.Delete(id);
             this.employeePaychecks.SaveChanges();
         }
@@ -38,6 +42,8 @@ namespace SalaryCalculator.Data.Services
 
         public EmployeePaycheck GetById(int id)
         {
+            Guard.WhenArgument<int>(id, "id").IsLessThanOrEqual<int>(0).Throw();
+
             return this.employeePaychecks.GetById(id);
         }
 
@@ -48,10 +54,7 @@ namespace SalaryCalculator.Data.Services
 
         public void UpdateById(int id, EmployeePaycheck updatePaycheck)
         {
-            var paycheckToUpdate = this.employeePaychecks.GetById(id);
-
-            paycheckToUpdate.EmployeeId = updatePaycheck.EmployeeId;
-
+            this.employeePaychecks.Update(updatePaycheck);
             this.employeePaychecks.SaveChanges();
         }
     }
