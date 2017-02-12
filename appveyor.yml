@@ -17,6 +17,8 @@ matrix:
       configuration: Release
     - platform: x64
       configuration: Release
+cache:
+  - packages .\SalaryCalculatorApp\packages.config
 before_build:
   - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln -verbosity detailed -DisableParallelProcessing
 build:
