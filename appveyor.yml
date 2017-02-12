@@ -1,6 +1,5 @@
 version: 1.0.{build}
 image: Visual Studio 2015
-clone_folder: C:\Users\Alexander\Desktop\GitHub\ASP.NETWebFormsApp\
 branches:
   only:
   - master
@@ -11,8 +10,6 @@ assembly_info:
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
-cache:
-  - packages .\SalaryCalculatorApp\packages.config
 before_build:
   - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
 build:
