@@ -12,8 +12,7 @@ assembly_info:
 cache:
   - packages .\SalaryCalculatorApp\packages.config
 before_build:
-  - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln -verbosity detailed -DisableParallelProcessing
-build:
+  - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
   project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
   verbosity: minimal
 notifications:
