@@ -9,14 +9,6 @@ assembly_info:
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
-platform:
-  - Any CPU
-matrix:
-  allow_failures:
-    - platform: Any CPU
-      configuration: Release
-    - platform: x64
-      configuration: Release
 cache:
   - packages .\SalaryCalculatorApp\packages.config
 before_build:
