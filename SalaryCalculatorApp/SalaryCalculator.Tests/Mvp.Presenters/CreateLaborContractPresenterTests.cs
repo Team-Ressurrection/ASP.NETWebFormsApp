@@ -9,6 +9,8 @@ using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Data.Models;
+using SalaryCalculator.Data.Models.Constants;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters
 {
@@ -83,8 +85,8 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
             Assert.Throws<ArgumentOutOfRangeException>(() => presenter.CalculatePaycheck(new object { }, e.Object));
         }
 
-        [TestCase(1000, 100, 150)]
-        public void CalculateWage_ShouldSetPaycheckCorrectlyToViewModel_WhenAllEventArgsParamsArePassedCorrectly(decimal obj1, decimal obj2, decimal obj3)
+        [TestCase(2000, 100, 1000)]
+        public void CalculateWage_ShouldSetPaycheckSocialSecurityIncomeCorrectly_WhenAllEventArgsParamsArePassedCorrectly(decimal obj1, decimal obj2, decimal obj3)
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
@@ -92,7 +94,53 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
             var presenter = new CreateLaborContractPresenter(view.Object, service.Object);
             var e = new Mock<PaycheckEventArgs>(obj1, obj2, obj3);
 
-            view.Setup(x => x.Model.EmployeePaycheck).Returns(new FakeEmployeePaycheck()).Verifiable();
+            view.SetupProperty(x => x.Model.EmployeePaycheck, new FakeEmployeePaycheck());
+
+            presenter.CalculatePaycheck(new object { }, e.Object);
+
+            Assert.AreEqual(2600, view.Object.Model.EmployeePaycheck.SocialSecurityIncome);
+        }
+
+        [TestCase(2000, 100, 100)]
+        [TestCase(2599.99, 0, 0)]
+        [TestCase(200, 100, 2200)]
+        [TestCase(200, 2100, 100)]
+        [TestCase(2100, 100, 100)]
+        [TestCase(500, 100, 50)]
+        public void CalculateWage_ShouldSetPaycheckSocialSecurityEqualToGrossSalary_WhenAllEventArgsParamsArePassedWithValueLessThan2600(decimal obj1, decimal obj2, decimal obj3)
+        {
+            var view = new Mock<ICreateLaborContractView>();
+            var service = new Mock<IEmployeePaycheckService>();
+
+            var presenter = new CreateLaborContractPresenter(view.Object, service.Object);
+            var e = new Mock<PaycheckEventArgs>(obj1, obj2, obj3);
+
+            view.SetupProperty(x => x.Model.EmployeePaycheck, new FakeEmployeePaycheck());
+
+            presenter.CalculatePaycheck(new object { }, e.Object);
+            var expectedGrossSalary = obj1 + obj2 + obj3;
+            Assert.AreEqual(expectedGrossSalary, view.Object.Model.EmployeePaycheck.SocialSecurityIncome);
+        }
+
+        [TestCase(2000, 1100, 100)]
+        [TestCase(2599.99, 0.02, 0)]
+        [TestCase(200, 1100, 1300.01)]
+        [TestCase(200, 2100, 4100)]
+        [TestCase(2601, 0, 0)]
+        [TestCase(0, 100, 2601)]
+        public void CalculateWage_ShouldSetPaycheckSocialSecurityEqualTo2600_WhenAllEventArgsParamsArePassedWithValueMoreThan2600(decimal obj1, decimal obj2, decimal obj3)
+        {
+            var view = new Mock<ICreateLaborContractView>();
+            var service = new Mock<IEmployeePaycheckService>();
+
+            var presenter = new CreateLaborContractPresenter(view.Object, service.Object);
+            var e = new Mock<PaycheckEventArgs>(obj1, obj2, obj3);
+
+            view.SetupProperty(x => x.Model.EmployeePaycheck, new FakeEmployeePaycheck());
+
+            presenter.CalculatePaycheck(new object { }, e.Object);
+
+            Assert.AreEqual(ValidationConstants.MaxSocialSecurityIncome, view.Object.Model.EmployeePaycheck.SocialSecurityIncome);
         }
     }
 }
