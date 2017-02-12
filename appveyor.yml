@@ -13,7 +13,7 @@ cache:
   - packages .\SalaryCalculatorApp\packages.config
 before_build:
   - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
-  project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
+project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
   verbosity: minimal
 notifications:
   - provider: Email
