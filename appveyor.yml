@@ -14,7 +14,7 @@ cache:
 before_build:
   - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
 project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
-  verbosity: minimal
+  - verbosity: minimal
 notifications:
   - provider: Email
     to:
