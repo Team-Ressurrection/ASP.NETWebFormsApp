@@ -18,10 +18,10 @@ matrix:
     - platform: x64
       configuration: Release
 before_build:
-  - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln
+  - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln -verbosity detailed -DisableParallelProcessing
 build:
   project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
-  verbosity: minimal
+  verbosity: detailed
 notifications:
   - provider: Email
     to:
