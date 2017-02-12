@@ -76,7 +76,7 @@ namespace SalaryCalculator.Mvp.Presenters
 
         private bool CheckMaxSocialSecurityIncome(decimal parameter)
         {
-            var isMaximum = parameter.Equals(ValidationConstants.MaxSocialSecurityIncome);
+            var isMaximum = parameter.CompareTo(ValidationConstants.MaxSocialSecurityIncome) >= 0;
 
             return isMaximum;
         }
