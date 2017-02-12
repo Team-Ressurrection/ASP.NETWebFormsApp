@@ -21,7 +21,7 @@ before_build:
   - ps: nuget restore .\SalaryCalculatorApp\SalaryCalculatorApp.sln -verbosity detailed -DisableParallelProcessing
 build:
   project: .\SalaryCalculatorApp\SalaryCalculatorApp.sln
-  verbosity: detailed
+  verbosity: minimal
 notifications:
   - provider: Email
     to:
