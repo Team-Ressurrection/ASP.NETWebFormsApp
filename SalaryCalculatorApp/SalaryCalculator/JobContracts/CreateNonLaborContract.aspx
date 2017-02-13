@@ -32,5 +32,12 @@
             <p>8. Дължим авансов данък (10% от ред 7)</p>
             <p>9. Сума за получаване (ред 1 – ред 6 – ред 8)</p>
         </asp:Literal>
+        <asp:GridView ID="DetailsViewRemunerationBill"
+            runat="server"
+            AutoGenerateColumns="true"
+            CssClass="jumbotron">
+            <Columns>
+            </Columns>
+        </asp:GridView>
     </div>
 </asp:Content>
