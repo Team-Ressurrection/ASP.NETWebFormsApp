@@ -8,6 +8,6 @@ namespace SalaryCalculator.Mvp.Views
 {
     public interface IReportNonLaborView : IView<ReportNonLaborModel>
     {
-        event EventHandler<EventArgs> GetAll;
+        event EventHandler<EventArgs> GetAllNonLaborContracts;
     }
 }

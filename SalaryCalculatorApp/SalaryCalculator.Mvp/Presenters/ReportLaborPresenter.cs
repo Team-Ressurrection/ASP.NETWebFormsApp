@@ -19,7 +19,7 @@ namespace SalaryCalculator.Mvp.Presenters
                  .Throw();
 
             this.paycheckService = paycheckService;
-            this.View.GetAll += GetAll;
+            this.View.GetAllLaborContracts += GetAll;
         }
 
         public void GetAll(object sender, System.EventArgs e)

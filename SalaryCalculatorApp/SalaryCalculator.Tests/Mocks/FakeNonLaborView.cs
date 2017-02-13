@@ -20,7 +20,7 @@ namespace SalaryCalculator.Tests.Mocks
             }
         }
 
-        public event EventHandler<EventArgs> GetAll;
+        public event EventHandler<EventArgs> GetAllNonLaborContracts;
         public event EventHandler Load;
     }
 }

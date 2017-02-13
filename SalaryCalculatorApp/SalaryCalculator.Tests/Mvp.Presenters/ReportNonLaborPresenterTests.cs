@@ -22,7 +22,7 @@ namespace SalaryCalculator.Tests.Mvp.Presenters
         public void Constructor_ShouldThrowArgumentNullException_WhenParameterServiceIsNull()
         {
             var view = new Mock<IReportNonLaborView>();
-            var service = new Mock<IRemunerationBillService>();
+            var service = new Mock<ISelfEmploymentService>();
 
             Assert.That(() => new ReportNonLaborPresenter(view.Object, null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null"));
         }
