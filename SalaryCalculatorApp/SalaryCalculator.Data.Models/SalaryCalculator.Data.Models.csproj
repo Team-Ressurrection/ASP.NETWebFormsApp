@@ -93,6 +93,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeePaycheck.cs" />
     <Compile Include="RemunerationBill.cs" />
+    <Compile Include="SelfEmployment.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
