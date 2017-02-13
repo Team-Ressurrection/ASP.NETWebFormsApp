@@ -12,7 +12,12 @@ namespace SalaryCalculator.Data.Migrations
             this.Employees = GetEmployees();
             this.RemunerationBills = GetRemunerationBills();
             this.EmployeePaychecks = GetEmployeePaychecks();
+            this.SelfEmployments = GetSelfEmployments();
         }
+
+        
+
+        public IEnumerable<SelfEmployment> SelfEmployments { get; set; }
 
         public IEnumerable<EmployeePaycheck> EmployeePaychecks { get; set; }
 
@@ -20,7 +25,7 @@ namespace SalaryCalculator.Data.Migrations
 
         public IEnumerable<RemunerationBill> RemunerationBills { get; set; }
 
-        private IEnumerable<EmployeePaycheck> GetEmployeePaychecks()
+        public IEnumerable<EmployeePaycheck> GetEmployeePaychecks()
         {
             var paychecks = new List<EmployeePaycheck>();
 
@@ -95,6 +100,26 @@ namespace SalaryCalculator.Data.Migrations
                 });
             }
             return bills;
+        }
+
+        public IEnumerable<SelfEmployment> GetSelfEmployments()
+        {
+            var selfEmpl = new List<SelfEmployment>();
+
+            for (int i = 1; i < 31; i++)
+            {
+                int day = i + 1;
+                decimal socialSecurity = 600;
+                decimal personalInsurance = 96.32m + i + 1;
+                selfEmpl.Add(new SelfEmployment()
+                {
+                    CreatedDate = new DateTime(2017, 01, day),
+                    EmployeeId = 1,
+                    SocialSecurityIncome = socialSecurity,
+                    PersonalInsurance = 98.55m,
+                });
+            }
+            return selfEmpl;
         }
     }
 }
