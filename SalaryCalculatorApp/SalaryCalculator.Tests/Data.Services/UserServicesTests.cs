@@ -126,5 +126,37 @@ namespace SalaryCalculator.Tests.Data.Services
             var query = userService.GetTop(3);
             Assert.IsInstanceOf<IQueryable<User>>(query);
         }
+
+        [Test]
+        public void GetById_ShouldInvokeOnlyOnce()
+        {
+            var mockedRepository = new Mock<IRepository<User>>();
+
+            var userService = new UserService(mockedRepository.Object);
+
+            var user = new FakeUser();
+            user.Id = "abcdefgh";
+            userService.Create(user);
+
+            userService.GetById(user.Id);
+            mockedRepository.Verify(r => r.GetById(user.Id), Times.Once);
+        }
+
+        [Test]
+        public void Update_ShouldUpdateUserCorrectly()
+        {
+            var mockedRepository = new Mock<IRepository<User>>();
+
+            var userService = new UserService(mockedRepository.Object);
+
+            User user = new FakeUser();
+            user.Id = "1234567890";
+
+            userService.Create(user);
+
+            userService.UpdateById("1234567890", user);
+
+            mockedRepository.Verify(x => x.Update(user), Times.Once);
+        }
     }
 }

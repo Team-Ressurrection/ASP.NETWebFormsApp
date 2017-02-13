@@ -14,5 +14,25 @@ namespace SalaryCalculator.Tests.Data.UserModels
 
             Assert.IsInstanceOf(typeof(User), user);
         }
+
+        [Test]
+        public void WhenCreatingNewUser_ShouldHavePropertyCompanyName()
+        {
+            var user = new User();
+
+            user.CompanyName = "Firma";
+
+            Assert.IsAssignableFrom(typeof(string), user.CompanyName);
+        }
+
+        [Test]
+        public void WhenCreatingNewUser_ShouldHavePropertyCompanyAddress()
+        {
+            var user = new User();
+
+            user.CompanyAddress = "bulevard Bulgaria";
+
+            Assert.IsAssignableFrom(typeof(string), user.CompanyAddress);
+        }
     }
 }

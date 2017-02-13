@@ -152,5 +152,22 @@ namespace SalaryCalculator.Tests.Data.Services
             var query = emplService.GetTop(3);
             Assert.IsInstanceOf<IQueryable<Employee>>(query);
         }
+
+        [Test]
+        public void Update_ShouldUpdateEmployeeCorrectly()
+        {
+            var mockedRepository = new Mock<IRepository<Employee>>();
+
+            var emplService = new EmployeeService(mockedRepository.Object);
+
+            Employee employee = new FakeEmployee();
+            employee.Id = 2;
+
+            emplService.Create(employee);
+
+            emplService.UpdateById(2,employee);
+
+            mockedRepository.Verify(x => x.Update(employee), Times.Once);
+        }
     }
 }

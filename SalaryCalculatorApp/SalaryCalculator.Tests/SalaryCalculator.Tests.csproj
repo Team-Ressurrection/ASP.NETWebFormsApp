@@ -119,6 +119,8 @@
     <Compile Include="Data.Repository\SalaryCalculatorRepositoryTests.cs" />
     <Compile Include="Data.Services\EmployeeServicesTests.cs" />
     <Compile Include="Mocks\FakeEmployeePaycheck.cs" />
+    <Compile Include="Mocks\FakeLaborView.cs" />
+    <Compile Include="Mocks\FakeNonLaborView.cs" />
     <Compile Include="Mocks\FakeUser.cs" />
     <Compile Include="Mocks\FakeEmployee.cs" />
     <Compile Include="Mocks\FakeRemunerationBill.cs" />

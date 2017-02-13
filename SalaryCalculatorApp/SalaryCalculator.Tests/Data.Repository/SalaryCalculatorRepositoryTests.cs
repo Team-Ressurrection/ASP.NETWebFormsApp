@@ -36,27 +36,29 @@ namespace SalaryCalculator.Tests.Data.Repository
             Assert.IsInstanceOf(typeof(IRepository<FakeEmployee>), repository);
         }
 
-        //[Test]
-        ////[Ignore("Not finished test.")]
-        //public void AddMethod_ShouldInvokedOnce_WhenParameterIsPassedCorrectly()
-        //{
-        //    var fakeDbSet = new Mock<DbSet<FakeEmployee>>();
+        [Test]
+        [Ignore("Not finished test.")]
+        public void AddMethod_ShouldInvokedOnce_WhenParameterIsPassedCorrectly()
+        {
+            var fakeDbSet = new Mock<DbSet<FakeEmployee>>();
 
-        //    var fakeDbModel = new FakeEmployee();
-        //    fakeDbModel.FirstName = "Alexander";
-        //    fakeDbModel.MiddleName = "Vasilev";
-        //    fakeDbModel.LastName = "Petrov";
-        //    fakeDbModel.Id = 1;
+            var fakeDbModel = new FakeEmployee()
+            {
+                FirstName = "Alexander",
+                MiddleName = "Vasilev",
+                LastName = "Petrov",
+                Id = 1,
+                PersonalId = "8010106060"
+            };
 
-        //    var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
-        //    mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(fakeDbSet.Object);
+            var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
 
-        //    var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
+            var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
-        //    repo.Add(fakeDbModel);
+            repo.Add(fakeDbModel);
 
-        //    mockDbContext.Verify(mock => mock.Entry<FakeEmployee>(It.IsAny<FakeEmployee>()), Times.Once());
-        //}
+            mockDbContext.Verify(x => x.Entry<FakeEmployee>(fakeDbModel), Times.Once);
+        }
 
         [Test]
         public void ShouldThrowArgumentNullException_WhenFilterParameterIsNull()
@@ -89,25 +91,15 @@ namespace SalaryCalculator.Tests.Data.Repository
         //[Test]
         //public void ShouldPassCorrectly_WhenFilterParameterIsValid()
         //{
-        //    var mockDbSet = new Mock<DbSet<FakeEmployee>>();
+        //    var mockDbSet = new DbSet<FakeEmployee>();
         //    var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
         //    mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
 
         //    var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
-        //    var fakeData = new List<FakeEmployee>()
-        //    {
-        //       new Mock<FakeEmployee>().Object,
-        //       new Mock<FakeEmployee>().Object,
-        //       new Mock<FakeEmployee>().Object,
-        //    }
-        //    .AsQueryable();
-
-        //    mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.Provider).Returns(fakeData.Provider);
-        //    mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.Expression).Returns(fakeData.Expression);
-        //    mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
-        //    mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
-
+        //    repo.Add(new FakeEmployee() { FirstName = "Alexander" });
+        //    repo.Add(new FakeEmployee() { FirstName = "Ivan" });
+        //    repo.Add(new FakeEmployee() { FirstName = "Georgi" });
         //    Expression<Func<FakeEmployee, bool>> filter = (FakeEmployee empl) => empl.FirstName.Equals("Alexander");
 
         //    var actualResult = repo.GetAll(filter);

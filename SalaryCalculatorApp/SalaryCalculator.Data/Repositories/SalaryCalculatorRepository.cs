@@ -21,6 +21,10 @@ namespace SalaryCalculator.Data.Repositories
             this.DbSet = this.Context.Set<T>();
         }
 
+        public ISalaryCalculatorDbContext Context { get; set; }
+
+        protected IDbSet<T> DbSet { get; set; }
+
         public IQueryable<T> All
         {
             get { return this.DbSet; }
@@ -73,15 +77,12 @@ namespace SalaryCalculator.Data.Repositories
             }
         }
 
-        public ISalaryCalculatorDbContext Context { get; set; }
-
-        protected IDbSet<T> DbSet { get; set; }
-
+        
         public void Add(T entity)
         {
             Guard.WhenArgument(entity, "entity").IsNull().Throw();
 
-            var entry = AttachIfDetached(entity);
+            var entry = this.AttachIfDetached(entity);
             entry.State = EntityState.Added;
         }
 
@@ -99,17 +100,6 @@ namespace SalaryCalculator.Data.Repositories
 
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Deleted;
-        }
-
-        private DbEntityEntry AttachIfDetached(T entity)
-        {
-            var entry = this.Context.Entry(entity);
-            if (entry.State == EntityState.Detached)
-            {
-                this.DbSet.Attach(entity);
-            }
-
-            return entry;
         }
 
         public int SaveChanges()
@@ -130,6 +120,18 @@ namespace SalaryCalculator.Data.Repositories
             {
                 this.Delete(entity);
             }
+        }
+
+        private DbEntityEntry AttachIfDetached(T entity)
+        {
+            var entry = this.Context.Entry(entity);
+
+            if (entry.State == EntityState.Detached)
+            {
+                this.DbSet.Attach(entity);
+            }
+
+            return entry;
         }
     }
 }

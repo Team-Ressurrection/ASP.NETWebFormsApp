@@ -7,6 +7,8 @@ using NUnit.Framework;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Models.Constants;
 using SalaryCalculator.Tests.Mocks;
+using Moq;
+using System.Collections.ObjectModel;
 
 namespace SalaryCalculator.Tests.Data.EmployeeModels
 {
