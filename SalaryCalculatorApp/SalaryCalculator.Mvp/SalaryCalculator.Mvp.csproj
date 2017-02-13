@@ -74,9 +74,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsArguments\IRemunerationBillEventArgs.cs" />
     <Compile Include="EventsArguments\IPaycheckEventArgs.cs" />
+    <Compile Include="EventsArguments\RemunerationBillEventArgs.cs" />
     <Compile Include="EventsArguments\PaycheckEventArgs.cs" />
+    <Compile Include="Models\CreateNonLaborContractModel.cs" />
     <Compile Include="Models\CreateLaborContractModel.cs" />
+    <Compile Include="Models\ICreateNonLaborContractModel.cs" />
     <Compile Include="Models\IProfileModel.cs" />
     <Compile Include="Models\ICreateLaborContractModel.cs" />
     <Compile Include="Models\IReportLaborModel.cs" />
@@ -84,7 +88,9 @@
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\ReportLaborModel.cs" />
     <Compile Include="Models\ReportNonLaborModel.cs" />
+    <Compile Include="Presenters\CreateNonLaborContractPresenter.cs" />
     <Compile Include="Presenters\CreateLaborContractPresenter.cs" />
+    <Compile Include="Presenters\ICreateNonLaborContractPresenter.cs" />
     <Compile Include="Presenters\ICreateLaborContractPresenter.cs" />
     <Compile Include="Presenters\IProfilePresenter.cs" />
     <Compile Include="Presenters\IReportLaborPresenter.cs" />
@@ -93,6 +99,7 @@
     <Compile Include="Presenters\ReportLaborPresenter.cs" />
     <Compile Include="Presenters\ReportNonLaborPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ICreateNonLaborContractView.cs" />
     <Compile Include="Views\ICreateLaborContractView.cs" />
     <Compile Include="Views\IProfileView.cs" />
     <Compile Include="Views\IReportLaborView.cs" />
