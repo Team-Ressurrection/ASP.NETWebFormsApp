@@ -148,6 +148,7 @@
     <Compile Include="Data.RemunerationBillModels\Constructor_Should.cs" />
     <Compile Include="Data.Repository\Constructor_Should.cs" />
     <Compile Include="Data.Services\EmployeeServiceTests\Constructor_Should.cs" />
+    <Compile Include="Mocks\FakeCalculate.cs" />
     <Compile Include="Mocks\FakeEmployeePaycheck.cs" />
     <Compile Include="Mocks\FakeLaborView.cs" />
     <Compile Include="Mocks\FakeNonLaborView.cs" />

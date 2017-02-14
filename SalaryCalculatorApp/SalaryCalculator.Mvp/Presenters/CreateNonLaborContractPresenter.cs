@@ -10,6 +10,7 @@ using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Views;
+using SalaryCalculator.Utilities.Calculations;
 using SalaryCalculator.Utilities.Constants;
 
 namespace SalaryCalculator.Mvp.Presenters
@@ -21,16 +22,20 @@ namespace SalaryCalculator.Mvp.Presenters
 
         private readonly IRemunerationBillService remunerationBillService;
 
-        public CreateNonLaborContractPresenter(ICreateNonLaborContractView view, IRemunerationBillService remunerationBillService)
+        public CreateNonLaborContractPresenter(ICreateNonLaborContractView view, IRemunerationBillService remunerationBillService, Calculate calculate)
             : base(view)
         {
             Guard.WhenArgument<IRemunerationBillService>(remunerationBillService, "remunerationBillService").IsNull().Throw();
 
             this.remunerationBillService = remunerationBillService;
 
+            this.Calculate = calculate;
+
             this.View.CalculateRemunerationBill += CalculateRemunerationBill;
             this.View.CreateRemunerationBill += CreateRemunerationBill;
         }
+
+        public Calculate Calculate { get; set; }
 
         public void CalculateRemunerationBill(object sender, RemunerationBillEventArgs e)
         {
@@ -41,10 +46,10 @@ namespace SalaryCalculator.Mvp.Presenters
             remunerationBill.EmployeeId = 1;
             remunerationBill.GrossSalary = e.GrossSalary;
 
-            bool isMaximum = this.CheckMaxSocialSecurityIncome(e.GrossSalary);
+            bool isMaximum = this.Calculate.CheckMaxSocialSecurityIncome(e.GrossSalary);
             remunerationBill.SocialSecurityIncome = isMaximum ? ValidationConstants.MaxSocialSecurityIncome : e.GrossSalary;
 
-            remunerationBill.PersonalInsurance = this.GetPersonalInsurance(remunerationBill.SocialSecurityIncome ,PersonalInsurancePercent);
+            remunerationBill.PersonalInsurance = this.Calculate.GetPersonalInsurance(remunerationBill.SocialSecurityIncome ,PersonalInsurancePercent);
             remunerationBill.IncomeTax = (remunerationBill.GrossSalary - remunerationBill.PersonalInsurance)*IncomeTaxPercent;
 
             remunerationBill.NetWage = remunerationBill.GrossSalary - remunerationBill.PersonalInsurance - remunerationBill.IncomeTax;
@@ -57,17 +62,6 @@ namespace SalaryCalculator.Mvp.Presenters
             Guard.WhenArgument<RemunerationBill>(this.View.Model.RemunerationBill, "RemunerationBill").IsNull().IsNotInstanceOfType(typeof(RemunerationBill)).Throw();
 
             this.remunerationBillService.Create(this.View.Model.RemunerationBill);
-        }
-        private decimal GetPersonalInsurance(decimal salary, decimal personalInsurancePercent)
-        {
-            return salary * personalInsurancePercent;
-        }
-
-        private bool CheckMaxSocialSecurityIncome(decimal parameter)
-        {
-            var isMaximum = parameter.CompareTo(ValidationConstants.MaxSocialSecurityIncome) >= 0;
-
-            return isMaximum;
         }
     }
 }

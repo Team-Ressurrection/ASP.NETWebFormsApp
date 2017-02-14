@@ -9,6 +9,7 @@ using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Utilities.Constants;
+using SalaryCalculator.Utilities.Calculations;
 
 namespace SalaryCalculator.Mvp.Presenters
 {
@@ -19,16 +20,18 @@ namespace SalaryCalculator.Mvp.Presenters
 
         private readonly ISelfEmploymentService selfEmploymentService;
 
-        public CreateFreelanceContractPresenter(ICreateFreelanceContractView view, ISelfEmploymentService selfEmploymentService)
+        public CreateFreelanceContractPresenter(ICreateFreelanceContractView view, ISelfEmploymentService selfEmploymentService, Calculate calculate)
             : base(view)
         {
             Guard.WhenArgument<ISelfEmploymentService>(selfEmploymentService, "selfEmploymentService").IsNull().Throw();
 
             this.selfEmploymentService = selfEmploymentService;
-
+            this.Calculate = calculate;
             this.View.CalculateSelfEmployment += CalculateSelfEmployment;
             this.View.CreateSelfEmployment += CreateSelfEmployment;
         }
+
+        public Calculate Calculate { get; set; }
 
         public void CalculateSelfEmployment(object sender, SelfEmploymentEventArgs e)
         {
@@ -39,10 +42,10 @@ namespace SalaryCalculator.Mvp.Presenters
             selfEmployment.EmployeeId = 1;
             selfEmployment.GrossSalary = e.SocialSecurityIncome;
 
-            bool isMaximum = this.CheckMaxSocialSecurityIncome(e.SocialSecurityIncome);
+            bool isMaximum = this.Calculate.CheckMaxSocialSecurityIncome(e.SocialSecurityIncome);
             selfEmployment.SocialSecurityIncome = isMaximum ? ValidationConstants.MaxSocialSecurityIncome : e.SocialSecurityIncome;
 
-            selfEmployment.PersonalInsurance = this.GetPersonalInsurance(selfEmployment.SocialSecurityIncome ,PersonalInsurancePercent);
+            selfEmployment.PersonalInsurance = this.Calculate.GetPersonalInsurance(selfEmployment.SocialSecurityIncome ,PersonalInsurancePercent);
             selfEmployment.IncomeTax = (selfEmployment.GrossSalary - selfEmployment.PersonalInsurance)*IncomeTaxPercent;
 
             selfEmployment.NetWage = selfEmployment.GrossSalary - selfEmployment.PersonalInsurance - selfEmployment.IncomeTax;
@@ -55,17 +58,6 @@ namespace SalaryCalculator.Mvp.Presenters
             Guard.WhenArgument<SelfEmployment>(this.View.Model.SelfEmployment, "SelfEmployment").IsNull().IsNotInstanceOfType(typeof(SelfEmployment)).Throw();
 
             this.selfEmploymentService.Create(this.View.Model.SelfEmployment);
-        }
-        private decimal GetPersonalInsurance(decimal salary, decimal personalInsurancePercent)
-        {
-            return salary * personalInsurancePercent;
-        }
-
-        private bool CheckMaxSocialSecurityIncome(decimal parameter)
-        {
-            var isMaximum = parameter.CompareTo(ValidationConstants.MaxSocialSecurityIncome) >= 0;
-
-            return isMaximum;
         }
     }
 }
