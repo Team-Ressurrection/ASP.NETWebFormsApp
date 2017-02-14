@@ -10,6 +10,6 @@ namespace SalaryCalculator.Tests.Mvp.Views
     [TestFixture]
     public class ReportNonLaborViewTests
     {
-    
+        // TODO:
     }
 }

@@ -51,5 +51,37 @@ namespace SalaryCalculator.Tests.Data.Seed
 
             Assert.AreEqual(30, sd.RemunerationBills.Count());
         }
+
+        [Test]
+        public void Constructor_WhenInvoked_ShouldSetPropertyEmployeePaychecks()
+        {
+            var sd = new SeedData();
+
+            Assert.IsInstanceOf<IEnumerable<EmployeePaycheck>>(sd.EmployeePaychecks);
+        }
+
+        [Test]
+        public void Constructor_WhenInvoked_ShouldSetPropertyEmployeePaychecksWith26Elements()
+        {
+            var sd = new SeedData();
+
+            Assert.AreEqual(26, sd.EmployeePaychecks.Count());
+        }
+
+        [Test]
+        public void Constructor_WhenInvoked_ShouldSetPropertySelfEmployment()
+        {
+            var sd = new SeedData();
+
+            Assert.IsInstanceOf<IEnumerable<SelfEmployment>>(sd.SelfEmployments);
+        }
+
+        [Test]
+        public void Constructor_WhenInvoked_ShouldSetPropertySelfEmploymentsWith30Elements()
+        {
+            var sd = new SeedData();
+
+            Assert.AreEqual(30, sd.SelfEmployments.Count());
+        }
     }
 }
