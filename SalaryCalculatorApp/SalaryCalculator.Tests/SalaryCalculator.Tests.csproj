@@ -109,12 +109,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data.EmployeeModels\Properties_Should.cs" />
+    <Compile Include="Data.EmployeePaycheckModels\Properties_Should.cs" />
     <Compile Include="Data.RemunerationBillModels\Properties_Should.cs" />
     <Compile Include="Data.Repository\Methods_Should.cs" />
     <Compile Include="Data.SalaryCalculatorDbContextTests\CreateMethod_Should.cs" />
     <Compile Include="Data.SalaryCalculatorDbContextTests\Constructor_Should.cs" />
     <Compile Include="Data.EmployeeModels\Constructor_Should.cs" />
     <Compile Include="Data.EmployeePaycheckModels\Constructor_Should.cs" />
+    <Compile Include="Data.SelfEmploymentModels\Constructor_Should.cs" />
+    <Compile Include="Data.SelfEmploymentModels\Properties_Should.cs" />
     <Compile Include="Data.Services\EmployeePaycheckServiceTests\Constructor_Should.cs" />
     <Compile Include="Data.Services\EmployeePaycheckServiceTests\Create_Should.cs" />
     <Compile Include="Data.Services\EmployeePaycheckServiceTests\Delete_Should.cs" />
