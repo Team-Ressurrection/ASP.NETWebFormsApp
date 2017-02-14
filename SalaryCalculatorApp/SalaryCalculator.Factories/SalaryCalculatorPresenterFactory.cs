@@ -3,7 +3,7 @@
 using WebFormsMvp;
 using WebFormsMvp.Binder;
 
-namespace SalaryCalculator.Factory
+namespace SalaryCalculator.Factories
 {
     public class SalaryCalculatorPresenterFactory : IPresenterFactory
     {

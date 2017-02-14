@@ -5,10 +5,10 @@ using Bytes2you.Validation;
 using WebFormsMvp;
 
 using SalaryCalculator.Data.Models;
-using SalaryCalculator.Data.Models.Constants;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Views;
+using SalaryCalculator.Utilities.Constants;
 
 namespace SalaryCalculator.Mvp.Presenters
 {

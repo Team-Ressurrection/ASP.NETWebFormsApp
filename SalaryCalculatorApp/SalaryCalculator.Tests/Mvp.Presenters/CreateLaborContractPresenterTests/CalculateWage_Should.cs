@@ -3,12 +3,12 @@
 using Moq;
 using NUnit.Framework;
 
-using SalaryCalculator.Data.Models.Constants;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Utilities.Constants;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTests
 {

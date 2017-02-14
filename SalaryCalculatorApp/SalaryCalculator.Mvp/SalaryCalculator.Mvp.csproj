@@ -132,6 +132,10 @@
       <Project>{22D57E20-40F1-45D7-A553-9F8044F54549}</Project>
       <Name>SalaryCalculator.Data.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SalaryCalculator.Utilities\SalaryCalculator.Utilities.csproj">
+      <Project>{58451649-ff7c-4b3a-b2c7-fff229d034f2}</Project>
+      <Name>SalaryCalculator.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

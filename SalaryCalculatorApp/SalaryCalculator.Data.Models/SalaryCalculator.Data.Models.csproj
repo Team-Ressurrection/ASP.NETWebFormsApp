@@ -89,7 +89,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeePaycheck.cs" />
     <Compile Include="RemunerationBill.cs" />
@@ -100,6 +99,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SalaryCalculator.Utilities\SalaryCalculator.Utilities.csproj">
+      <Project>{58451649-ff7c-4b3a-b2c7-fff229d034f2}</Project>
+      <Name>SalaryCalculator.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

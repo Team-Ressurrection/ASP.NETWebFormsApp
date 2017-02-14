@@ -5,7 +5,7 @@ using System.Linq;
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Models;
-using SalaryCalculator.Data.Models.Constants;
+using SalaryCalculator.Utilities.Constants;
 
 namespace SalaryCalculator.Tests.Data.RemunerationBillModels
 {

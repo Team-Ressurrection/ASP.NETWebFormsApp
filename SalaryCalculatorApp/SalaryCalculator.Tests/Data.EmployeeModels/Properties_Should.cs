@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Models;
-using SalaryCalculator.Data.Models.Constants;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Utilities.Constants;
 
 namespace SalaryCalculator.Tests.Data.EmployeeModels
 {

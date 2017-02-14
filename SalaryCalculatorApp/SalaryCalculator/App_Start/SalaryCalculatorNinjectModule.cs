@@ -16,7 +16,7 @@ using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Repositories;
 using SalaryCalculator.Data.Services;
 using SalaryCalculator.Data.Services.Contracts;
-using SalaryCalculator.Factory;
+using SalaryCalculator.Factories;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Data.Models;
 

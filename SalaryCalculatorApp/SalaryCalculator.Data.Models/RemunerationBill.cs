@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using SalaryCalculator.Data.Models.Constants;
+using SalaryCalculator.Utilities.Constants;
 
 namespace SalaryCalculator.Data.Models
 {

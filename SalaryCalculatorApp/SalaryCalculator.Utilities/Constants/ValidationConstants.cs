@@ -1,4 +1,4 @@
-﻿namespace SalaryCalculator.Data.Models.Constants
+﻿namespace SalaryCalculator.Utilities.Constants
 {
     public static class ValidationConstants
     {

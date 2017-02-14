@@ -2,7 +2,7 @@
 
 using WebFormsMvp;
 
-namespace SalaryCalculator.Factory
+namespace SalaryCalculator.Factories
 {
     public interface ISalaryCalculatorPresenterFactory
     {
