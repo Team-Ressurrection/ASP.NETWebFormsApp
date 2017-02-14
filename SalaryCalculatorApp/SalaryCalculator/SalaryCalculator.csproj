@@ -518,6 +518,10 @@
       <Project>{5ce33e9e-de29-439f-b9f5-3ec6757d0b95}</Project>
       <Name>SalaryCalculator.Mvp</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SalaryCalculator.Utilities\SalaryCalculator.Utilities.csproj">
+      <Project>{58451649-ff7c-4b3a-b2c7-fff229d034f2}</Project>
+      <Name>SalaryCalculator.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

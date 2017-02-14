@@ -19,6 +19,7 @@ using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Factories;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Data.Models;
+using SalaryCalculator.Utilities.Calculations;
 
 namespace SalaryCalculator.App_Start
 {
@@ -46,6 +47,8 @@ namespace SalaryCalculator.App_Start
             this.Bind<IReportNonLaborPresenter>().To<ReportNonLaborPresenter>();
             this.Bind<IReportLaborPresenter>().To<ReportLaborPresenter>();
             this.Bind<IProfilePresenter>().To<ProfilePresenter>();
+
+            this.Bind<Calculate>().ToSelf();
 
             this.Bind<IPresenterFactory>().To<SalaryCalculatorPresenterFactory>().InSingletonScope();
 
