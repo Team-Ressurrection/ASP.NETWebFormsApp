@@ -51,6 +51,7 @@ namespace SalaryCalculator.App_Start
             this.Bind<Payroll>().ToSelf();
 
             this.Bind<ISalaryCalculatorModelFactory>().ToFactory().InSingletonScope();
+            this.Bind<ISalaryCalculatorEventArgsFactory>().ToFactory().InSingletonScope();
             this.Bind<IPresenterFactory>().To<SalaryCalculatorPresenterFactory>().InSingletonScope();
 
             this.Bind<ISalaryCalculatorPresenterFactory>().ToFactory().InSingletonScope();
