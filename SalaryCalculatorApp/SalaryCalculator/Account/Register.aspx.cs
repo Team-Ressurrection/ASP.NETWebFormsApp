@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
 using SalaryCalculator.Data.Models;
+using SalaryCalculator.Factories;
+using Ninject;
 
 namespace SalaryCalculator.Account
 {
@@ -16,7 +18,12 @@ namespace SalaryCalculator.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new User() { UserName = Email.Text, Email = Email.Text, CompanyAddress = CompanyAddress.Text, CompanyName = CompanyName.Text };
+            var user = new User();
+            user.UserName = Email.Text;
+            user.Email = Email.Text;
+            user.CompanyAddress = CompanyAddress.Text;
+            user.CompanyName = CompanyName.Text;
+
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
