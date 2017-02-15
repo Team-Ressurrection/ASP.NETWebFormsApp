@@ -8,12 +8,15 @@ using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Models;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
+using SalaryCalculator.Factories;
+using Ninject;
 
 namespace SalaryCalculator.JobContracts
 {
     [PresenterBinding(typeof(CreateLaborContractPresenter))]
     public partial class CreateLaborContract : MvpPage<CreateLaborContractModel>, ICreateLaborContractView
     {
+
         public event EventHandler<PaycheckEventArgs> CalculatePaycheck;
 
         public event EventHandler<PaycheckEventArgs> CreatePaycheck;

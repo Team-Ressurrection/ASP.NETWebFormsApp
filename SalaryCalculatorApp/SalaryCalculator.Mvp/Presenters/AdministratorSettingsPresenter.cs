@@ -39,17 +39,17 @@ namespace SalaryCalculator.Mvp.Presenters
             this.View.GetAllNonLaborContracts += GetAllNonLaborContracts;
         }
 
-        private void GetAllFrelanceContracts(object sender, EventArgs e)
+        public void GetAllFrelanceContracts(object sender, EventArgs e)
         {
             this.View.Model.FreelanceContracts = this.selfEmploymentService.GetAll();
         }
 
-        private void GetAllNonLaborContracts(object sender, EventArgs e)
+        public void GetAllNonLaborContracts(object sender, EventArgs e)
         {
             this.View.Model.NonLaborContracts = this.remunerationBillService.GetAll();
         }
 
-        private void GetAllLaborContracts(object sender, EventArgs e)
+        public void GetAllLaborContracts(object sender, EventArgs e)
         {
             this.View.Model.LaborContracts = this.paycheckService.GetAll();
         }

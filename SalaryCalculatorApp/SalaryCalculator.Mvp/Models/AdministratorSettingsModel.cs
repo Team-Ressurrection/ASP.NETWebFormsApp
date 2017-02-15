@@ -6,10 +6,10 @@ namespace SalaryCalculator.Mvp.Models
 {
     public class AdministratorSettingsModel : IAdministratorSettingsModel
     {
-        public IEnumerable<SelfEmployment> FreelanceContracts { get; set; }
+        public virtual IEnumerable<SelfEmployment> FreelanceContracts { get; set; }
 
-        public IEnumerable<EmployeePaycheck> LaborContracts { get; set; }
+        public virtual IEnumerable<EmployeePaycheck> LaborContracts { get; set; }
 
-        public IEnumerable<RemunerationBill> NonLaborContracts { get; set; }
+        public virtual IEnumerable<RemunerationBill> NonLaborContracts { get; set; }
     }
 }
