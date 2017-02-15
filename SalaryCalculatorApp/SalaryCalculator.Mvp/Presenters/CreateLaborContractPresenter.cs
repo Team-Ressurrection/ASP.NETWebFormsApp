@@ -22,20 +22,22 @@ namespace SalaryCalculator.Mvp.Presenters
 
         private readonly IEmployeePaycheckService paycheckService;
 
-        public CreateLaborContractPresenter(ICreateLaborContractView view, IEmployeePaycheckService paycheckService, Calculate calculate)
+        public CreateLaborContractPresenter(ICreateLaborContractView view, IEmployeePaycheckService paycheckService, Payroll calculate)
             : base(view)
         {
             Guard.WhenArgument<IEmployeePaycheckService>(paycheckService, "paycheckService").IsNull().Throw();
 
+            Guard.WhenArgument<Payroll>(calculate, "calculate").IsNull().Throw();
+
             this.paycheckService = paycheckService;
 
-            this.Calculate = calculate;
+            this.Payroll = calculate;
 
             this.View.CalculatePaycheck += CalculatePaycheck;
             this.View.CreatePaycheck += CreatePaycheck;
         }
 
-        public Calculate Calculate { get; set; }
+        public Payroll Payroll { get; set; }
 
         public void CalculatePaycheck(object sender, PaycheckEventArgs e)
         {
@@ -55,11 +57,11 @@ namespace SalaryCalculator.Mvp.Presenters
             parameters.Add(e.GrossNonFixedBonus);
             parameters.Add(e.GrossSalary);
 
-            decimal grossSalary = this.Calculate.GetGrossSalary(parameters);
-            bool isMaximum = this.Calculate.CheckMaxSocialSecurityIncome(grossSalary);
+            decimal grossSalary = this.Payroll.GetGrossSalary(parameters);
+            bool isMaximum = this.Payroll.CheckMaxSocialSecurityIncome(grossSalary);
             paycheck.SocialSecurityIncome = isMaximum ? ValidationConstants.MaxSocialSecurityIncome : e.GrossFixedBonus + e.GrossNonFixedBonus + e.GrossSalary;
 
-            paycheck.PersonalInsurance = this.Calculate.GetPersonalInsurance(paycheck.SocialSecurityIncome ,PersonalInsurancePercent);
+            paycheck.PersonalInsurance = this.Payroll.GetPersonalInsurance(paycheck.SocialSecurityIncome ,PersonalInsurancePercent);
             paycheck.IncomeTax = (grossSalary - paycheck.PersonalInsurance)*IncomeTaxPercent;
 
             paycheck.NetWage = grossSalary - paycheck.PersonalInsurance - paycheck.IncomeTax;

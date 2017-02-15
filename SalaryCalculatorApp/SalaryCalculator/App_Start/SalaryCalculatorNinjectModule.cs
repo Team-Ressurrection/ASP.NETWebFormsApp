@@ -48,7 +48,7 @@ namespace SalaryCalculator.App_Start
             this.Bind<IReportLaborPresenter>().To<ReportLaborPresenter>();
             this.Bind<IProfilePresenter>().To<ProfilePresenter>();
 
-            this.Bind<Calculate>().ToSelf();
+            this.Bind<Payroll>().ToSelf();
 
             this.Bind<IPresenterFactory>().To<SalaryCalculatorPresenterFactory>().InSingletonScope();
 

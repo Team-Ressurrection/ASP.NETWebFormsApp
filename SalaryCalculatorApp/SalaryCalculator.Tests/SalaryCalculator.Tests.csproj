@@ -148,10 +148,11 @@
     <Compile Include="Data.RemunerationBillModels\Constructor_Should.cs" />
     <Compile Include="Data.Repository\Constructor_Should.cs" />
     <Compile Include="Data.Services\EmployeeServiceTests\Constructor_Should.cs" />
-    <Compile Include="Mocks\FakeCalculate.cs" />
+    <Compile Include="Mocks\FakePayroll.cs" />
     <Compile Include="Mocks\FakeEmployeePaycheck.cs" />
     <Compile Include="Mocks\FakeLaborView.cs" />
     <Compile Include="Mocks\FakeNonLaborView.cs" />
+    <Compile Include="Mocks\FakeSelfEmployment.cs" />
     <Compile Include="Mocks\FakeUser.cs" />
     <Compile Include="Mocks\FakeEmployee.cs" />
     <Compile Include="Mocks\FakeRemunerationBill.cs" />
@@ -161,9 +162,15 @@
     <Compile Include="Mvp.Models\ReportLaborModelTests\Properties_Should.cs" />
     <Compile Include="Mvp.Models\ReportNonLaborTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Models\ReportNonLaborTests\Properties_Should.cs" />
+    <Compile Include="Mvp.Presenters\CreateFreelanceContractPresenterTests\CalculateSelfEmployment_Should.cs" />
+    <Compile Include="Mvp.Presenters\CreateFreelanceContractPresenterTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.Presenters\CreateFreelanceContractPresenterTests\CreateSelfEmployment_Should.cs" />
     <Compile Include="Mvp.Presenters\CreateLaborContractPresenterTests\CalculateWage_Should.cs" />
     <Compile Include="Mvp.Presenters\CreateLaborContractPresenterTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Presenters\CreateLaborContractPresenterTests\CreatePaycheck_Should.cs" />
+    <Compile Include="Mvp.Presenters\CreateNonLaborContractPresenterTests\CalculateRemunerationBill_Should.cs" />
+    <Compile Include="Mvp.Presenters\CreateNonLaborContractPresenterTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.Presenters\CreateNonLaborContractPresenterTests\CreateRemunerationBill_Should.cs" />
     <Compile Include="Mvp.Presenters\ProfilePresenterTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Presenters\ProfilePresenterTests\GetUser_Should.cs" />
     <Compile Include="Mvp.Presenters\ProfilePresenterTests\UpdateUser_Should.cs" />
@@ -204,7 +211,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Mvp.Presenters\AdministratorSettingsPresenterTests\" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

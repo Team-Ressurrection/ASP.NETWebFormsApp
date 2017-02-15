@@ -19,7 +19,7 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
-            var calculate = new FakeCalculate();
+            var calculate = new FakePayroll();
 
             var presenter = new CreateLaborContractPresenter(view.Object, service.Object, calculate);
             var obj = new object { };
@@ -38,7 +38,7 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
-            var calculate = new FakeCalculate();
+            var calculate = new FakePayroll();
 
             var presenter = new CreateLaborContractPresenter(view.Object, service.Object,calculate);
             var obj = new object { };

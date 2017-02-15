@@ -5,7 +5,7 @@ using SalaryCalculator.Utilities.Constants;
 
 namespace SalaryCalculator.Utilities.Calculations
 {
-    public class Calculate
+    public class Payroll
     {
         public decimal GetGrossSalary(IEnumerable<decimal> parameters)
         {

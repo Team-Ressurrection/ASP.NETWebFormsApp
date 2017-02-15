@@ -19,7 +19,7 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
-            var calculate = new FakeCalculate();
+            var calculate = new FakePayroll();
 
             Assert.IsInstanceOf<ICreateLaborContractPresenter>(new CreateLaborContractPresenter(view.Object, service.Object,calculate));
         }
@@ -28,9 +28,18 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         public void Constructor_ShouldThrowArgumentNullException_WhenServiceParameterIsNull()
         {
             var view = new Mock<ICreateLaborContractView>();
-            var calculate = new FakeCalculate();
+            var calculate = new FakePayroll();
 
             Assert.Throws<ArgumentNullException>(() => new CreateLaborContractPresenter(view.Object, null, calculate));
+        }
+
+        [Test]
+        public void Constructor_ShouldThrowArgumentNullException_WhenCalculateParameterIsNull()
+        {
+            var view = new Mock<ICreateLaborContractView>();
+            var service = new Mock<IEmployeePaycheckService>();
+
+            Assert.Throws<ArgumentNullException>(() => new CreateLaborContractPresenter(view.Object, service.Object, null));
         }
     }
 }

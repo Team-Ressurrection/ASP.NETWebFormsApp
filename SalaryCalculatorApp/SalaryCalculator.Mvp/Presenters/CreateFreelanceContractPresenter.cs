@@ -20,18 +20,22 @@ namespace SalaryCalculator.Mvp.Presenters
 
         private readonly ISelfEmploymentService selfEmploymentService;
 
-        public CreateFreelanceContractPresenter(ICreateFreelanceContractView view, ISelfEmploymentService selfEmploymentService, Calculate calculate)
+        public CreateFreelanceContractPresenter(ICreateFreelanceContractView view, ISelfEmploymentService selfEmploymentService, Payroll calculate)
             : base(view)
         {
             Guard.WhenArgument<ISelfEmploymentService>(selfEmploymentService, "selfEmploymentService").IsNull().Throw();
 
+            Guard.WhenArgument<Payroll>(calculate, "calculate").IsNull().Throw();
+
             this.selfEmploymentService = selfEmploymentService;
-            this.Calculate = calculate;
+
+            this.Payroll = calculate;
+
             this.View.CalculateSelfEmployment += CalculateSelfEmployment;
             this.View.CreateSelfEmployment += CreateSelfEmployment;
         }
 
-        public Calculate Calculate { get; set; }
+        public Payroll Payroll { get; set; }
 
         public void CalculateSelfEmployment(object sender, SelfEmploymentEventArgs e)
         {
@@ -42,10 +46,10 @@ namespace SalaryCalculator.Mvp.Presenters
             selfEmployment.EmployeeId = 1;
             selfEmployment.GrossSalary = e.SocialSecurityIncome;
 
-            bool isMaximum = this.Calculate.CheckMaxSocialSecurityIncome(e.SocialSecurityIncome);
+            bool isMaximum = this.Payroll.CheckMaxSocialSecurityIncome(e.SocialSecurityIncome);
             selfEmployment.SocialSecurityIncome = isMaximum ? ValidationConstants.MaxSocialSecurityIncome : e.SocialSecurityIncome;
 
-            selfEmployment.PersonalInsurance = this.Calculate.GetPersonalInsurance(selfEmployment.SocialSecurityIncome ,PersonalInsurancePercent);
+            selfEmployment.PersonalInsurance = this.Payroll.GetPersonalInsurance(selfEmployment.SocialSecurityIncome ,PersonalInsurancePercent);
             selfEmployment.IncomeTax = (selfEmployment.GrossSalary - selfEmployment.PersonalInsurance)*IncomeTaxPercent;
 
             selfEmployment.NetWage = selfEmployment.GrossSalary - selfEmployment.PersonalInsurance - selfEmployment.IncomeTax;
