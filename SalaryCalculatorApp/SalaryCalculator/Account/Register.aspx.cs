@@ -14,11 +14,25 @@ namespace SalaryCalculator.Account
 {
     public partial class Register : Page
     {
+        [Inject]
+        public ISalaryCalculatorModelFactory ModelFactory { get; set; }
+
+        protected Register()
+        {
+
+        }
+
+        [Inject]
+        public Register(ISalaryCalculatorModelFactory modelFactory)
+        {
+            this.ModelFactory = modelFactory;
+        }
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new User();
+            var user = this.ModelFactory.GetUser();
             user.UserName = Email.Text;
             user.Email = Email.Text;
             user.CompanyAddress = CompanyAddress.Text;

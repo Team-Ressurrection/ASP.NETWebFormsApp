@@ -1,9 +1,12 @@
 ﻿using System;
 
+using Ninject;
+
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
 using SalaryCalculator.Mvp.EventsArguments;
+using SalaryCalculator.Mvp.Factories;
 using SalaryCalculator.Mvp.Models;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
@@ -13,8 +16,22 @@ namespace SalaryCalculator.JobContracts
     [PresenterBinding(typeof(CreateFreelanceContractPresenter))]
     public partial class CreateFreelanceContract : MvpPage<CreateFreelanceContractModel>, ICreateFreelanceContractView
     {
-        public event EventHandler<SelfEmploymentEventArgs> CalculateSelfEmployment;
-        public event EventHandler<SelfEmploymentEventArgs> CreateSelfEmployment;
+        protected CreateFreelanceContract()
+        {
+
+        }
+
+        [Inject]
+        public CreateFreelanceContract(ISalaryCalculatorEventArgsFactory eventArgsFactory)
+        {
+            this.eventArgsFactory = eventArgsFactory;
+        }
+
+        [Inject]
+        public ISalaryCalculatorEventArgsFactory eventArgsFactory { get; set; }
+
+        public event EventHandler<ISelfEmploymentEventArgs> CalculateSelfEmployment;
+        public event EventHandler<ISelfEmploymentEventArgs> CreateSelfEmployment;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,7 +53,7 @@ namespace SalaryCalculator.JobContracts
             this.CalculateSocialSecurityContributions.Visible = false;
 
 
-            var args = new SelfEmploymentEventArgs((decimal.Parse)(this.SocialSecurityIncome.Text), 0, false);
+            var args = this.eventArgsFactory.GetSelfEmploymentEventArgs((decimal.Parse)(this.SocialSecurityIncome.Text), 0, false);
 
             this.CalculateSelfEmployment?.Invoke(this, args);
             this.CreateSelfEmployment?.Invoke(this.Model.SelfEmployment, args);

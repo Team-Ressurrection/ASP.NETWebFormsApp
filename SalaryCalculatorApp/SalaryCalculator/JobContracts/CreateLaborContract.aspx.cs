@@ -1,25 +1,39 @@
 ﻿using System;
 
+using Ninject;
+
 using WebFormsMvp;
 using WebFormsMvp.Binder;
 using WebFormsMvp.Web;
 
 using SalaryCalculator.Mvp.EventsArguments;
+using SalaryCalculator.Mvp.Factories;
 using SalaryCalculator.Mvp.Models;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
-using SalaryCalculator.Factories;
-using Ninject;
 
 namespace SalaryCalculator.JobContracts
 {
     [PresenterBinding(typeof(CreateLaborContractPresenter))]
     public partial class CreateLaborContract : MvpPage<CreateLaborContractModel>, ICreateLaborContractView
     {
+        [Inject]
+        public ISalaryCalculatorEventArgsFactory EventArgsFactory { get; set; }
 
-        public event EventHandler<PaycheckEventArgs> CalculatePaycheck;
+        protected CreateLaborContract()
+        {
 
-        public event EventHandler<PaycheckEventArgs> CreatePaycheck;
+        }
+
+        [Inject]
+        public CreateLaborContract(ISalaryCalculatorEventArgsFactory eventArgsFactory)
+        {
+            this.EventArgsFactory = eventArgsFactory;
+        }
+
+        public event EventHandler<IPaycheckEventArgs> CalculatePaycheck;
+
+        public event EventHandler<IPaycheckEventArgs> CreatePaycheck;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,7 +63,7 @@ namespace SalaryCalculator.JobContracts
             this.DetailsViewPaycheck.Visible = true;
 
 
-            var args = new PaycheckEventArgs((decimal.Parse)(this.GrossBaseSalary.Text), (decimal.Parse)(this.FixedBonus.Text), (decimal.Parse)(this.NonFixedBonus.Text));
+            var args = this.EventArgsFactory.GetPaycheckEventArgs((decimal.Parse)(this.GrossBaseSalary.Text), (decimal.Parse)(this.FixedBonus.Text), (decimal.Parse)(this.NonFixedBonus.Text));
 
             this.CalculatePaycheck?.Invoke(this, args);
             this.CreatePaycheck?.Invoke(this.Model.EmployeePaycheck, args);

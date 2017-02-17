@@ -20,6 +20,7 @@ using SalaryCalculator.Factories;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Utilities.Calculations;
+using SalaryCalculator.Mvp.Factories;
 
 namespace SalaryCalculator.App_Start
 {
@@ -50,8 +51,8 @@ namespace SalaryCalculator.App_Start
 
             this.Bind<Payroll>().ToSelf();
 
-            this.Bind<ISalaryCalculatorModelFactory>().ToFactory().InSingletonScope();
-            this.Bind<ISalaryCalculatorEventArgsFactory>().ToFactory().InSingletonScope();
+            this.Bind<ISalaryCalculatorModelFactory>().To<SalaryCalculatorModelFactory>().InSingletonScope();
+            this.Bind<ISalaryCalculatorEventArgsFactory>().To<SalaryCalculatorEventArgsFactory>().InSingletonScope();
             this.Bind<IPresenterFactory>().To<SalaryCalculatorPresenterFactory>().InSingletonScope();
 
             this.Bind<ISalaryCalculatorPresenterFactory>().ToFactory().InSingletonScope();

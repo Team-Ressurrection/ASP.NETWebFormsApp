@@ -1,8 +1,11 @@
 ﻿using System;
 
+using Ninject;
+
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
+using SalaryCalculator.Mvp.Factories;
 using SalaryCalculator.Mvp.Models;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
@@ -13,9 +16,23 @@ namespace SalaryCalculator.JobContracts
     [PresenterBinding(typeof(CreateNonLaborContractPresenter))]
     public partial class CreateNonLaborContract : MvpPage<CreateNonLaborContractModel>, ICreateNonLaborContractView
     {
-        public event EventHandler<RemunerationBillEventArgs> CalculateRemunerationBill;
+        [Inject]
+        public ISalaryCalculatorEventArgsFactory EventArgsFactory { get; set; }
 
-        public event EventHandler<RemunerationBillEventArgs> CreateRemunerationBill;
+        protected CreateNonLaborContract()
+        {
+
+        }
+
+        [Inject]
+        public CreateNonLaborContract(ISalaryCalculatorEventArgsFactory eventArgsFactory)
+        {
+            this.EventArgsFactory = eventArgsFactory;
+        }
+
+        public event EventHandler<IRemunerationBillEventArgs> CalculateRemunerationBill;
+
+        public event EventHandler<IRemunerationBillEventArgs> CreateRemunerationBill;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,7 +53,7 @@ namespace SalaryCalculator.JobContracts
             this.ContractValue.Visible = false;
             this.CalculateWage.Visible = false;
 
-            var args = new RemunerationBillEventArgs(decimal.Parse(this.ContractValue.Text));
+            var args = this.EventArgsFactory.GetRemunerationBillEventArgs(decimal.Parse(this.ContractValue.Text));
             this.CalculateRemunerationBill?.Invoke(this, args);
             this.CreateRemunerationBill?.Invoke(this.Model.RemunerationBill, args);
 
