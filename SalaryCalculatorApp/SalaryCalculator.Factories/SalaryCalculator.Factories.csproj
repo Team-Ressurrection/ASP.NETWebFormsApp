@@ -44,9 +44,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISalaryCalculatorEventArgsFactory.cs" />
     <Compile Include="ISalaryCalculatorModelFactory.cs" />
     <Compile Include="ISalaryCalculatorPresenterFactory.cs" />
+    <Compile Include="SalaryCalculatorModelFactory.cs" />
     <Compile Include="SalaryCalculatorPresenterFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,10 +57,6 @@
     <ProjectReference Include="..\SalaryCalculator.Data.Models\SalaryCalculator.Data.Models.csproj">
       <Project>{6749f324-ce2a-44fb-9607-bf9c2644afef}</Project>
       <Name>SalaryCalculator.Data.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SalaryCalculator.Mvp\SalaryCalculator.Mvp.csproj">
-      <Project>{5ce33e9e-de29-439f-b9f5-3ec6757d0b95}</Project>
-      <Name>SalaryCalculator.Mvp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
