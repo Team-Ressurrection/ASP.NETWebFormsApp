@@ -8,6 +8,7 @@ using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Factories;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenterTests
 {
@@ -19,27 +20,30 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
         {
             var view = new Mock<ICreateFreelanceContractView>();
             var service = new Mock<ISelfEmploymentService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            Assert.IsInstanceOf<ICreateFreelanceContractPresenter>(new CreateFreelanceContractPresenter(view.Object, service.Object, calculate));
+            Assert.IsInstanceOf<ICreateFreelanceContractPresenter>(new CreateFreelanceContractPresenter(view.Object, service.Object, modelFactory.Object,calculate));
         }
 
         [Test]
         public void Constructor_ShouldThrowArgumentNullException_WhenServiceParameterIsNull()
         {
             var view = new Mock<ICreateFreelanceContractView>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            Assert.Throws<ArgumentNullException>(() => new CreateFreelanceContractPresenter(view.Object, null, calculate));
+            Assert.Throws<ArgumentNullException>(() => new CreateFreelanceContractPresenter(view.Object, null, modelFactory.Object,calculate));
         }
 
         [Test]
         public void Constructor_ShouldThrowArgumentNullException_WhenCalculateParameterIsNull()
         {
             var view = new Mock<ICreateFreelanceContractView>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var service = new Mock<ISelfEmploymentService>();
 
-            Assert.Throws<ArgumentNullException>(() => new CreateFreelanceContractPresenter(view.Object, service.Object, null));
+            Assert.Throws<ArgumentNullException>(() => new CreateFreelanceContractPresenter(view.Object, service.Object, modelFactory.Object,null));
         }
     }
 }

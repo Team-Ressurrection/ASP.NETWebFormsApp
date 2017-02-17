@@ -9,6 +9,7 @@ using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Factories;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenterTests
 {
@@ -22,13 +23,15 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
         {
             var view = new Mock<ICreateFreelanceContractView>();
             var service = new Mock<ISelfEmploymentService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
             var e = new Mock<ISelfEmploymentEventArgs>();
             e.Setup(x => x.SocialSecurityIncome).Returns(obj1);
             e.Setup(x => x.AdditionalSocialSecurityIncome).Returns(obj2);
             e.Setup(x => x.IsInsuredForGeneralDiseaseAndMaternity).Returns(state);
+            modelFactory.Setup(x => x.GetSelfEmployment()).Returns(new FakeSelfEmployment());
 
             Assert.Throws<ArgumentOutOfRangeException>(() => presenter.CalculateSelfEmployment(new object { }, e.Object));
         }
@@ -38,15 +41,17 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
         {
             var view = new Mock<ICreateFreelanceContractView>();
             var service = new Mock<ISelfEmploymentService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object,modelFactory.Object, calculate);
             var e = new Mock<ISelfEmploymentEventArgs>();
 
             view.SetupProperty(x => x.Model.SelfEmployment, new FakeSelfEmployment());
             e.Setup(x => x.SocialSecurityIncome).Returns(obj1);
             e.Setup(x => x.AdditionalSocialSecurityIncome).Returns(obj2);
             e.Setup(x => x.IsInsuredForGeneralDiseaseAndMaternity).Returns(state);
+            modelFactory.Setup(x => x.GetSelfEmployment()).Returns(new FakeSelfEmployment());
 
             presenter.CalculateSelfEmployment(new object { }, e.Object);
 

@@ -10,6 +10,7 @@ using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Factories;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenterTests
 {
@@ -21,14 +22,16 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
         {
             var view = new Mock<ICreateFreelanceContractView>();
             var service = new Mock<ISelfEmploymentService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
             var obj = new object { };
             var salary = new decimal();
             var e = new Mock<SelfEmploymentEventArgs>(salary, 0m, false);
             var insurance = new FakeSelfEmployment();
             view.SetupGet(x => x.Model.SelfEmployment).Returns(insurance);
+            modelFactory.Setup(x => x.GetSelfEmployment()).Returns(new FakeSelfEmployment());
 
             presenter.CreateSelfEmployment(obj, e.Object);
 
@@ -40,14 +43,16 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
         {
             var view = new Mock<ICreateFreelanceContractView>();
             var service = new Mock<ISelfEmploymentService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
             var obj = new object { };
             var salary = new decimal();
             var e = new Mock<SelfEmploymentEventArgs>(salary, 0m, false);
             SelfEmployment insurance = null;
             view.SetupGet(x => x.Model.SelfEmployment).Returns(insurance);
+            modelFactory.Setup(x => x.GetSelfEmployment()).Returns(new FakeSelfEmployment());
 
             Assert.Throws<ArgumentNullException>(() => presenter.CreateSelfEmployment(obj, e.Object));
         }
