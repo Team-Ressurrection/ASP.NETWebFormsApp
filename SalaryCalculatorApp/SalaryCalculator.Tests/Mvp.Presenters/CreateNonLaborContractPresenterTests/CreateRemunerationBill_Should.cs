@@ -5,6 +5,7 @@ using Moq;
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Factories;
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
@@ -20,9 +21,10 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         {
             var view = new Mock<ICreateNonLaborContractView>();
             var service = new Mock<IRemunerationBillService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object,modelFactory.Object, calculate);
             var obj = new object { };
             var salary = new decimal();
             var e = new Mock<RemunerationBillEventArgs>(salary);
@@ -39,9 +41,10 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         {
             var view = new Mock<ICreateNonLaborContractView>();
             var service = new Mock<IRemunerationBillService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
             var obj = new object { };
             var salary = new decimal();
             var e = new Mock<RemunerationBillEventArgs>(salary);

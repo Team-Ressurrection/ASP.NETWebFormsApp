@@ -5,6 +5,7 @@ using Moq;
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Factories;
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
@@ -23,8 +24,9 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         {
             var view = new Mock<ICreateNonLaborContractView>();
             var service = new Mock<IRemunerationBillService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
             var e = new Mock<IRemunerationBillEventArgs>();
 
             e.Setup(x => x.GrossSalary).Returns(obj1);
@@ -37,14 +39,15 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         {
             var view = new Mock<ICreateNonLaborContractView>();
             var service = new Mock<IRemunerationBillService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object, calculate);
             var e = new Mock<IRemunerationBillEventArgs>();
 
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
             e.Setup(x => x.GrossSalary).Returns(obj1);
-
+            modelFactory.Setup(x => x.GetRemunerationBill()).Returns(new FakeRemunerationBill());
             presenter.CalculateRemunerationBill(new object { }, e.Object);
 
             Assert.AreEqual(obj1, view.Object.Model.RemunerationBill.SocialSecurityIncome);
@@ -58,13 +61,15 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         {
             var view = new Mock<ICreateNonLaborContractView>();
             var service = new Mock<IRemunerationBillService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object, calculate);
             var e = new Mock<IRemunerationBillEventArgs>();
 
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
             e.Setup(x => x.GrossSalary).Returns(obj1);
+            modelFactory.Setup(x => x.GetRemunerationBill()).Returns(new FakeRemunerationBill());
 
             presenter.CalculateRemunerationBill(new object { }, e.Object);
             var expectedGrossSalary = obj1;
@@ -79,12 +84,14 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         {
             var view = new Mock<ICreateNonLaborContractView>();
             var service = new Mock<IRemunerationBillService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object, calculate);
             var e = new Mock<IRemunerationBillEventArgs>();
 
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
+            modelFactory.Setup(x => x.GetRemunerationBill()).Returns(new FakeRemunerationBill());
             e.Setup(x => x.GrossSalary).Returns(obj1);
 
             presenter.CalculateRemunerationBill(new object { }, e.Object);

@@ -5,6 +5,7 @@ using Moq;
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Factories;
 using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
@@ -19,27 +20,30 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            Assert.IsInstanceOf<ICreateLaborContractPresenter>(new CreateLaborContractPresenter(view.Object, service.Object,calculate));
+            Assert.IsInstanceOf<ICreateLaborContractPresenter>(new CreateLaborContractPresenter(view.Object, service.Object,modelFactory.Object,calculate));
         }
 
         [Test]
         public void Constructor_ShouldThrowArgumentNullException_WhenServiceParameterIsNull()
         {
             var view = new Mock<ICreateLaborContractView>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            Assert.Throws<ArgumentNullException>(() => new CreateLaborContractPresenter(view.Object, null, calculate));
+            Assert.Throws<ArgumentNullException>(() => new CreateLaborContractPresenter(view.Object, null, modelFactory.Object,calculate));
         }
 
         [Test]
         public void Constructor_ShouldThrowArgumentNullException_WhenCalculateParameterIsNull()
         {
             var view = new Mock<ICreateLaborContractView>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var service = new Mock<IEmployeePaycheckService>();
 
-            Assert.Throws<ArgumentNullException>(() => new CreateLaborContractPresenter(view.Object, service.Object, null));
+            Assert.Throws<ArgumentNullException>(() => new CreateLaborContractPresenter(view.Object, service.Object, modelFactory.Object,null));
         }
     }
 }

@@ -9,6 +9,7 @@ using SalaryCalculator.Mvp.Presenters;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Tests.Mocks;
 using SalaryCalculator.Utilities.Constants;
+using SalaryCalculator.Factories;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTests
 {
@@ -25,12 +26,14 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
-            var presenter = new CreateLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateLaborContractPresenter(view.Object, service.Object, modelFactory.Object, calculate);
             var e = new Mock<IPaycheckEventArgs>();
             e.Setup(x => x.GrossSalary).Returns(obj1);
             e.Setup(x => x.GrossFixedBonus).Returns(obj2);
             e.Setup(x => x.GrossNonFixedBonus).Returns(obj3);
+            modelFactory.Setup(x => x.GetEmployeePaycheck()).Returns(new FakeEmployeePaycheck());
 
             Assert.Throws<ArgumentOutOfRangeException>(() => presenter.CalculatePaycheck(new object { }, e.Object));
         }
@@ -40,15 +43,17 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateLaborContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
             var e = new Mock<IPaycheckEventArgs>();
 
             view.SetupProperty(x => x.Model.EmployeePaycheck, new FakeEmployeePaycheck());
             e.Setup(x => x.GrossSalary).Returns(obj1);
             e.Setup(x => x.GrossFixedBonus).Returns(obj2);
             e.Setup(x => x.GrossNonFixedBonus).Returns(obj3);
+            modelFactory.Setup(x => x.GetEmployeePaycheck()).Returns(new FakeEmployeePaycheck());
 
             presenter.CalculatePaycheck(new object { }, e.Object);
 
@@ -65,12 +70,14 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateLaborContractPresenter(view.Object, service.Object, modelFactory.Object, calculate);
             var e = new Mock<IPaycheckEventArgs>();
 
             view.SetupProperty(x => x.Model.EmployeePaycheck, new FakeEmployeePaycheck());
+            modelFactory.Setup(x => x.GetEmployeePaycheck()).Returns(new FakeEmployeePaycheck());
             e.Setup(x => x.GrossSalary).Returns(obj1);
             e.Setup(x => x.GrossFixedBonus).Returns(obj2);
             e.Setup(x => x.GrossNonFixedBonus).Returns(obj3);
@@ -90,15 +97,17 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
         {
             var view = new Mock<ICreateLaborContractView>();
             var service = new Mock<IEmployeePaycheckService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateLaborContractPresenter(view.Object, service.Object, calculate);
+            var presenter = new CreateLaborContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
             var e = new Mock<IPaycheckEventArgs>();
 
             view.SetupProperty(x => x.Model.EmployeePaycheck, new FakeEmployeePaycheck());
             e.Setup(x => x.GrossSalary).Returns(obj1);
             e.Setup(x => x.GrossFixedBonus).Returns(obj2);
             e.Setup(x => x.GrossNonFixedBonus).Returns(obj3);
+            modelFactory.Setup(x => x.GetEmployeePaycheck()).Returns(new FakeEmployeePaycheck());
 
             presenter.CalculatePaycheck(new object { }, e.Object);
 
