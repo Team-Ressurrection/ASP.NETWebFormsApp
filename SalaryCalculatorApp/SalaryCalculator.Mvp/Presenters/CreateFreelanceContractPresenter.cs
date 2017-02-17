@@ -49,7 +49,7 @@ namespace SalaryCalculator.Mvp.Presenters
             bool isMaximum = this.Payroll.CheckMaxSocialSecurityIncome(e.SocialSecurityIncome);
             selfEmployment.SocialSecurityIncome = isMaximum ? ValidationConstants.MaxSocialSecurityIncome : e.SocialSecurityIncome;
 
-            selfEmployment.PersonalInsurance = this.Payroll.GetPersonalInsurance(selfEmployment.SocialSecurityIncome ,PersonalInsurancePercent);
+            selfEmployment.PersonalInsurance = this.Payroll.GetPersonalInsurance(selfEmployment.SocialSecurityIncome);
             selfEmployment.IncomeTax = (selfEmployment.GrossSalary - selfEmployment.PersonalInsurance)*IncomeTaxPercent;
 
             selfEmployment.NetWage = selfEmployment.GrossSalary - selfEmployment.PersonalInsurance - selfEmployment.IncomeTax;

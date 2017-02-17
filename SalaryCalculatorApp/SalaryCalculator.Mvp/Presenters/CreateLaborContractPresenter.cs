@@ -8,6 +8,7 @@ using WebFormsMvp;
 
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Factories;
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Utilities.Calculations;
@@ -17,12 +18,10 @@ namespace SalaryCalculator.Mvp.Presenters
 {
     public class CreateLaborContractPresenter : Presenter<ICreateLaborContractView>, ICreateLaborContractPresenter
     {
-        private const decimal PersonalInsurancePercent = 0.188m;
-        private const decimal IncomeTaxPercent = 0.1m;
-
         private readonly IEmployeePaycheckService paycheckService;
+        private readonly ISalaryCalculatorModelFactory modelFactory;
 
-        public CreateLaborContractPresenter(ICreateLaborContractView view, IEmployeePaycheckService paycheckService, Payroll calculate)
+        public CreateLaborContractPresenter(ICreateLaborContractView view, IEmployeePaycheckService paycheckService,ISalaryCalculatorModelFactory modelFactory ,Payroll calculate)
             : base(view)
         {
             Guard.WhenArgument<IEmployeePaycheckService>(paycheckService, "paycheckService").IsNull().Throw();
@@ -32,7 +31,7 @@ namespace SalaryCalculator.Mvp.Presenters
             this.paycheckService = paycheckService;
 
             this.Payroll = calculate;
-
+            this.modelFactory = modelFactory;
             this.View.CalculatePaycheck += CalculatePaycheck;
             this.View.CreatePaycheck += CreatePaycheck;
         }
@@ -45,7 +44,7 @@ namespace SalaryCalculator.Mvp.Presenters
             Guard.WhenArgument<decimal>(e.GrossNonFixedBonus, "GrossNonFixedBonus").IsLessThan(0).Throw();
             Guard.WhenArgument<decimal>(e.GrossSalary, "GrossSalary").IsLessThan(0).Throw();
 
-            var paycheck = new EmployeePaycheck();
+            var paycheck = this.modelFactory.GetEmployeePaycheck();
             paycheck.CreatedDate = DateTime.Now;
             paycheck.EmployeeId = 1;
             paycheck.GrossFixedBonus = e.GrossFixedBonus;
@@ -61,10 +60,11 @@ namespace SalaryCalculator.Mvp.Presenters
             bool isMaximum = this.Payroll.CheckMaxSocialSecurityIncome(grossSalary);
             paycheck.SocialSecurityIncome = isMaximum ? ValidationConstants.MaxSocialSecurityIncome : e.GrossFixedBonus + e.GrossNonFixedBonus + e.GrossSalary;
 
-            paycheck.PersonalInsurance = this.Payroll.GetPersonalInsurance(paycheck.SocialSecurityIncome ,PersonalInsurancePercent);
-            paycheck.IncomeTax = (grossSalary - paycheck.PersonalInsurance)*IncomeTaxPercent;
+            paycheck.PersonalInsurance = this.Payroll.GetPersonalInsurance(paycheck.SocialSecurityIncome);
 
-            paycheck.NetWage = grossSalary - paycheck.PersonalInsurance - paycheck.IncomeTax;
+            paycheck.IncomeTax = this.Payroll.GetIncomeTax(grossSalary, paycheck.PersonalInsurance);
+
+            paycheck.NetWage = this.Payroll.GetNetWage(grossSalary, paycheck.PersonalInsurance,paycheck.IncomeTax);
 
             this.View.Model.EmployeePaycheck = paycheck;
              

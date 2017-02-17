@@ -12,9 +12,19 @@ namespace SalaryCalculator.Utilities.Calculations
             return parameters.Sum();
         }
 
-        public decimal GetPersonalInsurance(decimal salary, decimal personalInsurancePercent)
+        public decimal GetIncomeTax(decimal grossSalary, decimal personalInsurance)
         {
-            return salary * personalInsurancePercent;
+            return (grossSalary - personalInsurance) * ValidationConstants.IncomeTaxPercent;
+        }
+
+        public decimal GetNetWage(decimal grossSalary, decimal personalInsurance, decimal incomeTax)
+        {
+            return grossSalary - personalInsurance - incomeTax;
+        }
+
+        public decimal GetPersonalInsurance(decimal salary)
+        {
+            return salary * ValidationConstants.PersonalInsurancePercent;
         }
 
         public bool CheckMaxSocialSecurityIncome(decimal parameter)
