@@ -25,7 +25,9 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
             var service = new Mock<IRemunerationBillService>();
             var calculate = new FakePayroll();
             var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
-            var e = new Mock<RemunerationBillEventArgs>(obj1);
+            var e = new Mock<IRemunerationBillEventArgs>();
+
+            e.Setup(x => x.GrossSalary).Returns(obj1);
 
             Assert.Throws<ArgumentOutOfRangeException>(() => presenter.CalculateRemunerationBill(new object { }, e.Object));
         }
@@ -38,9 +40,10 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
             var calculate = new FakePayroll();
 
             var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
-            var e = new Mock<RemunerationBillEventArgs>(obj1);
+            var e = new Mock<IRemunerationBillEventArgs>();
 
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
+            e.Setup(x => x.GrossSalary).Returns(obj1);
 
             presenter.CalculateRemunerationBill(new object { }, e.Object);
 
@@ -58,9 +61,10 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
             var calculate = new FakePayroll();
 
             var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
-            var e = new Mock<RemunerationBillEventArgs>(obj1);
+            var e = new Mock<IRemunerationBillEventArgs>();
 
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
+            e.Setup(x => x.GrossSalary).Returns(obj1);
 
             presenter.CalculateRemunerationBill(new object { }, e.Object);
             var expectedGrossSalary = obj1;
@@ -78,9 +82,10 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
             var calculate = new FakePayroll();
 
             var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, calculate);
-            var e = new Mock<RemunerationBillEventArgs>(obj1);
+            var e = new Mock<IRemunerationBillEventArgs>();
 
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
+            e.Setup(x => x.GrossSalary).Returns(obj1);
 
             presenter.CalculateRemunerationBill(new object { }, e.Object);
 

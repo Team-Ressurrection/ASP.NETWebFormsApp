@@ -25,7 +25,10 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
             var calculate = new FakePayroll();
 
             var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, calculate);
-            var e = new Mock<SelfEmploymentEventArgs>(obj1, obj2, state);
+            var e = new Mock<ISelfEmploymentEventArgs>();
+            e.Setup(x => x.SocialSecurityIncome).Returns(obj1);
+            e.Setup(x => x.AdditionalSocialSecurityIncome).Returns(obj2);
+            e.Setup(x => x.IsInsuredForGeneralDiseaseAndMaternity).Returns(state);
 
             Assert.Throws<ArgumentOutOfRangeException>(() => presenter.CalculateSelfEmployment(new object { }, e.Object));
         }
@@ -38,9 +41,12 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
             var calculate = new FakePayroll();
 
             var presenter = new CreateFreelanceContractPresenter(view.Object, service.Object, calculate);
-            var e = new Mock<SelfEmploymentEventArgs>(obj1, obj2, state);
+            var e = new Mock<ISelfEmploymentEventArgs>();
 
             view.SetupProperty(x => x.Model.SelfEmployment, new FakeSelfEmployment());
+            e.Setup(x => x.SocialSecurityIncome).Returns(obj1);
+            e.Setup(x => x.AdditionalSocialSecurityIncome).Returns(obj2);
+            e.Setup(x => x.IsInsuredForGeneralDiseaseAndMaternity).Returns(state);
 
             presenter.CalculateSelfEmployment(new object { }, e.Object);
 
