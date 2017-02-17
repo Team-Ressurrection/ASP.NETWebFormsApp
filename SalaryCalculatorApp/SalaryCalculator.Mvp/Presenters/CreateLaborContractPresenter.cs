@@ -39,7 +39,7 @@ namespace SalaryCalculator.Mvp.Presenters
 
         public Payroll Payroll { get; set; }
 
-        public void CalculatePaycheck(object sender, PaycheckEventArgs e)
+        public void CalculatePaycheck(object sender, IPaycheckEventArgs e)
         {
             Guard.WhenArgument<decimal>(e.GrossFixedBonus, "GrossFixedBonus").IsLessThan(0).Throw();
             Guard.WhenArgument<decimal>(e.GrossNonFixedBonus, "GrossNonFixedBonus").IsLessThan(0).Throw();
@@ -70,7 +70,7 @@ namespace SalaryCalculator.Mvp.Presenters
              
         }
 
-        public void CreatePaycheck(object sender, PaycheckEventArgs e)
+        public void CreatePaycheck(object sender, IPaycheckEventArgs e)
         {
             Guard.WhenArgument<EmployeePaycheck>(this.View.Model.EmployeePaycheck, "EmployeePaycheck").IsNull().IsNotInstanceOfType(typeof(EmployeePaycheck)).Throw();
 

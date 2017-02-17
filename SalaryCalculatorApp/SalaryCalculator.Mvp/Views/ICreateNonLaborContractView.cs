@@ -9,8 +9,8 @@ namespace SalaryCalculator.Mvp.Views
 {
     public interface ICreateNonLaborContractView : IView<CreateNonLaborContractModel>
     {
-        event EventHandler<RemunerationBillEventArgs> CalculateRemunerationBill;
+        event EventHandler<IRemunerationBillEventArgs> CalculateRemunerationBill;
 
-        event EventHandler<RemunerationBillEventArgs> CreateRemunerationBill;
+        event EventHandler<IRemunerationBillEventArgs> CreateRemunerationBill;
     }
 }

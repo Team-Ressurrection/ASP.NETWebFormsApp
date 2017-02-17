@@ -37,7 +37,7 @@ namespace SalaryCalculator.Mvp.Presenters
 
         public Payroll Payroll { get; set; }
 
-        public void CalculateSelfEmployment(object sender, SelfEmploymentEventArgs e)
+        public void CalculateSelfEmployment(object sender, ISelfEmploymentEventArgs e)
         {
             Guard.WhenArgument<decimal>(e.SocialSecurityIncome, "SocialSecurityIncome").IsLessThan(0).Throw();
 
@@ -57,7 +57,7 @@ namespace SalaryCalculator.Mvp.Presenters
             this.View.Model.SelfEmployment = selfEmployment;
         }
 
-        public void CreateSelfEmployment(object sender, SelfEmploymentEventArgs e)
+        public void CreateSelfEmployment(object sender, ISelfEmploymentEventArgs e)
         {
             Guard.WhenArgument<SelfEmployment>(this.View.Model.SelfEmployment, "SelfEmployment").IsNull().IsNotInstanceOfType(typeof(SelfEmployment)).Throw();
 

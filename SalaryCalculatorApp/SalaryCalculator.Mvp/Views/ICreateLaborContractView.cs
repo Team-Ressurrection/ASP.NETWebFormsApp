@@ -9,8 +9,8 @@ namespace SalaryCalculator.Mvp.Views
 {
     public interface ICreateLaborContractView : IView<CreateLaborContractModel>
     {
-        event EventHandler<PaycheckEventArgs> CalculatePaycheck;
+        event EventHandler<IPaycheckEventArgs> CalculatePaycheck;
 
-        event EventHandler<PaycheckEventArgs> CreatePaycheck;
+        event EventHandler<IPaycheckEventArgs> CreatePaycheck;
     }
 }

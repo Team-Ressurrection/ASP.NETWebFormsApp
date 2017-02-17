@@ -9,8 +9,8 @@ namespace SalaryCalculator.Mvp.Presenters
 {
    public interface ICreateLaborContractPresenter : IPresenter<ICreateLaborContractView>
     {
-        void CalculatePaycheck(object sender, PaycheckEventArgs e);
+        void CalculatePaycheck(object sender, IPaycheckEventArgs e);
 
-        void CreatePaycheck(object sender, PaycheckEventArgs e);
+        void CreatePaycheck(object sender, IPaycheckEventArgs e);
     }
 }

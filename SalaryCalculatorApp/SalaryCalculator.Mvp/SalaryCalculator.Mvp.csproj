@@ -80,6 +80,8 @@
     <Compile Include="EventsArguments\ISelfEmploymentEventArgs.cs" />
     <Compile Include="EventsArguments\RemunerationBillEventArgs.cs" />
     <Compile Include="EventsArguments\PaycheckEventArgs.cs" />
+    <Compile Include="Factories\ISalaryCalculatorEventArgsFactory.cs" />
+    <Compile Include="Factories\SalaryCalculatorEventArgsFactory.cs" />
     <Compile Include="Models\AdministratorSettingsModel.cs" />
     <Compile Include="Models\CreateFreelanceContractModel.cs" />
     <Compile Include="Models\CreateNonLaborContractModel.cs" />
@@ -131,6 +133,10 @@
     <ProjectReference Include="..\SalaryCalculator.Data.Services\SalaryCalculator.Data.Services.csproj">
       <Project>{22D57E20-40F1-45D7-A553-9F8044F54549}</Project>
       <Name>SalaryCalculator.Data.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalaryCalculator.Factories\SalaryCalculator.Factories.csproj">
+      <Project>{11500d95-e0ba-4a26-8802-f7a715611de3}</Project>
+      <Name>SalaryCalculator.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\SalaryCalculator.Utilities\SalaryCalculator.Utilities.csproj">
       <Project>{58451649-ff7c-4b3a-b2c7-fff229d034f2}</Project>

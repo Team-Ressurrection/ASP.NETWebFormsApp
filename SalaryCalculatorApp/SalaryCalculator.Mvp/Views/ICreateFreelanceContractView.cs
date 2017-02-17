@@ -9,8 +9,8 @@ namespace SalaryCalculator.Mvp.Views
 {
     public interface ICreateFreelanceContractView : IView<CreateFreelanceContractModel>
     {
-        event EventHandler<SelfEmploymentEventArgs> CalculateSelfEmployment;
+        event EventHandler<ISelfEmploymentEventArgs> CalculateSelfEmployment;
 
-        event EventHandler<SelfEmploymentEventArgs> CreateSelfEmployment;
+        event EventHandler<ISelfEmploymentEventArgs> CreateSelfEmployment;
     }
 }

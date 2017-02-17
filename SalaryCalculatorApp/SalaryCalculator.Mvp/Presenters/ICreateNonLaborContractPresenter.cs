@@ -9,8 +9,8 @@ namespace SalaryCalculator.Mvp.Presenters
 {
    public interface ICreateNonLaborContractPresenter : IPresenter<ICreateNonLaborContractView>
     {
-        void CalculateRemunerationBill(object sender, RemunerationBillEventArgs e);
+        void CalculateRemunerationBill(object sender, IRemunerationBillEventArgs e);
 
-        void CreateRemunerationBill(object sender, RemunerationBillEventArgs e);
+        void CreateRemunerationBill(object sender, IRemunerationBillEventArgs e);
     }
 }

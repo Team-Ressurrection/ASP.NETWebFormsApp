@@ -12,6 +12,7 @@ using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Views;
 using SalaryCalculator.Utilities.Calculations;
 using SalaryCalculator.Utilities.Constants;
+using SalaryCalculator.Factories;
 
 namespace SalaryCalculator.Mvp.Presenters
 {
@@ -21,6 +22,7 @@ namespace SalaryCalculator.Mvp.Presenters
         private const decimal IncomeTaxPercent = 0.1m;
 
         private readonly IRemunerationBillService remunerationBillService;
+        private readonly ISalaryCalculatorModelFactory modelFactory;
 
         public CreateNonLaborContractPresenter(ICreateNonLaborContractView view, IRemunerationBillService remunerationBillService, Payroll calculate)
             : base(view)
@@ -40,7 +42,7 @@ namespace SalaryCalculator.Mvp.Presenters
 
         public Payroll Payroll { get; set; }
 
-        public void CalculateRemunerationBill(object sender, RemunerationBillEventArgs e)
+        public void CalculateRemunerationBill(object sender, IRemunerationBillEventArgs e)
         {
             Guard.WhenArgument<decimal>(e.GrossSalary, "GrossSalary").IsLessThan(0).Throw();
 
@@ -60,7 +62,7 @@ namespace SalaryCalculator.Mvp.Presenters
             this.View.Model.RemunerationBill = remunerationBill;
         }
 
-        public void CreateRemunerationBill(object sender, RemunerationBillEventArgs e)
+        public void CreateRemunerationBill(object sender, IRemunerationBillEventArgs e)
         {
             Guard.WhenArgument<RemunerationBill>(this.View.Model.RemunerationBill, "RemunerationBill").IsNull().IsNotInstanceOfType(typeof(RemunerationBill)).Throw();
 

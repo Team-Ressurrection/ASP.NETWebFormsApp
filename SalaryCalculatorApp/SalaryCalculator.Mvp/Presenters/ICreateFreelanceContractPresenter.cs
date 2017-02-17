@@ -9,8 +9,8 @@ namespace SalaryCalculator.Mvp.Presenters
 {
    public interface ICreateFreelanceContractPresenter : IPresenter<ICreateFreelanceContractView>
     {
-        void CalculateSelfEmployment(object sender, SelfEmploymentEventArgs e);
+        void CalculateSelfEmployment(object sender, ISelfEmploymentEventArgs e);
 
-        void CreateSelfEmployment(object sender, SelfEmploymentEventArgs e);
+        void CreateSelfEmployment(object sender, ISelfEmploymentEventArgs e);
     }
 }
