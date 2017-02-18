@@ -74,8 +74,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsArguments\IModelIdEventArgs.cs" />
     <Compile Include="EventsArguments\IRemunerationBillEventArgs.cs" />
     <Compile Include="EventsArguments\IPaycheckEventArgs.cs" />
+    <Compile Include="EventsArguments\ModelIdEventArgs.cs" />
     <Compile Include="EventsArguments\SelfEmploymentEventArgs.cs" />
     <Compile Include="EventsArguments\ISelfEmploymentEventArgs.cs" />
     <Compile Include="EventsArguments\RemunerationBillEventArgs.cs" />

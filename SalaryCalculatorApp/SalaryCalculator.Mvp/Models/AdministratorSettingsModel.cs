@@ -11,5 +11,7 @@ namespace SalaryCalculator.Mvp.Models
         public virtual IEnumerable<EmployeePaycheck> LaborContracts { get; set; }
 
         public virtual IEnumerable<RemunerationBill> NonLaborContracts { get; set; }
+
+        public virtual EmployeePaycheck EmployeePaycheck { get; set; }
     }
 }
