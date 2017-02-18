@@ -2,7 +2,7 @@
 
 using NUnit.Framework;
 
-using SalaryCalculator.Mvp.Models;
+using SalaryCalculator.Mvp.Models.Reports;
 using SalaryCalculator.Tests.Mocks;
 
 namespace SalaryCalculator.Tests.Mvp.Models.ReportNonLaborTests

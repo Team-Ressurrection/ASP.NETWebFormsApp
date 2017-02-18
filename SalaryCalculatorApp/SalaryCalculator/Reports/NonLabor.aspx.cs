@@ -5,9 +5,9 @@ using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-using SalaryCalculator.Mvp.Models;
-using SalaryCalculator.Mvp.Presenters;
-using SalaryCalculator.Mvp.Views;
+using SalaryCalculator.Mvp.Models.Reports;
+using SalaryCalculator.Mvp.Presenters.Reports;
+using SalaryCalculator.Mvp.Views.Reports;
 
 namespace SalaryCalculator.Reports
 {

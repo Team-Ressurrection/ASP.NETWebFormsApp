@@ -13,14 +13,16 @@ using WebFormsMvp.Binder;
 
 using SalaryCalculator.Data;
 using SalaryCalculator.Data.Contracts;
+using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Repositories;
 using SalaryCalculator.Data.Services;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Factories;
-using SalaryCalculator.Mvp.Presenters;
-using SalaryCalculator.Data.Models;
-using SalaryCalculator.Utilities.Calculations;
 using SalaryCalculator.Mvp.Factories;
+using SalaryCalculator.Mvp.Presenters.Account;
+using SalaryCalculator.Mvp.Presenters.JobContracts;
+using SalaryCalculator.Mvp.Presenters.Reports;
+using SalaryCalculator.Utilities.Calculations;
 
 namespace SalaryCalculator.App_Start
 {

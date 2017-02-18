@@ -1,10 +1,7 @@
-﻿using SalaryCalculator.Mvp.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SalaryCalculator.Mvp.Models;
+﻿using System;
+
+using SalaryCalculator.Mvp.Models.Reports;
+using SalaryCalculator.Mvp.Views.Reports;
 
 namespace SalaryCalculator.Tests.Mocks
 {

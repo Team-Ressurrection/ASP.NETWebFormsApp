@@ -3,9 +3,9 @@
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-using SalaryCalculator.Mvp.Models;
-using SalaryCalculator.Mvp.Presenters;
-using SalaryCalculator.Mvp.Views;
+using SalaryCalculator.Mvp.Models.Account;
+using SalaryCalculator.Mvp.Presenters.Account;
+using SalaryCalculator.Mvp.Views.Account;
 
 namespace SalaryCalculator.Account
 {

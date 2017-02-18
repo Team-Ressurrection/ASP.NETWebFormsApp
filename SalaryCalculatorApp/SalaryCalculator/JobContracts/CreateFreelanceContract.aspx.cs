@@ -7,9 +7,9 @@ using WebFormsMvp.Web;
 
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Factories;
-using SalaryCalculator.Mvp.Models;
-using SalaryCalculator.Mvp.Presenters;
-using SalaryCalculator.Mvp.Views;
+using SalaryCalculator.Mvp.Models.JobContracts;
+using SalaryCalculator.Mvp.Presenters.JobContracts;
+using SalaryCalculator.Mvp.Views.JobContracts;
 
 namespace SalaryCalculator.JobContracts
 {

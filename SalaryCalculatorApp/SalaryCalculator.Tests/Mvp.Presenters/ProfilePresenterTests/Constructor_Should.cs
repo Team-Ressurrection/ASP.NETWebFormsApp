@@ -5,8 +5,8 @@ using Moq;
 using NUnit.Framework;
 
 using SalaryCalculator.Data.Services.Contracts;
-using SalaryCalculator.Mvp.Presenters;
-using SalaryCalculator.Mvp.Views;
+using SalaryCalculator.Mvp.Presenters.Account;
+using SalaryCalculator.Mvp.Views.Account;
 
 namespace SalaryCalculator.Tests.Mvp.Presenter.ProfilePresenterTests
 {

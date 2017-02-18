@@ -7,8 +7,8 @@ using NUnit.Framework;
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
-using SalaryCalculator.Mvp.Presenters;
-using SalaryCalculator.Mvp.Views;
+using SalaryCalculator.Mvp.Presenters.Reports;
+using SalaryCalculator.Mvp.Views.Reports;
 using SalaryCalculator.Tests.Mocks;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters.ReportNonLaborPresenterTests
