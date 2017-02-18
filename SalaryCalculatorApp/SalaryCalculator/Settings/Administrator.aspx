@@ -4,6 +4,7 @@
     <asp:ListView ID="LaborContracts" runat="server" ItemType="SalaryCalculator.Data.Models.EmployeePaycheck"
         SelectMethod="AllLaborContracts_GetData"
         UpdateMethod="LaborContracts_UpdateContract"
+        DeleteMethod="LaborContracts_DeleteContract"
         InsertItemPosition="LastItem"
         DataKeyNames="Id">
         <LayoutTemplate>

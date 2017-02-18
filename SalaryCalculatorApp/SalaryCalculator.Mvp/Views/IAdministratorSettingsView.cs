@@ -16,6 +16,8 @@ namespace SalaryCalculator.Mvp.Views
 
         event EventHandler<EventArgs> GetAllFreelanceContracts;
 
+        event EventHandler<ModelIdEventArgs> DeletePaycheck;
+
         event EventHandler<ModelIdEventArgs> UpdatePaycheck;
 
         ModelStateDictionary ModelState { get; }

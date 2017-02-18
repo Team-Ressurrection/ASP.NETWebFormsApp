@@ -40,6 +40,12 @@ namespace SalaryCalculator.Mvp.Presenters
             this.View.GetAllLaborContracts += GetAllLaborContracts;
             this.View.GetAllNonLaborContracts += GetAllNonLaborContracts;
             this.View.UpdatePaycheck += View_UpdatePaycheck;
+            this.View.DeletePaycheck += View_DeletePaycheck;
+        }
+
+        private void View_DeletePaycheck(object sender, ModelIdEventArgs e)
+        {
+            this.paycheckService.DeleteById(e.Id);
         }
 
         private void View_UpdatePaycheck(object sender, ModelIdEventArgs e)
