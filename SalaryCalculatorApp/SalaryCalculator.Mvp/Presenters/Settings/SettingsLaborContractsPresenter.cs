@@ -29,12 +29,12 @@ namespace SalaryCalculator.Mvp.Presenters.Settings
             this.View.DeleteModel += View_DeletePaycheck;
         }
 
-        private void View_DeletePaycheck(object sender, ModelIdEventArgs e)
+        private void View_DeletePaycheck(object sender, IModelIdEventArgs e)
         {
             this.paycheckService.DeleteById(e.Id);
         }
 
-        private void View_UpdatePaycheck(object sender, ModelIdEventArgs e)
+        private void View_UpdatePaycheck(object sender, IModelIdEventArgs e)
         {
             EmployeePaycheck paycheck = this.paycheckService.GetById(e.Id);
             if (paycheck == null)

@@ -9,5 +9,7 @@ namespace SalaryCalculator.Mvp.Factories
         IRemunerationBillEventArgs GetRemunerationBillEventArgs(decimal grossSalary);
 
         ISelfEmploymentEventArgs GetSelfEmploymentEventArgs(decimal socialSecurityIncome, decimal additionalSocialSecurityIncome = 0, bool isInsuredForGDM = false);
+
+        IModelIdEventArgs GetModelIdEventArgs(int id);
     }
 }

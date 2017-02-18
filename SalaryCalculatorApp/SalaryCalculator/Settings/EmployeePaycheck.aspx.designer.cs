@@ -10,7 +10,7 @@
 namespace SalaryCalculator.Settings {
     
     
-    public partial class Administrator {
+    public partial class EmployeePaycheck {
         
         /// <summary>
         /// LaborContracts control.

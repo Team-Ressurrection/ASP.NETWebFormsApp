@@ -10,11 +10,11 @@ namespace SalaryCalculator.Mvp.Views.Settings
 {
    public interface ISettingsNonLaborContractsView : IView<SettingsNonLaborContractsModel>
     {
-        event EventHandler<EventArgs> GetAllNonLaborContracts;
+        event EventHandler GetAllNonLaborContracts;
 
-        event EventHandler<ModelIdEventArgs> DeleteModel;
+        event EventHandler<IModelIdEventArgs> DeleteModel;
 
-        event EventHandler<ModelIdEventArgs> UpdateModel;
+        event EventHandler<IModelIdEventArgs> UpdateModel;
 
         ModelStateDictionary ModelState { get; }
 

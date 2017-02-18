@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="EmployeePaycheck.aspx.cs" Inherits="SalaryCalculator.Settings.Administrator" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="EmployeePaycheck.aspx.cs" Inherits="SalaryCalculator.Settings.EmployeePaycheck" %>
 
 <asp:Content ID="ContentBody" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ListView ID="LaborContracts" runat="server" ItemType="SalaryCalculator.Data.Models.EmployeePaycheck"
@@ -113,69 +113,22 @@
                 <td>
                     <asp:TextBox runat="server" ID="TextBoxNetWage" Text="<%#: BindItem.NetWage %>" />
                 </td>
-
-
                 <td>
-                    <asp:Button runat="server" ID="LinkButtonEdit" Text="Save" CommandName="Update" CssClass="btn btn-success" />
-                    <asp:Button runat="server" ID="LinkButtonDelete" Text="Cancel" CommandName="Cancel" CssClass="btn btn-danger" />
+                    <asp:Button runat="server" ID="Button1" Text="Save" CommandName="Update" CssClass="btn btn-success" />
+                    <asp:Button runat="server" ID="Button2" Text="Cancel" CommandName="Cancel" CssClass="btn btn-danger" />
                 </td>
             </tr>
         </EditItemTemplate>
         <InsertItemTemplate>
             <tr>
                 <td>
-                    <%-- <asp:TextBox runat="server" ID="TextBoxName" Text="<%#: BindItem.Employee.FirstName %>" />--%>
+                    <asp:TextBox runat="server" ID="TextBoxName" Text="<%#: BindItem.Employee.FirstName %>" />
                 </td>
                 <td>
-                    <asp:LinkButton runat="server" ID="LinkButtonEdit" Text="Insert" CommandName="Insert" />
-                    <asp:LinkButton runat="server" ID="LinkButtonDelete" Text="Cancel" CommandName="Cancel" />
+                    <asp:LinkButton runat="server" ID="LinkButton1" Text="Insert" CommandName="Insert" />
+                    <asp:LinkButton runat="server" ID="LinkButton2" Text="Cancel" CommandName="Cancel" />
                 </td>
             </tr>
         </InsertItemTemplate>
     </asp:ListView>
-
-    <%--    <asp:GridView ID="AllNonLaborContracts"
-        runat="server"
-        AutoGenerateColumns="true"
-        CssClass="jumbotron"
-        AllowPaging="true"
-        PageSize="5"
-        PageIndex="1"
-        OnPageIndexChanging="AllNonLaborContracts_PageIndexChanging">
-        <Columns>
-            <asp:TemplateField HeaderText="Employee Name">
-                <ItemTemplate>
-                    <%--<%#: Eval("Employee.FirstName") %>
-                    <%#: Eval("Employee.MiddleName") %>
-                    <%#: Eval("Employee.LastName") %>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>--%>
 </asp:Content>
-
-<%--<asp:Content runat="server" ContentPlaceHolderID="MainContent" CssClass="jumbotron">
-    <h1>Administrator settings</h1>
-
-    <asp:GridView ID="AllLaborContracts" 
-                  runat="server"
-                  SelectMethod="AllLaborContracts_GetData"
-                  AutoGenerateColumns="true"
-                  CssClass="jumbotron"
-                  AllowPaging="false"
-                  PageSize="5"
-                  PageIndex="1"
-                  OnPageIndexChanging="AllLaborContracts_PageIndexChanging">
-        <Columns>
-            <asp:TemplateField HeaderText="Employee Name">
-                <ItemTemplate>
-                    <%#: Eval("Employee.FirstName") %>  
-                    <%#: Eval("Employee.MiddleName") %> 
-                    <%#: Eval("Employee.LastName") %> 
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
-
-        
-</asp:Content>--%>

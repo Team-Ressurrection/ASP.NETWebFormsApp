@@ -29,12 +29,12 @@ namespace SalaryCalculator.Mvp.Presenters.Settings
             this.View.DeleteModel += View_DeleteRemunerationBill;
         }
 
-        public void View_DeleteRemunerationBill(object sender, ModelIdEventArgs e)
+        public void View_DeleteRemunerationBill(object sender, IModelIdEventArgs e)
         {
             this.remunerationBillService.DeleteById(e.Id);
         }
 
-        public void View_UpdateRemunerationBill(object sender, ModelIdEventArgs e)
+        public void View_UpdateRemunerationBill(object sender, IModelIdEventArgs e)
         {
             RemunerationBill bill = this.remunerationBillService.GetById(e.Id);
             if (bill == null)

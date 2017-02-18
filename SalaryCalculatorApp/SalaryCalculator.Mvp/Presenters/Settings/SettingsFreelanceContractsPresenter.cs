@@ -29,12 +29,12 @@ namespace SalaryCalculator.Mvp.Presenters.Settings
             this.View.DeleteModel += View_DeleteSelfEmployment;
         }
 
-        public void View_DeleteSelfEmployment(object sender, ModelIdEventArgs e)
+        public void View_DeleteSelfEmployment(object sender, IModelIdEventArgs e)
         {
             this.selfEmploymentService.DeleteById(e.Id);
         }
 
-        public void View_UpdateSelfEmployment(object sender, ModelIdEventArgs e)
+        public void View_UpdateSelfEmployment(object sender, IModelIdEventArgs e)
         {
             SelfEmployment selfEmployment = this.selfEmploymentService.GetById(e.Id);
             if (selfEmployment == null)

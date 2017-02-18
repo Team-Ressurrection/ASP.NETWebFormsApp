@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Linq;
 
+using Ninject;
+
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-using SalaryCalculator.Data.Models;
 using SalaryCalculator.Mvp.EventsArguments;
+using SalaryCalculator.Mvp.Factories;
 using SalaryCalculator.Mvp.Models.Settings;
 using SalaryCalculator.Mvp.Presenters.Settings;
 using SalaryCalculator.Mvp.Views.Settings;
@@ -13,19 +15,33 @@ using SalaryCalculator.Mvp.Views.Settings;
 namespace SalaryCalculator.Settings
 {
     [PresenterBinding(typeof(SettingsLaborContractsPresenter))]
-    public partial class Administrator : MvpPage<SettingsLaborContractsModel>, ISettingsLaborContractsView
+    public partial class EmployeePaycheck : MvpPage<SettingsLaborContractsModel>, ISettingsLaborContractsView
     {
-        public event EventHandler<EventArgs> GetAllLaborContracts;
-        public event EventHandler<ModelIdEventArgs> UpdateModel;
-        public event EventHandler<ModelIdEventArgs> DeleteModel;
+        public event EventHandler GetAllLaborContracts;
+        public event EventHandler<IModelIdEventArgs> UpdateModel;
+        public event EventHandler<IModelIdEventArgs> DeleteModel;
+
+        protected EmployeePaycheck()
+        {
+
+        }
+
+        [Inject]
+        public EmployeePaycheck(ISalaryCalculatorEventArgsFactory eventArgsFactory)
+        {
+            this.EventArgsFactory = eventArgsFactory;
+        }
+
+        [Inject]
+        public ISalaryCalculatorEventArgsFactory EventArgsFactory { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
         }
 
-        public IQueryable<EmployeePaycheck> AllLaborContracts_GetData()
+        public IQueryable<SalaryCalculator.Data.Models.EmployeePaycheck> AllLaborContracts_GetData()
         {
-            this.GetAllLaborContracts?.Invoke(this, new EventArgs());
+            this.GetAllLaborContracts?.Invoke(this, null);
 
             return this.Model.LaborContracts.AsQueryable();
         }
@@ -33,13 +49,13 @@ namespace SalaryCalculator.Settings
         // The id parameter name should match the DataKeyNames value set on the control
         public void LaborContracts_UpdateContract(int id)
         {
-            this.UpdateModel?.Invoke(this, new ModelIdEventArgs(id));
+            this.UpdateModel?.Invoke(this, this.EventArgsFactory.GetModelIdEventArgs(id));
         }
 
         // The id parameter name should match the DataKeyNames value set on the control
         public void LaborContracts_DeleteContract(int id)
         {
-            this.DeleteModel?.Invoke(this, new ModelIdEventArgs(id));
+            this.DeleteModel?.Invoke(this, this.EventArgsFactory.GetModelIdEventArgs(id));
         }
     }
 }
