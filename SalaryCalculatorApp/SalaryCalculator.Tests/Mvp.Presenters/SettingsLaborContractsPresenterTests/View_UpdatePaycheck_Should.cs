@@ -1,0 +1,40 @@
+﻿using Moq;
+using NUnit.Framework;
+using SalaryCalculator.Data.Models;
+using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Mvp.EventsArguments;
+using SalaryCalculator.Mvp.Presenters.Settings;
+using SalaryCalculator.Mvp.Views.Settings;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.ModelBinding;
+
+namespace SalaryCalculator.Tests.Mvp.Presenters.SettingsLaborContractsPresenterTests
+{
+    [TestFixture]
+    public class View_UpdatePaycheck_Should
+    {
+        [Test]
+        public void AddModelError_WhenItemIsNotFound()
+        {
+            var view = new Mock<ISettingsLaborContractsView>();
+            view.Setup(v => v.ModelState).Returns(new ModelStateDictionary());
+            string errorKey = string.Empty;
+            int paycheckId = 1;
+            string expectedError = String.Format("EmployeePaycheck with id {0} was not found", paycheckId);
+            var paycheckService = new Mock<IEmployeePaycheckService>();
+            paycheckService.Setup(c => c.GetById(paycheckId)).Returns<EmployeePaycheck>(null);
+
+            ISettingsLaborContractsPresenter presenter = new SettingsLaborContractsPresenter
+                (view.Object, paycheckService.Object);
+
+            view.Raise(v => v.UpdateModel += null, new ModelIdEventArgs(paycheckId));
+
+            Assert.AreEqual(1, view.Object.ModelState[errorKey].Errors.Count);
+            StringAssert.AreEqualIgnoringCase(expectedError, view.Object.ModelState[errorKey].Errors[0].ErrorMessage);
+        }
+    }
+}

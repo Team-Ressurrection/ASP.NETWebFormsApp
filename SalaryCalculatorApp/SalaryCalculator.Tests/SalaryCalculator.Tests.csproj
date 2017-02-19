@@ -164,7 +164,11 @@
     <Compile Include="Mvp.Models\ReportNonLaborTests\Properties_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsFreelanceContractsPresenterTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsFreelanceContractsPresenterTests\GetAllFreelanceContracts_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsFreelanceContractsPresenterTests\View_DeleteSelfEmployment_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsFreelanceContractsPresenterTests\View_UpdateSelfEmployment_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsLaborContractsPresenterTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsLaborContractsPresenterTests\View_DeletePaycheck_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsLaborContractsPresenterTests\View_UpdatePaycheck_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsNonLaborContractsPresenterTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsNonLaborContractsPresenterTests\GetAllNonLaborContracts_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsLaborContractsPresenterTests\GetAllLaborContracts_Should.cs" />
@@ -184,8 +188,15 @@
     <Compile Include="Mvp.Presenters\ReportLaborPresenterTests\GetAll_Should.cs" />
     <Compile Include="Mvp.Presenters\ReportNonLaborPresenterTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Presenters\ReportNonLaborPresenterTests\GetAll_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsNonLaborContractsPresenterTests\View_DeleteSelfEmployment_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsNonLaborContractsPresenterTests\View_UpdateSelfEmployment_Should.cs" />
     <Compile Include="Mvp.Views\ReportNonLaborViewTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\CheckSocialSecurityIncome_Should.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\GetIncomeTax_Should.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\GetGrossSalary_Should.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\GetNetWage_Should.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\GetPersonalInsurance_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SalaryCalculator.Data.Models\SalaryCalculator.Data.Models.csproj">

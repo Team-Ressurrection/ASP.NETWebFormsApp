@@ -1,6 +1,8 @@
-﻿namespace SalaryCalculator.Mvp.EventsArguments
+﻿using System;
+
+namespace SalaryCalculator.Mvp.EventsArguments
 {
-    public class ModelIdEventArgs : IModelIdEventArgs
+    public class ModelIdEventArgs : EventArgs,IModelIdEventArgs
     {
         public ModelIdEventArgs(int id)
         {
