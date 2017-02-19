@@ -166,6 +166,10 @@
     <Compile Include="Mvp.Models\ReportLaborModelTests\Properties_Should.cs" />
     <Compile Include="Mvp.Models\ReportNonLaborTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Models\ReportNonLaborTests\Properties_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsEmployeesPresenterTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsEmployeesPresenterTests\GetAllEmployees_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsEmployeesPresenterTests\View_DeleteEmployee_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsEmployeesPresenterTests\View_UpdateEmployee_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsFreelanceContractsPresenterTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsFreelanceContractsPresenterTests\GetAllFreelanceContracts_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsFreelanceContractsPresenterTests\View_DeleteSelfEmployment_Should.cs" />
@@ -237,7 +241,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mvp.Presenters\AdministratorSettingsPresenterTests\" />
+    <Folder Include="Mvp.Presenters\SettingsUsersPresenterTests\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

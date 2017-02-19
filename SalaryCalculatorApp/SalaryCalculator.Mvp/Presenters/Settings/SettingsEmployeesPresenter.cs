@@ -29,18 +29,18 @@ namespace SalaryCalculator.Mvp.Presenters.Settings
             this.View.DeleteModel += View_DeleteEmployee;
         }
 
-        private void View_DeleteEmployee(object sender, IModelIdEventArgs e)
+        public void View_DeleteEmployee(object sender, IModelIdEventArgs e)
         {
             this.employeeService.DeleteById(e.Id);
         }
 
-        private void View_UpdateEmployee(object sender, IModelIdEventArgs e)
+        public void View_UpdateEmployee(object sender, IModelIdEventArgs e)
         {
             Employee employee = this.employeeService.GetById(e.Id);
 
             if (employee == null)
             {
-                this.View.ModelState.AddModelError("", string.Format("Employee with id {0} was not found", e.UserId));
+                this.View.ModelState.AddModelError("", string.Format("Employee with id {0} was not found", e.Id));
                 return;
             }
             this.View.TryUpdateModel(employee);
@@ -50,7 +50,7 @@ namespace SalaryCalculator.Mvp.Presenters.Settings
             }
         }
 
-        private void View_GetAllEmployees(object sender, EventArgs e)
+        public void View_GetAllEmployees(object sender, EventArgs e)
         {
             this.View.Model.Employees = this.employeeService.GetAll();
         }
