@@ -34,6 +34,8 @@ namespace SalaryCalculator.JobContracts
 
         public event EventHandler<IRemunerationBillEventArgs> CreateRemunerationBill;
 
+        public event EventHandler<IEmployeeEventArgs> GetEmployee;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -47,11 +49,16 @@ namespace SalaryCalculator.JobContracts
             this.MiddleName.Visible = false;
             this.LastNameLabel.Visible = false;
             this.LastName.Visible = false;
-            this.BirthDateLabel.Visible = false;
-            this.BirthDate.Visible = false;
+            this.PersonalIdLabel.Visible = false;
+            this.PersonalId.Visible = false;
+            this.CreatedDateLabel.Visible = false;
+            this.CreatedDate.Visible = false;
             this.ContractValueLabel.Visible = false;
             this.ContractValue.Visible = false;
             this.CalculateWage.Visible = false;
+
+            var employeeArgs = this.EventArgsFactory.GetEmployeeEventArgs(this.FirstName.Text, this.MiddleName.Text, this.LastName.Text, this.PersonalId.Text);
+            this.GetEmployee?.Invoke(this, employeeArgs);
 
             var args = this.EventArgsFactory.GetRemunerationBillEventArgs(decimal.Parse(this.ContractValue.Text));
             this.CalculateRemunerationBill?.Invoke(this, args);

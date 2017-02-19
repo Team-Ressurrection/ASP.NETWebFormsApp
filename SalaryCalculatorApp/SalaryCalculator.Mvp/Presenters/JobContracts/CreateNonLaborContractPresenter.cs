@@ -6,36 +6,55 @@ using WebFormsMvp;
 
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Factories;
 using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Views.JobContracts;
 using SalaryCalculator.Utilities.Calculations;
 using SalaryCalculator.Utilities.Constants;
-using SalaryCalculator.Factories;
 
 namespace SalaryCalculator.Mvp.Presenters.JobContracts
 {
     public class CreateNonLaborContractPresenter : Presenter<ICreateNonLaborContractView>, ICreateNonLaborContractPresenter
     {
         private readonly IRemunerationBillService remunerationBillService;
+        private readonly IEmployeeService employeeService;
         private readonly ISalaryCalculatorModelFactory modelFactory;
 
-        public CreateNonLaborContractPresenter(ICreateNonLaborContractView view, IRemunerationBillService remunerationBillService, ISalaryCalculatorModelFactory modelFactory,Payroll calculate)
+        public CreateNonLaborContractPresenter(ICreateNonLaborContractView view, IRemunerationBillService remunerationBillService, IEmployeeService employeeService,ISalaryCalculatorModelFactory modelFactory,Payroll calculate)
             : base(view)
         {
             Guard.WhenArgument<IRemunerationBillService>(remunerationBillService, "remunerationBillService").IsNull().Throw();
 
+            Guard.WhenArgument<IEmployeeService>(employeeService, "employeeService").IsNull().Throw();
+
+            Guard.WhenArgument<ISalaryCalculatorModelFactory>(modelFactory, "modelFactory").IsNull().Throw();
+
             Guard.WhenArgument<Payroll>(calculate, "calculate").IsNull().Throw();
 
-
             this.remunerationBillService = remunerationBillService;
+            this.employeeService = employeeService;
+
             this.modelFactory = modelFactory;
             this.Payroll = calculate;
 
+            this.View.GetEmployee += GetEmployee;
             this.View.CalculateRemunerationBill += CalculateRemunerationBill;
             this.View.CreateRemunerationBill += CreateRemunerationBill;
         }
 
         public Payroll Payroll { get; set; }
+
+        public void GetEmployee(object sender, IEmployeeEventArgs e)
+        {
+            var employee = this.modelFactory.GetEmployee();
+            employee.FirstName = e.FirstName;
+            employee.MiddleName = e.MiddleName;
+            employee.LastName = e.LastName;
+            employee.PersonalId = e.PersonalId;
+
+            this.View.Model.Employee = employee;
+            this.employeeService.Create(this.View.Model.Employee);
+        }
 
         public void CalculateRemunerationBill(object sender, IRemunerationBillEventArgs e)
         {
@@ -43,7 +62,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
 
             var remunerationBill = this.modelFactory.GetRemunerationBill();
             remunerationBill.CreatedDate = DateTime.Now;
-            remunerationBill.EmployeeId = 1;
+            remunerationBill.EmployeeId = this.View.Model.Employee.Id;
             remunerationBill.GrossSalary = e.GrossSalary;
 
             bool isMaximum = this.Payroll.CheckMaxSocialSecurityIncome(e.GrossSalary);

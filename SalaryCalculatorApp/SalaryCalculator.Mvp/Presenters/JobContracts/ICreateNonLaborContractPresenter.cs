@@ -10,5 +10,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
         void CalculateRemunerationBill(object sender, IRemunerationBillEventArgs e);
 
         void CreateRemunerationBill(object sender, IRemunerationBillEventArgs e);
+
+        void GetEmployee(object sender, IEmployeeEventArgs e);
     }
 }

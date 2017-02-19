@@ -47,7 +47,6 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
 
         public void GetEmployee(object sender, IEmployeeEventArgs e)
         {
-
             var employee = this.modelFactory.GetEmployee();
             employee.FirstName = e.FirstName;
             employee.MiddleName = e.MiddleName;
