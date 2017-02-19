@@ -25,18 +25,46 @@ You can view the youtube video here:
 ## Usage
 
 #### Basic usage
+  1. Registered users can create payroll documents such as: 
+    - Employee paychecks
+    - Remuneration Bills
+    - or can calculate personal insurance of selfemployment people.
+  2. Automatic calculation for each person:
+    - social security income
+    - income tax
+    - net wage
+  3. Could view reports for all documents of their employees:
+    - All Labor contracts
+    - All Non-Labor contracts
+    - All personal insurance information for selfemployment people
 
 #### Registration
+You can register at our website in Register menu.
+Required fields for registration.
+    - EMail: aaa@aaa.com
+    - Company Name: Demo Company
+    - Company Address: bul. ......
 
 ## Application public part
 
-Everyone can see information about home page, current legislation changes.
+Everyone can see information:
+  - home page: current legislation changes
+  - about page:
+  - contact page:
 
 ## Application private part
 
-Users with role admin can edit or/and delete information in settings menu.
-
-Users with role company can create, view their own documents.
+Users with role "admin" can edit or/and delete information in settings menu.
+  - Paychecks
+  - Remuneration bills
+  - Users
+  - Employees
+  - Selfemployment people
+  
+Users with role "user" can create, view their own documents.
+  - Labor contracts
+  - Non-Labor contracts
+  - Selfemployment personal insurance information
 
 ## Backend server
 
