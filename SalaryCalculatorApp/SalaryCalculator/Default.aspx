@@ -19,7 +19,7 @@
             </p>
         </div>
         <div class="col-md-4 jumbotron">
-            <h2>LABOR CONTRACTS</h2>
+            <h2>NON-LABOR CONTRACTS</h2>
             <p>
                 You can easily calculate your social security income and social securities taxes.
                 In just seconds you can get your net wage.

@@ -56,30 +56,30 @@
                         <li><a runat="server" href="~/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                         <li><a runat="server" href="~/About"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
                         <li><a runat="server" href="~/Contact"><span class="glyphicon glyphicon-phone"></span> Contact</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown" id="CreateContracts" runat="server" visible="false">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Calculate contracts <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li class="nav-item"><a runat="server" href="~/JobContracts/CreateLaborContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add
+                                <li class="nav-item"><a runat="server"  id="CreateLaborContracts" visible="false" href="~/JobContracts/CreateLaborContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add
                             Labor Contract</a></li>
-                                <li class="nav-item"><a runat="server" href="~/JobContracts/CreateNonLaborContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add
+                                <li class="nav-item"><a runat="server"  id="CreateNonLaborContracts" visible="false" href="~/JobContracts/CreateNonLaborContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add
                             Non-Labor Contract</a></li>
-                                <li class="nav-item"><a runat="server" href="~/JobContracts/CreateFreelanceContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add Freelance</a></li>
+                                <li class="nav-item"><a runat="server"  id="CreateFreelanceContracts" visible="false" href="~/JobContracts/CreateFreelanceContract" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Add Freelance</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown" id="ReportContracts" runat="server" visible="false">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Reports <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li class="nav-item"><a runat="server" href="~/Reports/Labor" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Labor reports</a></li>
-                                <li class="nav-item"><a runat="server" href="~/Reports/NonLabor" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Non-Labor reports</a></li>
-                                <li class="nav-item"><a runat="server" href="~/Reports/Freelance" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Freelance reports</a></li>
+                                <li class="nav-item"><a runat="server" id="ReportsLaborContracts" visible="false" href="~/Reports/Labor" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Labor reports</a></li>
+                                <li class="nav-item"><a runat="server" id="ReportsNonLaborContracts" visible="false" href="~/Reports/NonLabor" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Non-Labor reports</a></li>
+                                <li class="nav-item"><a runat="server" id="ReportsFreelanceContracts" visible="false" href="~/Reports/Freelance" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Freelance reports</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown" id="Settings" runat="server" visible="false">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> Settings <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li class="nav-item"><a runat="server" href="~/Settings/EmployeePaycheck" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Paychecks</a></li>
-                                <li class="nav-item"><a runat="server" href="~/Settings/RemunerationBill" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Remuneration bills</a></li>
-                                <li class="nav-item"><a runat="server" href="~/Settings/SelfEmployment" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Self employments</a></li>
+                                <li class="nav-item"><a runat="server" id="SettingsLaborContracts" visible="false" href="~/Settings/EmployeePaycheck" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Paychecks</a></li>
+                                <li class="nav-item"><a runat="server" id="SettingsNonLaborContracts" visible="false" href="~/Settings/RemunerationBill" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Remuneration bills</a></li>
+                                <li class="nav-item"><a runat="server" id="SettingsFreelanceContracts" visible="false" href="~/Settings/SelfEmployment" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Self employments</a></li>
                             </ul>
                         </li></ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

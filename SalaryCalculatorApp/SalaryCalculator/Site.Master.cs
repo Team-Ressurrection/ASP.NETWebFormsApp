@@ -69,7 +69,25 @@ namespace SalaryCalculator
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (HttpContext.Current.User.IsInRole("admin"))
+            {
+                this.Settings.Visible = true;
+                this.SettingsLaborContracts.Visible = true;
+                this.SettingsNonLaborContracts.Visible = true;
+                this.SettingsFreelanceContracts.Visible = true;
+            }
+            else if (HttpContext.Current.User.IsInRole("user"))
+            {
+                this.CreateContracts.Visible = true;
+                this.CreateLaborContracts.Visible = true;
+                this.CreateNonLaborContracts.Visible = true;
+                this.CreateFreelanceContracts.Visible = true;
 
+                this.ReportContracts.Visible = true;
+                this.ReportsLaborContracts.Visible = true;
+                this.ReportsNonLaborContracts.Visible = true;
+                this.ReportsFreelanceContracts.Visible = true;
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
