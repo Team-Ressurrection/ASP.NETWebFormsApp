@@ -8,7 +8,7 @@
         InsertItemPosition="LastItem"
         DataKeyNames="Id">
         <LayoutTemplate>
-            <table class="gridview jumbotron" border="1" id="MainContent_GridViewPaycheck" style="border-collapse: collapse;">
+            <table class="gridview table table-responsive table-striped table-bordered table-hover table-condensed table-background table-inverse" border="1" id="MainContent_GridViewPaycheck" style="border-collapse: collapse;">
                 <tbody>
                     <tr>
                         <th scope="col">
@@ -73,8 +73,8 @@
                 <td><%#: Item.IncomeTax %></td>
                 <td><%#: Item.NetWage %></td>
                 <td>
-                    <asp:Button runat="server" ID="LinkButtonEdit" Text="Edit" CommandName="Edit" CssClass="btn btn-warning" />
-                    <asp:Button runat="server" ID="LinkButtonDelete" Text="Delete" CommandName="Delete" CssClass="btn btn-danger" />
+                    <asp:Button runat="server" ID="LinkButtonEdit" Text="Edit" CommandName="Edit" CssClass="btn btn-warning btn-xs" />
+                    <asp:Button runat="server" ID="LinkButtonDelete" Text="Delete" CommandName="Delete" CssClass="btn btn-danger btn-xs" />
                 </td>
             </tr>
         </ItemTemplate>
@@ -114,8 +114,8 @@
                     <asp:TextBox runat="server" ID="TextBoxNetWage" Text="<%#: BindItem.NetWage %>" />
                 </td>
                 <td>
-                    <asp:Button runat="server" ID="Button1" Text="Save" CommandName="Update" CssClass="btn btn-success" />
-                    <asp:Button runat="server" ID="Button2" Text="Cancel" CommandName="Cancel" CssClass="btn btn-danger" />
+                    <asp:Button runat="server" ID="Button1" Text="Save" CommandName="Update" CssClass="btn btn-success btn-xs" />
+                    <asp:Button runat="server" ID="Button2" Text="Cancel" CommandName="Cancel" CssClass="btn btn-danger btn-xs" />
                 </td>
             </tr>
         </EditItemTemplate>

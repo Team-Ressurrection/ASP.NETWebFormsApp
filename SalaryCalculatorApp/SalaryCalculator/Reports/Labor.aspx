@@ -7,7 +7,7 @@
     <asp:GridView ID="AllLaborContracts" 
                   runat="server"
                   AutoGenerateColumns="true"
-                  CssClass="jumbotron"
+                  CssClass="table table-responsive table-striped table-bordered table-hover table-condensed table-background"
                   AllowPaging="true"
                   PageSize="5"
                   PageIndex="1"

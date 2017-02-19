@@ -46,8 +46,10 @@ namespace SalaryCalculator.JobContracts
             this.MiddleName.Visible = false;
             this.LastNameLabel.Visible = false;
             this.LastName.Visible = false;
-            this.BirthDateLabel.Visible = false;
-            this.BirthDate.Visible = false;
+            this.PersonalIdLabel.Visible = false;
+            this.PersonalId.Visible = false;
+            this.CreatedDateLabel.Visible = false;
+            this.CreatedDate.Visible = false;
             this.SocialSecurityIncomeLabel.Visible = false;
             this.SocialSecurityIncome.Visible = false;
             this.CalculateSocialSecurityContributions.Visible = false;

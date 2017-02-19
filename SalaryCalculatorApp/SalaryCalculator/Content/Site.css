@@ -51,3 +51,7 @@ input[type="select"] {
     left: 0;
     z-index: -1;
 }
+
+.table-background{
+    background-color:#ffffff;
+}
