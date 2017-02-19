@@ -19,31 +19,56 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         public void Constructor_ShouldCreateInstance_WhenAllParametersArePassedCorrectly()
         {
             var view = new Mock<ICreateNonLaborContractView>();
-            var service = new Mock<IRemunerationBillService>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            Assert.IsInstanceOf<ICreateNonLaborContractPresenter>(new CreateNonLaborContractPresenter(view.Object, service.Object,modelFactory.Object ,calculate));
+            Assert.IsInstanceOf<ICreateNonLaborContractPresenter>(new CreateNonLaborContractPresenter(view.Object, billService.Object, employeeService.Object, modelFactory.Object, calculate));
         }
 
         [Test]
-        public void Constructor_ShouldThrowArgumentNullException_WhenServiceParameterIsNull()
+        public void Constructor_ShouldThrowArgumentNullException_WhenBillServiceParameterIsNull()
         {
             var view = new Mock<ICreateNonLaborContractView>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            Assert.Throws<ArgumentNullException>(() => new CreateNonLaborContractPresenter(view.Object, null, modelFactory.Object,calculate));
+            Assert.Throws<ArgumentNullException>(() => new CreateNonLaborContractPresenter(view.Object, null, employeeService.Object, modelFactory.Object, calculate));
+        }
+
+        [Test]
+        public void Constructor_ShouldThrowArgumentNullException_WhenEmployeeServiceParameterIsNull()
+        {
+            var view = new Mock<ICreateNonLaborContractView>();
+            var billService = new Mock<IRemunerationBillService>();
+            var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
+            var calculate = new FakePayroll();
+
+            Assert.Throws<ArgumentNullException>(() => new CreateNonLaborContractPresenter(view.Object, billService.Object, null, modelFactory.Object, calculate));
+        }
+
+        [Test]
+        public void Constructor_ShouldThrowArgumentNullException_WhenModelFactoryParameterIsNull()
+        {
+            var view = new Mock<ICreateNonLaborContractView>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
+            var calculate = new FakePayroll();
+
+            Assert.Throws<ArgumentNullException>(() => new CreateNonLaborContractPresenter(view.Object, billService.Object, employeeService.Object, null, calculate));
         }
 
         [Test]
         public void Constructor_ShouldThrowArgumentNullException_WhenCalculateParameterIsNull()
         {
             var view = new Mock<ICreateNonLaborContractView>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
-            var service = new Mock<IRemunerationBillService>();
 
-            Assert.Throws<ArgumentNullException>(() => new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object,null));
+            Assert.Throws<ArgumentNullException>(() => new CreateNonLaborContractPresenter(view.Object, billService.Object, employeeService.Object, modelFactory.Object, null));
         }
     }
 }

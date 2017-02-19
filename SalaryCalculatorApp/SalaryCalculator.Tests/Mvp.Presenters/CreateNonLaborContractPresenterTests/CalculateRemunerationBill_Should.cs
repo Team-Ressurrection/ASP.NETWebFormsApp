@@ -23,13 +23,15 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         public void CalculateWage_ShouldThrowException_WhenEventArgsParamIsLessThanZero(decimal obj1)
         {
             var view = new Mock<ICreateNonLaborContractView>();
-            var service = new Mock<IRemunerationBillService>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
             var e = new Mock<IRemunerationBillEventArgs>();
 
             e.Setup(x => x.GrossSalary).Returns(obj1);
+
+            var presenter = new CreateNonLaborContractPresenter(view.Object, billService.Object, employeeService.Object, modelFactory.Object, calculate);
 
             Assert.Throws<ArgumentOutOfRangeException>(() => presenter.CalculateRemunerationBill(new object { }, e.Object));
         }
@@ -38,16 +40,19 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         public void CalculateWage_ShouldSetPaycheckSocialSecurityIncomeCorrectly_WhenEventArgsParamIsPassedCorrectly(decimal obj1)
         {
             var view = new Mock<ICreateNonLaborContractView>();
-            var service = new Mock<IRemunerationBillService>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
-
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object, calculate);
             var e = new Mock<IRemunerationBillEventArgs>();
 
+            view.SetupProperty(x => x.Model.Employee, new FakeEmployee() { Id = 10 });
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
             e.Setup(x => x.GrossSalary).Returns(obj1);
             modelFactory.Setup(x => x.GetRemunerationBill()).Returns(new FakeRemunerationBill());
+
+            var presenter = new CreateNonLaborContractPresenter(view.Object, billService.Object, employeeService.Object, modelFactory.Object, calculate);
+
             presenter.CalculateRemunerationBill(new object { }, e.Object);
 
             Assert.AreEqual(obj1, view.Object.Model.RemunerationBill.SocialSecurityIncome);
@@ -60,16 +65,18 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         public void CalculateWage_ShouldSetPaycheckSocialSecurityEqualToGrossSalary_WhenEventArgsParamISPassedWithValueLessThan2600(decimal obj1)
         {
             var view = new Mock<ICreateNonLaborContractView>();
-            var service = new Mock<IRemunerationBillService>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
-
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object, calculate);
             var e = new Mock<IRemunerationBillEventArgs>();
 
+            view.SetupProperty(x => x.Model.Employee, new FakeEmployee() { Id = 10 });
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
             e.Setup(x => x.GrossSalary).Returns(obj1);
             modelFactory.Setup(x => x.GetRemunerationBill()).Returns(new FakeRemunerationBill());
+
+            var presenter = new CreateNonLaborContractPresenter(view.Object, billService.Object, employeeService.Object, modelFactory.Object, calculate);
 
             presenter.CalculateRemunerationBill(new object { }, e.Object);
             var expectedGrossSalary = obj1;
@@ -83,16 +90,18 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         public void CalculateRemunerationBill_ShouldSetBillSocialSecurityEqualTo2600_WhenGrossSalaryEventArgsParamIsPassedWithValueMoreThan2600(decimal obj1)
         {
             var view = new Mock<ICreateNonLaborContractView>();
-            var service = new Mock<IRemunerationBillService>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
-
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object, calculate);
             var e = new Mock<IRemunerationBillEventArgs>();
 
+            view.SetupProperty(x => x.Model.Employee, new FakeEmployee() { Id = 10 });
             view.SetupProperty(x => x.Model.RemunerationBill, new FakeRemunerationBill());
             modelFactory.Setup(x => x.GetRemunerationBill()).Returns(new FakeRemunerationBill());
             e.Setup(x => x.GrossSalary).Returns(obj1);
+
+            var presenter = new CreateNonLaborContractPresenter(view.Object, billService.Object, employeeService.Object, modelFactory.Object, calculate);
 
             presenter.CalculateRemunerationBill(new object { }, e.Object);
 

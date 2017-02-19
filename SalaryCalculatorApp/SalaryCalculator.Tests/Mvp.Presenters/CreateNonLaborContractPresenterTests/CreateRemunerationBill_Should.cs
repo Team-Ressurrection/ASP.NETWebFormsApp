@@ -20,11 +20,12 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
         public void CreateRemunerationBill_ShouldPassWithoutError()
         {
             var view = new Mock<ICreateNonLaborContractView>();
-            var service = new Mock<IRemunerationBillService>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
 
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object,modelFactory.Object, calculate);
+            var presenter = new CreateNonLaborContractPresenter(view.Object, billService.Object,employeeService.Object,modelFactory.Object, calculate);
             var obj = new object { };
             var salary = new decimal();
             var e = new Mock<RemunerationBillEventArgs>(salary);
@@ -33,23 +34,25 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
 
             presenter.CreateRemunerationBill(obj, e.Object);
 
-            service.Verify(x => x.Create(bill), Times.Once);
+            billService.Verify(x => x.Create(bill), Times.Once);
         }
 
         [Test]
         public void CreateRemunerationBill_ShouldThrowArgumentNullException()
         {
             var view = new Mock<ICreateNonLaborContractView>();
-            var service = new Mock<IRemunerationBillService>();
+            var billService = new Mock<IRemunerationBillService>();
+            var employeeService = new Mock<IEmployeeService>();
             var modelFactory = new Mock<ISalaryCalculatorModelFactory>();
             var calculate = new FakePayroll();
-
-            var presenter = new CreateNonLaborContractPresenter(view.Object, service.Object, modelFactory.Object,calculate);
+            
             var obj = new object { };
             var salary = new decimal();
             var e = new Mock<RemunerationBillEventArgs>(salary);
             FakeRemunerationBill bill = null;
             view.SetupGet(x => x.Model.RemunerationBill).Returns(bill);
+
+            var presenter = new CreateNonLaborContractPresenter(view.Object, billService.Object, employeeService.Object, modelFactory.Object, calculate);
 
             Assert.Throws<ArgumentNullException>(() => presenter.CreateRemunerationBill(obj, e.Object));
         }
