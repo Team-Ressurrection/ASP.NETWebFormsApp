@@ -10,7 +10,7 @@ using SalaryCalculator.Mvp.Presenters.Settings;
 using SalaryCalculator.Mvp.Views.Settings;
 using SalaryCalculator.Tests.Mocks;
 
-namespace SalaryCalculator.Tests.Mvp.Presenters.SettingsLaborContractsPresenterTests
+namespace SalaryCalculator.Tests.Mvp.Presenters.SettingsFreelanceContractsPresenterTests
 {
     [TestFixture]
     public class View_DeleteSelfEmployment_Should

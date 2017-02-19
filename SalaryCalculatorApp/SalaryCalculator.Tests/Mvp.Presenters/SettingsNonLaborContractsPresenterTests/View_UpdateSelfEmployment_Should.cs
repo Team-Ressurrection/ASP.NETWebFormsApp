@@ -11,7 +11,7 @@ using SalaryCalculator.Mvp.EventsArguments;
 using SalaryCalculator.Mvp.Presenters.Settings;
 using SalaryCalculator.Mvp.Views.Settings;
 
-namespace SalaryCalculator.Tests.Mvp.Presenters.SettingsLaborContractsPresenterTests
+namespace SalaryCalculator.Tests.Mvp.Presenters.SettingsNonLaborContractsPresenterTests
 {
     [TestFixture]
     public class View_UpdateRemunerationBill_Should

@@ -157,6 +157,10 @@
     <Compile Include="Mocks\FakeEmployee.cs" />
     <Compile Include="Mocks\FakeRemunerationBill.cs" />
     <Compile Include="Data.Seed\Constructor_Should.cs" />
+    <Compile Include="Mvp.EventArguments\ModelIdEventArgsTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.EventArguments\PaycheckEventArgsTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.EventArguments\RemunerationBillEventArgsTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.EventArguments\SelfEmploymentEventArgsTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Models\ProfileModelTests.cs" />
     <Compile Include="Mvp.Models\ReportLaborModelTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Models\ReportLaborModelTests\Properties_Should.cs" />
