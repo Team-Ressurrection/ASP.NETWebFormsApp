@@ -80,6 +80,7 @@
                                 <li class="nav-item"><a runat="server" id="SettingsLaborContracts" visible="false" href="~/Settings/EmployeePaycheck" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Paychecks</a></li>
                                 <li class="nav-item"><a runat="server" id="SettingsNonLaborContracts" visible="false" href="~/Settings/RemunerationBill" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Remuneration bills</a></li>
                                 <li class="nav-item"><a runat="server" id="SettingsFreelanceContracts" visible="false" href="~/Settings/SelfEmployment" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Self employments</a></li>
+                                <li class="nav-item"><a runat="server" id="SettingsEmployees" visible="false" href="~/Settings/AllEmployees" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Employees</a></li>
                             </ul>
                         </li></ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

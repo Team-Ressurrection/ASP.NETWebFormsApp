@@ -87,6 +87,8 @@
     <Compile Include="Factories\ISalaryCalculatorEventArgsFactory.cs" />
     <Compile Include="Factories\SalaryCalculatorEventArgsFactory.cs" />
     <Compile Include="Models\JobContracts\IEmployeeModel.cs" />
+    <Compile Include="Models\Settings\ISettingsEmployeesModel.cs" />
+    <Compile Include="Models\Settings\SettingsEmployeesModel.cs" />
     <Compile Include="Models\Settings\SettingsLaborContractsModel.cs" />
     <Compile Include="Models\JobContracts\CreateFreelanceContractModel.cs" />
     <Compile Include="Models\JobContracts\CreateNonLaborContractModel.cs" />
@@ -107,6 +109,8 @@
     <Compile Include="Models\Reports\ReportNonLaborModel.cs" />
     <Compile Include="Models\Settings\SettingsFreelanceContractsModel.cs" />
     <Compile Include="Models\Settings\SettingsNonLaborContractsModel.cs" />
+    <Compile Include="Presenters\Settings\ISettingsEmployeesPresenter.cs" />
+    <Compile Include="Presenters\Settings\SettingsEmployeesPresenter.cs" />
     <Compile Include="Presenters\Settings\SettingsLaborContractsPresenter.cs" />
     <Compile Include="Presenters\JobContracts\CreateFreelanceContractPresenter.cs" />
     <Compile Include="Presenters\JobContracts\CreateNonLaborContractPresenter.cs" />
@@ -126,6 +130,7 @@
     <Compile Include="Presenters\Settings\SettingsFreelanceContractsPresenter.cs" />
     <Compile Include="Presenters\Settings\SettingsNonLaborContractsPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Settings\ISettingsEmployeesView.cs" />
     <Compile Include="Views\Settings\ISettingsLaborContractsView.cs" />
     <Compile Include="Views\JobContracts\ICreateFreelanceContractView.cs" />
     <Compile Include="Views\JobContracts\ICreateNonLaborContractView.cs" />

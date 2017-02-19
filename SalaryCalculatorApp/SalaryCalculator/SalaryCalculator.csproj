@@ -258,8 +258,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Settings\EmployeePaycheck.aspx" />
+    <Content Include="Settings\AllEmployees.aspx" />
     <Content Include="Settings\RemunerationBill.aspx" />
     <Content Include="Settings\SelfEmployment.aspx" />
+    <Content Include="Settings\Users.aspx" />
     <Content Include="Site.Master" />
     <Content Include="UserControls\SettingsLaborContractsView.ascx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -473,6 +475,13 @@
     <Compile Include="Settings\EmployeePaycheck.aspx.designer.cs">
       <DependentUpon>EmployeePaycheck.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Settings\AllEmployees.aspx.cs">
+      <DependentUpon>AllEmployees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings\AllEmployees.aspx.designer.cs">
+      <DependentUpon>AllEmployees.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Settings\RemunerationBill.aspx.cs">
       <DependentUpon>RemunerationBill.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -486,6 +495,13 @@
     </Compile>
     <Compile Include="Settings\SelfEmployment.aspx.designer.cs">
       <DependentUpon>SelfEmployment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
