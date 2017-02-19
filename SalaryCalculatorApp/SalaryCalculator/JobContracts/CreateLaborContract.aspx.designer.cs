@@ -31,6 +31,24 @@ namespace SalaryCalculator.JobContracts {
         protected global::System.Web.UI.WebControls.TextBox FirstName;
         
         /// <summary>
+        /// RequiredFieldValidatorFN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorFN;
+        
+        /// <summary>
+        /// RegularExpressionValidatorUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorUsername;
+        
+        /// <summary>
         /// MiddleNameLabel control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,24 @@ namespace SalaryCalculator.JobContracts {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MiddleName;
+        
+        /// <summary>
+        /// RequiredFieldValidatorMN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMN;
+        
+        /// <summary>
+        /// RegularExpressionValidatorMN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorMN;
         
         /// <summary>
         /// LastNameLabel control.
@@ -67,6 +103,24 @@ namespace SalaryCalculator.JobContracts {
         protected global::System.Web.UI.WebControls.TextBox LastName;
         
         /// <summary>
+        /// RequiredFieldValidatorLN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorLN;
+        
+        /// <summary>
+        /// RegularExpressionValidatorLN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorLN;
+        
+        /// <summary>
         /// PersonalIdLabel control.
         /// </summary>
         /// <remarks>
@@ -85,22 +139,40 @@ namespace SalaryCalculator.JobContracts {
         protected global::System.Web.UI.WebControls.TextBox PersonalId;
         
         /// <summary>
-        /// BirthDateLabel control.
+        /// RequiredFieldValidatorPID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BirthDateLabel;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPID;
         
         /// <summary>
-        /// BirthDate control.
+        /// RegularExpressionValidatorPID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BirthDate;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorPID;
+        
+        /// <summary>
+        /// CreatedDateLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CreatedDateLabel;
+        
+        /// <summary>
+        /// CreatedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CreatedDate;
         
         /// <summary>
         /// GrossBaseSalaryLabel control.
@@ -119,6 +191,15 @@ namespace SalaryCalculator.JobContracts {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GrossBaseSalary;
+        
+        /// <summary>
+        /// RequiredFieldValidatorGBS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorGBS;
         
         /// <summary>
         /// FixedBonusLabel control.

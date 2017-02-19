@@ -48,8 +48,8 @@ namespace SalaryCalculator.JobContracts
             this.MiddleName.Visible = false;
             this.LastNameLabel.Visible = false;
             this.LastName.Visible = false;
-            this.BirthDateLabel.Visible = false;
-            this.BirthDate.Visible = false;
+            this.CreatedDateLabel.Visible = false;
+            this.CreatedDate.Visible = false;
             this.PersonalIdLabel.Visible = false;
             this.PersonalId.Visible = false;
             this.GrossBaseSalaryLabel.Visible = false;
