@@ -76,6 +76,7 @@ namespace SalaryCalculator
                 this.SettingsNonLaborContracts.Visible = true;
                 this.SettingsFreelanceContracts.Visible = true;
                 this.SettingsEmployees.Visible = true;
+                this.SettingsUsers.Visible = true;
             }
             else if (HttpContext.Current.User.IsInRole("user"))
             {

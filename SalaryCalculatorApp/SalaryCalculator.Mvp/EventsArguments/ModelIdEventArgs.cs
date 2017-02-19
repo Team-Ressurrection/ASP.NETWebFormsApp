@@ -9,6 +9,13 @@ namespace SalaryCalculator.Mvp.EventsArguments
             this.Id = id;
         }
 
+        public ModelIdEventArgs(string userId)
+        {
+            this.UserId = userId;
+        }
+
         public int Id { get; set; }
+
+        public string UserId { get; set; }
     }
 }

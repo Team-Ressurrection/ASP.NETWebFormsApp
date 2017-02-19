@@ -40,7 +40,7 @@ namespace SalaryCalculator.Mvp.Presenters.Settings
 
             if (employee == null)
             {
-                this.View.ModelState.AddModelError("", string.Format("Employee with id {0} was not found", e.Id));
+                this.View.ModelState.AddModelError("", string.Format("Employee with id {0} was not found", e.UserId));
                 return;
             }
             this.View.TryUpdateModel(employee);

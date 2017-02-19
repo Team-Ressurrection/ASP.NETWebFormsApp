@@ -81,6 +81,7 @@
                                 <li class="nav-item"><a runat="server" id="SettingsNonLaborContracts" visible="false" href="~/Settings/RemunerationBill" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Remuneration bills</a></li>
                                 <li class="nav-item"><a runat="server" id="SettingsFreelanceContracts" visible="false" href="~/Settings/SelfEmployment" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Self employments</a></li>
                                 <li class="nav-item"><a runat="server" id="SettingsEmployees" visible="false" href="~/Settings/AllEmployees" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Employees</a></li>
+                                <li class="nav-item"><a runat="server" id="SettingsUsers" visible="false" href="~/Settings/AllUsers" class="dropdown-item"><span class="glyphicon glyphicon-tasks"></span> Users</a></li>
                             </ul>
                         </li></ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
@@ -96,7 +97,7 @@
                                     title="User Profile">Hello, <%: Context.User.Identity.GetUserName()  %> !
                                     </a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText=" Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                         </LoggedInTemplate>

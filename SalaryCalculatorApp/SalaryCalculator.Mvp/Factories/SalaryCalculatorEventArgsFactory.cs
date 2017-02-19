@@ -10,6 +10,11 @@ namespace SalaryCalculator.Mvp.Factories
             return new ModelIdEventArgs(id);
         }
 
+        public IModelIdEventArgs GetModelIdEventArgs(string id)
+        {
+            return new ModelIdEventArgs(id);
+        }
+
         public IPaycheckEventArgs GetPaycheckEventArgs(decimal grossSalary, decimal fixedBonus, decimal nonFixedBonus)
         {
            return new PaycheckEventArgs(grossSalary, fixedBonus, nonFixedBonus);

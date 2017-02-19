@@ -261,7 +261,7 @@
     <Content Include="Settings\AllEmployees.aspx" />
     <Content Include="Settings\RemunerationBill.aspx" />
     <Content Include="Settings\SelfEmployment.aspx" />
-    <Content Include="Settings\Users.aspx" />
+    <Content Include="Settings\AllUsers.aspx" />
     <Content Include="Site.Master" />
     <Content Include="UserControls\SettingsLaborContractsView.ascx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -496,12 +496,12 @@
     <Compile Include="Settings\SelfEmployment.aspx.designer.cs">
       <DependentUpon>SelfEmployment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Settings\Users.aspx.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
+    <Compile Include="Settings\AllUsers.aspx.cs">
+      <DependentUpon>AllUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Settings\Users.aspx.designer.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
+    <Compile Include="Settings\AllUsers.aspx.designer.cs">
+      <DependentUpon>AllUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

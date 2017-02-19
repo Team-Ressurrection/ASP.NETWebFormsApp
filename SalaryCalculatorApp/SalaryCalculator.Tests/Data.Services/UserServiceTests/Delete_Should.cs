@@ -5,6 +5,7 @@ using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services;
 using SalaryCalculator.Tests.Mocks;
+using System;
 
 namespace SalaryCalculator.Tests.Data.Services.UserServiceTests
 {
@@ -19,9 +20,9 @@ namespace SalaryCalculator.Tests.Data.Services.UserServiceTests
             var userService = new UserService(mockedRepository.Object);
 
             User user = new FakeUser();
-            user.Id = "lskdjaskldjlskajdklasjdlkasjdlkasjdlk";
+            user.Id = Guid.NewGuid().ToString();
             userService.Create(user);
-            userService.DeleteById("1");
+            userService.DeleteById(user.Id);
 
             mockedRepository.Verify(r => r.Delete(It.IsAny<string>()), Times.Once);
         }
