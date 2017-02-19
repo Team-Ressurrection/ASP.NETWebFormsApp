@@ -29,12 +29,12 @@ namespace SalaryCalculator.Mvp.Presenters.Settings
             this.View.DeleteModel += View_DeleteUser;
         }
 
-        private void View_DeleteUser(object sender, IModelIdEventArgs e)
+        public void View_DeleteUser(object sender, IModelIdEventArgs e)
         {
             this.userService.DeleteById(e.UserId);
         }
 
-        private void View_UpdateUser(object sender, IModelIdEventArgs e)
+        public void View_UpdateUser(object sender, IModelIdEventArgs e)
         {
             User user = this.userService.GetById(e.UserId);
 
@@ -50,7 +50,7 @@ namespace SalaryCalculator.Mvp.Presenters.Settings
             }
         }
 
-        private void View_GetAllUsers(object sender, EventArgs e)
+        public void View_GetAllUsers(object sender, EventArgs e)
         {
             this.View.Model.Users = this.userService.GetAll();
         }

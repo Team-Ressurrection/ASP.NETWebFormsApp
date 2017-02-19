@@ -6,6 +6,6 @@ namespace SalaryCalculator.Mvp.Models.Settings
 {
     public class SettingsUsersModel : ISettingsUsersModel
     {
-        public IEnumerable<User> Users { get; set; }
+        public virtual IEnumerable<User> Users { get; set; }
     }
 }

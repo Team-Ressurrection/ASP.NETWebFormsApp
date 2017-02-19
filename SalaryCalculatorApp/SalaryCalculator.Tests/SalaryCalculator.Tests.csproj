@@ -198,6 +198,10 @@
     <Compile Include="Mvp.Presenters\ReportNonLaborPresenterTests\GetAll_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsNonLaborContractsPresenterTests\View_DeleteSelfEmployment_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsNonLaborContractsPresenterTests\View_UpdateSelfEmployment_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsUsersPresenterTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsUsersPresenterTests\GetAllUsers_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsUsersPresenterTests\View_DeleteEmployee_Should.cs" />
+    <Compile Include="Mvp.Presenters\SettingsUsersPresenterTests\View_UpdateEmployee_Should.cs" />
     <Compile Include="Mvp.Views\ReportNonLaborViewTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.Calculations\PayrollTests\CheckSocialSecurityIncome_Should.cs" />
@@ -240,9 +244,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mvp.Presenters\SettingsUsersPresenterTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
