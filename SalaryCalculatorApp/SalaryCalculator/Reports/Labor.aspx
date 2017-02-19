@@ -21,5 +21,6 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
+        <PagerStyle HorizontalAlign="Center" CssClass="GridPager" />
     </asp:GridView>
 </asp:Content>

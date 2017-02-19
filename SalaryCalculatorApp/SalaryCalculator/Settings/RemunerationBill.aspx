@@ -42,10 +42,18 @@
                     </tr>
                     <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="10">
                             <asp:DataPager runat="server" ID="DataPagerPaycheck" PageSize="5">
                                 <Fields>
-                                    <asp:NumericPagerField />
+                                     <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="|<" ShowPreviousPageButton="true"
+                                        ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false"
+                                        ButtonCssClass="btn btn-default btn-xs" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+                                    <asp:NumericPagerField ButtonType="Link" CurrentPageLabelCssClass="btn btn-primary btn-xs disabled" RenderNonBreakingSpacesBetweenControls="false"
+                                        NumericButtonCssClass="btn btn-default btn-xs" ButtonCount="10" NextPageText="..." NextPreviousButtonCssClass="btn btn-default btn-xs" />
+                                    <asp:NextPreviousPagerField NextPageText=">" LastPageText=">|" ShowNextPageButton="true"
+                                        ShowLastPageButton="true" ShowPreviousPageButton="false" ShowFirstPageButton="false"
+                                        ButtonCssClass="btn btn-default btn-xs" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+                                
                                 </Fields>
                             </asp:DataPager>
                         </td>
