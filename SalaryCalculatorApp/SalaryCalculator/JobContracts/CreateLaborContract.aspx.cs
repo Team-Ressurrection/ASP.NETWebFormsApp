@@ -35,6 +35,8 @@ namespace SalaryCalculator.JobContracts
 
         public event EventHandler<IPaycheckEventArgs> CreatePaycheck;
 
+        public event EventHandler<IEmployeeEventArgs> GetEmployee;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -62,6 +64,9 @@ namespace SalaryCalculator.JobContracts
 
             this.DetailsViewPaycheck.Visible = true;
 
+            var employeeArgs = this.EventArgsFactory.GetEmployeeEventArgs(this.FirstName.Text, this.MiddleName.Text, this.LastName.Text, this.PersonalId.Text);
+
+            this.GetEmployee?.Invoke(this, employeeArgs);
 
             var args = this.EventArgsFactory.GetPaycheckEventArgs((decimal.Parse)(this.GrossBaseSalary.Text), (decimal.Parse)(this.FixedBonus.Text), (decimal.Parse)(this.NonFixedBonus.Text));
 

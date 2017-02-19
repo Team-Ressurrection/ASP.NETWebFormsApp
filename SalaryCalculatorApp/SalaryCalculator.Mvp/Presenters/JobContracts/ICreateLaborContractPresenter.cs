@@ -10,5 +10,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
         void CalculatePaycheck(object sender, IPaycheckEventArgs e);
 
         void CreatePaycheck(object sender, IPaycheckEventArgs e);
+
+        void GetEmployee(object sender, IEmployeeEventArgs e);
     }
 }

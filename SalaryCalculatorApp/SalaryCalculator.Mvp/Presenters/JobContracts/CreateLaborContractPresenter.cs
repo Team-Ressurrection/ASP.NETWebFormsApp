@@ -18,24 +18,45 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
     public class CreateLaborContractPresenter : Presenter<ICreateLaborContractView>, ICreateLaborContractPresenter
     {
         private readonly IEmployeePaycheckService paycheckService;
+        private readonly IEmployeeService employeeService;
         private readonly ISalaryCalculatorModelFactory modelFactory;
 
-        public CreateLaborContractPresenter(ICreateLaborContractView view, IEmployeePaycheckService paycheckService,ISalaryCalculatorModelFactory modelFactory ,Payroll calculate)
+        public CreateLaborContractPresenter(ICreateLaborContractView view, IEmployeePaycheckService paycheckService,IEmployeeService employeeService,ISalaryCalculatorModelFactory modelFactory ,Payroll calculate)
             : base(view)
         {
             Guard.WhenArgument<IEmployeePaycheckService>(paycheckService, "paycheckService").IsNull().Throw();
 
+            Guard.WhenArgument<IEmployeeService>(employeeService, "employeeService").IsNull().Throw();
+
+            Guard.WhenArgument<ISalaryCalculatorModelFactory>(modelFactory, "modelFactory").IsNull().Throw();
+
             Guard.WhenArgument<Payroll>(calculate, "calculate").IsNull().Throw();
 
             this.paycheckService = paycheckService;
+            this.employeeService = employeeService;
 
             this.Payroll = calculate;
             this.modelFactory = modelFactory;
+
+            this.View.GetEmployee += GetEmployee;
             this.View.CalculatePaycheck += CalculatePaycheck;
             this.View.CreatePaycheck += CreatePaycheck;
         }
 
         public Payroll Payroll { get; set; }
+
+        public void GetEmployee(object sender, IEmployeeEventArgs e)
+        {
+
+            var employee = this.modelFactory.GetEmployee();
+            employee.FirstName = e.FirstName;
+            employee.MiddleName = e.MiddleName;
+            employee.LastName = e.LastName;
+            employee.PersonalId = e.PersonalId;
+
+            this.View.Model.Employee = employee;
+            this.employeeService.Create(this.View.Model.Employee);
+        }
 
         public void CalculatePaycheck(object sender, IPaycheckEventArgs e)
         {
@@ -45,7 +66,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
 
             var paycheck = this.modelFactory.GetEmployeePaycheck();
             paycheck.CreatedDate = DateTime.Now;
-            paycheck.EmployeeId = 1;
+            paycheck.EmployeeId = this.View.Model.Employee.Id;
             paycheck.GrossFixedBonus = e.GrossFixedBonus;
             paycheck.GrossNonFixedBonus = e.GrossNonFixedBonus;
             paycheck.GrossSalary = e.GrossSalary;

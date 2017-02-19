@@ -12,5 +12,7 @@ namespace SalaryCalculator.Mvp.Views.JobContracts
         event EventHandler<IPaycheckEventArgs> CalculatePaycheck;
 
         event EventHandler<IPaycheckEventArgs> CreatePaycheck;
+
+        event EventHandler<IEmployeeEventArgs> GetEmployee;
     }
 }

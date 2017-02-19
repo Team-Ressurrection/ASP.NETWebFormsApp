@@ -2,8 +2,10 @@
 
 namespace SalaryCalculator.Mvp.Models.JobContracts
 {
-    public class CreateLaborContractModel : ICreateLaborContractModel
+    public class CreateLaborContractModel : ICreateLaborContractModel, IEmployeeModel
     {
+        public virtual Employee Employee { get; set; }
+
         public virtual EmployeePaycheck EmployeePaycheck { get; set; }
     }
 }

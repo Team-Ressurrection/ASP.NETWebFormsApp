@@ -74,6 +74,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventsArguments\EmployeeEventArgs.cs" />
+    <Compile Include="EventsArguments\IEmployeeEventArgs.cs" />
     <Compile Include="EventsArguments\IModelIdEventArgs.cs" />
     <Compile Include="EventsArguments\IRemunerationBillEventArgs.cs" />
     <Compile Include="EventsArguments\IPaycheckEventArgs.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="EventsArguments\PaycheckEventArgs.cs" />
     <Compile Include="Factories\ISalaryCalculatorEventArgsFactory.cs" />
     <Compile Include="Factories\SalaryCalculatorEventArgsFactory.cs" />
+    <Compile Include="Models\JobContracts\IEmployeeModel.cs" />
     <Compile Include="Models\Settings\SettingsLaborContractsModel.cs" />
     <Compile Include="Models\JobContracts\CreateFreelanceContractModel.cs" />
     <Compile Include="Models\JobContracts\CreateNonLaborContractModel.cs" />

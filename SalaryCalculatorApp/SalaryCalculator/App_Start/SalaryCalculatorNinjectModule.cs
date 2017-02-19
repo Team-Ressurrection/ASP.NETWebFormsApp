@@ -38,6 +38,7 @@ namespace SalaryCalculator.App_Start
             this.Bind<IEmployeePaycheckService>().To<EmployeePaycheckService>().InRequestScope();
             this.Bind<IUserService>().To<UserService>().InRequestScope();
             this.Bind<ISelfEmploymentService>().To<SelfEmploymentService>().InRequestScope();
+            this.Bind<IEmployeeService>().To<EmployeeService>().InRequestScope();
 
             this.Bind<User>().ToSelf();
             this.Bind<Employee>().ToSelf();

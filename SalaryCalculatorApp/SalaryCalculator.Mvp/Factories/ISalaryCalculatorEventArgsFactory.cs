@@ -11,5 +11,7 @@ namespace SalaryCalculator.Mvp.Factories
         ISelfEmploymentEventArgs GetSelfEmploymentEventArgs(decimal socialSecurityIncome, decimal additionalSocialSecurityIncome = 0, bool isInsuredForGDM = false);
 
         IModelIdEventArgs GetModelIdEventArgs(int id);
+
+        IEmployeeEventArgs GetEmployeeEventArgs(string firstName, string middleName, string lastName, string personalId);
     }
 }
