@@ -32,6 +32,7 @@ namespace SalaryCalculator.JobContracts
 
         public event EventHandler<ISelfEmploymentEventArgs> CalculateSelfEmployment;
         public event EventHandler<ISelfEmploymentEventArgs> CreateSelfEmployment;
+        public event EventHandler<IEmployeeEventArgs> GetEmployee;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,6 +55,9 @@ namespace SalaryCalculator.JobContracts
             this.SocialSecurityIncome.Visible = false;
             this.CalculateSocialSecurityContributions.Visible = false;
 
+
+            var employeeArgs = this.eventArgsFactory.GetEmployeeEventArgs(this.FirstName.Text, this.MiddleName.Text, this.LastName.Text, this.PersonalId.Text);
+            this.GetEmployee?.Invoke(this, employeeArgs);
 
             var args = this.eventArgsFactory.GetSelfEmploymentEventArgs((decimal.Parse)(this.SocialSecurityIncome.Text), 0, false);
 

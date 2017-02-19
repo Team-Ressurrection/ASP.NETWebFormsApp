@@ -10,5 +10,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
         void CalculateSelfEmployment(object sender, ISelfEmploymentEventArgs e);
 
         void CreateSelfEmployment(object sender, ISelfEmploymentEventArgs e);
+
+        void GetEmployee(object sender, IEmployeeEventArgs e);
     }
 }

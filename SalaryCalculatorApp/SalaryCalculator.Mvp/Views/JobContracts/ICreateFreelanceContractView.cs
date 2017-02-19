@@ -12,5 +12,7 @@ namespace SalaryCalculator.Mvp.Views.JobContracts
         event EventHandler<ISelfEmploymentEventArgs> CalculateSelfEmployment;
 
         event EventHandler<ISelfEmploymentEventArgs> CreateSelfEmployment;
+
+        event EventHandler<IEmployeeEventArgs> GetEmployee;
     }
 }

@@ -17,24 +17,44 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
     public class CreateFreelanceContractPresenter : Presenter<ICreateFreelanceContractView>, ICreateFreelanceContractPresenter
     {
         private readonly ISelfEmploymentService selfEmploymentService;
+        private readonly IEmployeeService employeeService;
         private readonly ISalaryCalculatorModelFactory modelFactory;
 
-        public CreateFreelanceContractPresenter(ICreateFreelanceContractView view, ISelfEmploymentService selfEmploymentService, ISalaryCalculatorModelFactory modelFactory,Payroll calculate)
+        public CreateFreelanceContractPresenter(ICreateFreelanceContractView view, ISelfEmploymentService selfEmploymentService, IEmployeeService employeeService,ISalaryCalculatorModelFactory modelFactory,Payroll calculate)
             : base(view)
         {
             Guard.WhenArgument<ISelfEmploymentService>(selfEmploymentService, "selfEmploymentService").IsNull().Throw();
 
+            Guard.WhenArgument<IEmployeeService>(employeeService, "employeeService").IsNull().Throw();
+
+            Guard.WhenArgument<ISalaryCalculatorModelFactory>(modelFactory, "modelFactory").IsNull().Throw();
+
             Guard.WhenArgument<Payroll>(calculate, "calculate").IsNull().Throw();
 
             this.selfEmploymentService = selfEmploymentService;
+            this.employeeService = employeeService;
+
             this.modelFactory = modelFactory;
             this.Payroll = calculate;
 
+            this.View.GetEmployee += GetEmployee;
             this.View.CalculateSelfEmployment += CalculateSelfEmployment;
             this.View.CreateSelfEmployment += CreateSelfEmployment;
         }
 
         public Payroll Payroll { get; set; }
+
+        public void GetEmployee(object sender, IEmployeeEventArgs e)
+        {
+            var employee = this.modelFactory.GetEmployee();
+            employee.FirstName = e.FirstName;
+            employee.MiddleName = e.MiddleName;
+            employee.LastName = e.LastName;
+            employee.PersonalId = e.PersonalId;
+
+            this.View.Model.Employee = employee;
+            this.employeeService.Create(this.View.Model.Employee);
+        }
 
         public void CalculateSelfEmployment(object sender, ISelfEmploymentEventArgs e)
         {
@@ -42,7 +62,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
 
             var selfEmployment = this.modelFactory.GetSelfEmployment();
             selfEmployment.CreatedDate = DateTime.Now;
-            selfEmployment.EmployeeId = 1;
+            selfEmployment.EmployeeId = this.View.Model.Employee.Id;
             selfEmployment.GrossSalary = e.SocialSecurityIncome;
 
             bool isMaximum = this.Payroll.CheckMaxSocialSecurityIncome(e.SocialSecurityIncome);
