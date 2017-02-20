@@ -10,7 +10,7 @@
 
         public const int MaxSocialSecurityIncome = 2600;
 
-        public const decimal PersonalInsurancePercent = 0.188m;
+        public const decimal PersonalInsurancePercent = 0.129m;
         public const decimal IncomeTaxPercent = 0.1m;
     }
 }

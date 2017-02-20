@@ -8,14 +8,12 @@ namespace SalaryCalculator.Tests.Utilities.Calculations.PayrollTests
     [TestFixture]
     public class GetPersonalInsurance_Should
     {
-        [Test]
-        public void ReturnCorrectValue_WhenParametersArePassed()
+        [TestCase(1000, 0.129)]
+        public void ReturnCorrectValue_WhenParametersArePassed(decimal salary, decimal percent)
         {
-            var salary = 1000;
-
             var payroll = new Payroll();
 
-            Assert.AreEqual(salary * 0.188, payroll.GetPersonalInsurance(salary));
+            Assert.AreEqual(salary * percent, payroll.GetPersonalInsurance(salary));
         }
     }
 }
