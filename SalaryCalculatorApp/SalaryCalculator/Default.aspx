@@ -10,7 +10,7 @@
     <div class="row">
         
         <asp:GridView runat="server"
-              CssClass="table table-bordered table-hover table-striped table-background"
+              CssClass="table table-bordered table-hover table-striped table-background" BorderStyle="Double"
               ID="LatestUsersGridView"
               ItemType="SalaryCalculator.Data.Models.User"
               AutoGenerateColumns="False">

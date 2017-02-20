@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Security.Claims;
+using System.Linq;
+
+using Ninject;
 
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
+using SalaryCalculator.Mvp.EventsArguments;
+using SalaryCalculator.Mvp.Factories;
 using SalaryCalculator.Mvp.Models.Account;
 using SalaryCalculator.Mvp.Presenters.Account;
 using SalaryCalculator.Mvp.Views.Account;
-using System.Security.Claims;
-using System.Linq;
-using SalaryCalculator.Mvp.EventsArguments;
-using SalaryCalculator.Mvp.Factories;
-using Ninject;
 
 namespace SalaryCalculator.Account
 {
@@ -54,6 +55,9 @@ namespace SalaryCalculator.Account
 
             var args = this.EventArgsFactory.GetModelIdEventArgs(userIdValue);
             this.GetUser?.Invoke(this, args);
+
+            this.DetailInfo.DataSource = new[] { this.Model.User };
+            this.DetailInfo.DataBind();
             this.ImageID.ImageUrl = "../Images/" + this.Model.User.ImagePath;
         }
 

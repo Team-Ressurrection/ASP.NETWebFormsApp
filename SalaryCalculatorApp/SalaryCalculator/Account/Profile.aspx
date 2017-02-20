@@ -2,19 +2,39 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent" CssClass="jumbotron">
     <h1>User profile</h1>
-    <asp:Image ID="ImageID" runat="server" Width="200" Height="200"/>
-    <asp:FileUpload ID="FileUpload" runat="server"/>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator"
-        runat="server"
-        Text="* Image path required."
-        ControlToValidate="FileUpload"
-        SetFocusOnError="true"
-        Display="Dynamic">
-    </asp:RequiredFieldValidator>
-    <asp:Button ID="ButtonLoad" runat="server" OnClick="ButtonLoad_Click" Text="Upload photo" CssClass="btn btn-warning" />
-    <asp:FormView runat="server" ID="DetailsView" AutoGenerateRows="false" ItemType="<%# Context.User.Identity%>">
-        <ItemTemplate>
-       
-        </ItemTemplate>
-    </asp:FormView>
+    <div class="row">
+        <div class="col-md-3 table-background">
+            <asp:Image ID="ImageID" runat="server" Width="200" Height="200" />
+            <asp:FileUpload ID="FileUpload" runat="server" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator"
+                runat="server"
+                Text="* Image path required."
+                ControlToValidate="FileUpload"
+                SetFocusOnError="true"
+                Display="Dynamic">
+            </asp:RequiredFieldValidator>
+            <asp:Button ID="ButtonLoad" runat="server" OnClick="ButtonLoad_Click" Text="Upload photo" CssClass="btn btn-warning" />
+        </div>
+        <div class="col-md-9 table-background">
+            <h2>Company information</h2>
+            <asp:Repeater ID="DetailInfo" runat="server">
+                <HeaderTemplate>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <p>
+                        <span class="glyphicon glyphicon-user"> Username: </span> <%# DataBinder.Eval(Container.DataItem, "UserName") %>
+                    </p>
+                    <p>
+                      <span class="glyphicon glyphicon-hand-right"> E-mail: </span> <%# DataBinder.Eval(Container.DataItem, "EMail") %>
+                    </p>
+                    <p>
+                       <span class="glyphicon glyphicon-tower"> Company name: </span> <%# DataBinder.Eval(Container.DataItem, "CompanyName") %>
+                    </p>
+                    <p>
+                       <span class="glyphicon glyphicon-lock"> Company address: </span> <%# DataBinder.Eval(Container.DataItem, "CompanyAddress") %>
+                    </p>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+    </div>
 </asp:Content>
