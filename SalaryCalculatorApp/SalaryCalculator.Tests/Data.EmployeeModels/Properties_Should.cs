@@ -172,5 +172,25 @@ namespace SalaryCalculator.Tests.Data.EmployeeModels
 
             Assert.AreEqual(empl.RemunerationBills.Count, 1);
         }
+
+        [Test]
+        public void PropertyEmployeePaycheck_ShouldSetCorrectly_ValueOfIDPaycheck()
+        {
+            var empl = new Employee();
+
+            empl.EmployeePaychecks.Add(new FakeEmployeePaycheck());
+
+            Assert.AreEqual(empl.EmployeePaychecks.Count, 1);
+        }
+
+        [Test]
+        public void PropertySelfEmployment_ShouldSetCorrectly_ValueOfIDSelfEmployment()
+        {
+            var empl = new Employee();
+
+            empl.SelfEmployments.Add(new FakeSelfEmployment());
+
+            Assert.AreEqual(empl.SelfEmployments.Count, 1);
+        }
     }
 }
