@@ -137,6 +137,13 @@
     <Compile Include="Data.Services\RemunerationBillTests\GetById_Should.cs" />
     <Compile Include="Data.Services\RemunerationBillTests\GetTop_Should.cs" />
     <Compile Include="Data.Services\RemunerationBillTests\UpdateById_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\Constructor_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\Create_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\Delete_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\GetAll_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\GetById_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\GetTop_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\UpdateById_Should.cs" />
     <Compile Include="Data.Services\UserServiceTests\Constructor_Should.cs" />
     <Compile Include="Data.Services\UserServiceTests\Create_Should.cs" />
     <Compile Include="Data.Services\UserServiceTests\Delete_Should.cs" />
