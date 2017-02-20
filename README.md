@@ -76,6 +76,10 @@ MSSQL server.
 
 MSSQL.
 
+## Test Coverage
+
+This application is test covered almost 90% with more than 260 unit tests. 
+
 ## FAQ
 
 ## Project TODOs:
