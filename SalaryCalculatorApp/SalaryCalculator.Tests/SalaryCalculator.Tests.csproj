@@ -150,8 +150,6 @@
     <Compile Include="Data.Services\EmployeeServiceTests\Constructor_Should.cs" />
     <Compile Include="Mocks\FakePayroll.cs" />
     <Compile Include="Mocks\FakeEmployeePaycheck.cs" />
-    <Compile Include="Mocks\FakeLaborView.cs" />
-    <Compile Include="Mocks\FakeNonLaborView.cs" />
     <Compile Include="Mocks\FakeSelfEmployment.cs" />
     <Compile Include="Mocks\FakeUser.cs" />
     <Compile Include="Mocks\FakeEmployee.cs" />
