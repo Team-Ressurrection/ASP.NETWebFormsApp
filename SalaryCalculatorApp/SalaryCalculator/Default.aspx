@@ -7,7 +7,26 @@
         <p class="lead">This is a simple application, which allows you to calculate your incomes both from labor and non-labor contracts</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
-
+    <div class="row">
+        
+        <asp:GridView runat="server"
+              CssClass="table table-bordered table-hover table-striped table-background"
+              ID="LatestUsersGridView"
+              ItemType="SalaryCalculator.Data.Models.User"
+              AutoGenerateColumns="False">
+    <Columns>
+        <asp:TemplateField HeaderText="Position">
+            <ItemTemplate>
+                <%# Container.DataItemIndex + 1 %>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="UserName" HeaderText="UserName"/>
+        <asp:BoundField DataField="EMail" HeaderText="E-Mail"/>
+        <asp:BoundField DataField="CompanyName" HeaderText="Company Name"/>
+        <asp:BoundField DataField="CompanyAddress" HeaderText="Company Address"/>
+    </Columns>
+</asp:GridView>
+    </div>
     <div class="row">
         <div class="col-md-4 jumbotron">
             <h2>LABOR CONTRACTS</h2>
