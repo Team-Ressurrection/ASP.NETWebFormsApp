@@ -18,7 +18,7 @@
 
 ## Project Description  
 
-This is a simple online calculator that allows people to calculate their net wage according to latest legislation changes in Labour Code. The calculator allows to register as company and generate reports for all employees.
+This is a simple online salary calculator that allows people to calculate their net wage, social security income, income tax and personal insurance taxes according to latest legislation changes in Labour Code. The calculator allows you to register as a company and create labor and non-labor contracts for employees and also view reports for them.
 
 You can view the youtube video here:
 
@@ -41,19 +41,20 @@ You can view the youtube video here:
 #### Registration
 You can register at our website in Register menu.
 Required fields for registration.
-    - EMail: aaa@aaa.com
-    - Company Name: Demo Company
-    - Company Address: bul. ......
+  - E-Mail: aaa@aaa.com
+  - Company Name: Demo Company
+  - Company Address: bul. ......
 
 ## Application public part
 
 Everyone can see information:
   - home page: current legislation changes
-  - about page:
-  - contact page:
+  - about page: owner information
+  - contact page: owner coordinates
 
 ## Application private part
 
+#### Admin
 Users with role "admin" can edit or/and delete information in settings menu.
   - Paychecks
   - Remuneration bills
@@ -61,6 +62,7 @@ Users with role "admin" can edit or/and delete information in settings menu.
   - Employees
   - Selfemployment people
   
+#### User
 Users with role "user" can create, view their own documents.
   - Labor contracts
   - Non-Labor contracts
@@ -75,3 +77,8 @@ MSSQL server.
 MSSQL.
 
 ## FAQ
+
+## Project TODOs:
+  - Implement calculation with part time job, paid leave and absence
+  - Detail information about personal insurance (depends on birth year before 01.01.1960 and after 31.12.1959)
+  - Users to edit or/and delete their own documents
