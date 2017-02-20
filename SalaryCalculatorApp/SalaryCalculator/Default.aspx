@@ -4,12 +4,35 @@
 
     <div class="jumbotron">
         <h1>SALARY CALCULATOR</h1>
-        <p class="lead">This is a simple application, which allows you to calculate your incomes both from labor and non-labor contracts</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <p class="lead">This is a simple application, which allows you to calculate your incomes both from labor and non-labor contracts.
+            You can easily calculate your social security income and social securities taxes.
+                In just seconds you can get your net wage.
+        </p>
+        <p><a href="http://www.asp.net" class="btn btn-primary btn-block">View quick demo &raquo;</a></p>
     </div>
     <div class="row">
-        
-        <asp:GridView runat="server"
+        <h2>Latest registered users</h2>
+        <asp:Repeater ID="LatestUsersGridView" runat="server">
+            <HeaderTemplate>
+            </HeaderTemplate>
+            <ItemTemplate>
+                <div class="col-md-3 jumbotron" style="margin: 5px">
+                    <p>
+                        <span class="glyphicon glyphicon-user">Username: </span><%# DataBinder.Eval(Container.DataItem, "UserName") %>
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-hand-right">E-mail: </span><%# DataBinder.Eval(Container.DataItem, "EMail") %>
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-tower">Company name: </span><%# DataBinder.Eval(Container.DataItem, "CompanyName") %>
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-lock">Company address: </span><%# DataBinder.Eval(Container.DataItem, "CompanyAddress") %>
+                    </p>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+        <%--        <asp:GridView runat="server"
               CssClass="table table-bordered table-hover table-striped table-background" BorderStyle="Double"
               ID="LatestUsersGridView"
               ItemType="SalaryCalculator.Data.Models.User"
@@ -25,34 +48,31 @@
         <asp:BoundField DataField="CompanyName" HeaderText="Company Name"/>
         <asp:BoundField DataField="CompanyAddress" HeaderText="Company Address"/>
     </Columns>
-</asp:GridView>
+</asp:GridView>--%>
     </div>
     <div class="row">
-        <div class="col-md-4 jumbotron">
-            <h2>LABOR CONTRACTS</h2>
+        <div class="col-md-3 jumbotron" style="margin: 5px">
+            <h2>Legislation</h2>
             <p>
-                You can easily calculate your social security income and social securities taxes.           
+                For more information about Labour legislation area visit here.           
             </p>
             <p>
-                <a class="btn btn-info" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
+                <a class="btn btn-info" href="https://www.mlsp.government.bg/index.php?section=CONTENT&I=629">MLSP &raquo;</a>
             </p>
         </div>
-        <div class="col-md-4 jumbotron">
-            <h2>NON-LABOR CONTRACTS</h2>
+        <div class="col-md-3 jumbotron" style="margin: 5px">
+            <h2>Taxes</h2>
             <p>
-                You can easily calculate your social security income and social securities taxes.
-                In just seconds you can get your net wage.
-                For more information about legislation visit National Revenue Agency site.          
+                For more information about taxes visit National Revenue Agency site.          
             </p>
             <p>
                 <a class="btn btn-info" href="http://www.nap.bg/page?id=387">NRA &raquo;</a>
             </p>
         </div>
-        <div class="col-md-4 jumbotron">
-            <h2>FREELANCE CONTRACTS</h2>
+        <div class="col-md-3 jumbotron" style="margin: 5px">
+            <h2>Insurance</h2>
             <p>
-                You can easily your income as freelancer.
-                For social security information visit National Social Security Institute
+                For more information about social security information visit National Social Security Institute
             </p>
             <p>
                 <a class="btn btn-info" href="http://www.nssi.bg/legislationbg">NSSI &raquo;</a>

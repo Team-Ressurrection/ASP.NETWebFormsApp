@@ -57,6 +57,10 @@ input[type="select"] {
     border-radius: 10px 10px 10px 10px;
 }
 
+.section-background{
+    background-color: #ccc;
+}
+
 .GridPager a, .GridPager span {
     display: inline-block;
     padding: 0px 9px;
