@@ -103,6 +103,8 @@
     <Compile Include="EventsArguments\PaycheckEventArgs.cs" />
     <Compile Include="Factories\ISalaryCalculatorEventArgsFactory.cs" />
     <Compile Include="Factories\SalaryCalculatorEventArgsFactory.cs" />
+    <Compile Include="Models\Home\HomeModel.cs" />
+    <Compile Include="Models\Home\IHomeModel.cs" />
     <Compile Include="Models\JobContracts\IEmployeeModel.cs" />
     <Compile Include="Models\Settings\ISettingsEmployeesModel.cs" />
     <Compile Include="Models\Settings\ISettingsUsersModel.cs" />
@@ -128,6 +130,10 @@
     <Compile Include="Models\Settings\SettingsFreelanceContractsModel.cs" />
     <Compile Include="Models\Settings\SettingsNonLaborContractsModel.cs" />
     <Compile Include="Models\Settings\SettingsUsersModel.cs" />
+    <Compile Include="Presenters\Home\HomePresenter.cs" />
+    <Compile Include="Presenters\Home\IHomePresenter.cs" />
+    <Compile Include="Presenters\Reports\IReportFreelancePresenter.cs" />
+    <Compile Include="Presenters\Reports\ReportFreelancePresenter.cs" />
     <Compile Include="Presenters\Settings\ISettingsEmployeesPresenter.cs" />
     <Compile Include="Presenters\Settings\ISettingsUsersPresenter.cs" />
     <Compile Include="Presenters\Settings\SettingsEmployeesPresenter.cs" />
@@ -151,6 +157,7 @@
     <Compile Include="Presenters\Settings\SettingsNonLaborContractsPresenter.cs" />
     <Compile Include="Presenters\Settings\SettingsUsersPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Home\IHomeView.cs" />
     <Compile Include="Views\Settings\ISettingsEmployeesView.cs" />
     <Compile Include="Views\Settings\ISettingsLaborContractsView.cs" />
     <Compile Include="Views\JobContracts\ICreateFreelanceContractView.cs" />
