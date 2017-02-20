@@ -22,7 +22,7 @@ namespace SalaryCalculator.Mvp.Presenters.Reports
             this.View.GetAllLaborContracts += GetAll;
         }
 
-        public void GetAll(object sender, System.EventArgs e)
+        private void GetAll(object sender, System.EventArgs e)
         {
             this.View.Model.LaborContracts = this.paycheckService.GetAll();
         }

@@ -6,6 +6,6 @@ namespace SalaryCalculator.Mvp.Models.Reports
 {
     public class ReportFreelanceModel : IReportFreelanceModel
     {
-        public IEnumerable<SelfEmployment> FreelanceContracts { get; set; }
+        public virtual IEnumerable<SelfEmployment> FreelanceContracts { get; set; }
     }
 }

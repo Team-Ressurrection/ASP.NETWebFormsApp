@@ -24,7 +24,7 @@ namespace SalaryCalculator.Mvp.Presenters.Reports
             this.View.GetAllFreelanceContracts += GetAll;
         }
 
-        public void GetAll(object sender, EventArgs e)
+        private void GetAll(object sender, EventArgs e)
         {
             this.View.Model.FreelanceContracts = this.selfEmploymentService.GetAll();
         }

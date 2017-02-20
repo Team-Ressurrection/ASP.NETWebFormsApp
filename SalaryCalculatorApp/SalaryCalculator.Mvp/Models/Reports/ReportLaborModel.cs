@@ -6,6 +6,6 @@ namespace SalaryCalculator.Mvp.Models.Reports
 {
     public class ReportLaborModel : IReportLaborModel
     {
-        public IEnumerable<EmployeePaycheck> LaborContracts { get; set; }
+        public virtual IEnumerable<EmployeePaycheck> LaborContracts { get; set; }
     }
 }

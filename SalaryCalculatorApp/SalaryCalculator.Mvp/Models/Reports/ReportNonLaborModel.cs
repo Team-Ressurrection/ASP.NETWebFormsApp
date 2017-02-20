@@ -6,6 +6,6 @@ namespace SalaryCalculator.Mvp.Models.Reports
 {
     public class ReportNonLaborModel : IReportNonLaborModel
     {
-        public IEnumerable<RemunerationBill> NonLaborContracts { get; set; }
+        public virtual IEnumerable<RemunerationBill> NonLaborContracts { get; set; }
     }
 }

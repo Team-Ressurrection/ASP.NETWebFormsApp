@@ -170,6 +170,10 @@
     <Compile Include="Mvp.Presenters\CreateFreelanceContractPresenterTests\GetEmployee_Should.cs" />
     <Compile Include="Mvp.Presenters\CreateLaborContractPresenterTests\GetEmployee_Should.cs" />
     <Compile Include="Mvp.Presenters\CreateNonLaborContractPresenterTests\GetEmployee_Should.cs" />
+    <Compile Include="Mvp.Presenters\HomePresenterTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.Presenters\HomePresenterTests\View_GetLatestUsers_Should.cs" />
+    <Compile Include="Mvp.Presenters\ReportFreelancePresenterTests\Constructor_Should.cs" />
+    <Compile Include="Mvp.Presenters\ReportFreelancePresenterTests\GetAll_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsEmployeesPresenterTests\Constructor_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsEmployeesPresenterTests\GetAllEmployees_Should.cs" />
     <Compile Include="Mvp.Presenters\SettingsEmployeesPresenterTests\View_DeleteEmployee_Should.cs" />
