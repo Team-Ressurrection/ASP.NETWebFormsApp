@@ -8,6 +8,7 @@ using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Mvp.Presenters.Account;
 using SalaryCalculator.Mvp.Views.Account;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Mvp.EventsArguments;
 
 namespace SalaryCalculator.Tests.Mvp.Presenters.ProfilePresenterTests
 {
@@ -20,15 +21,16 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.ProfilePresenterTests
             var view = new Mock<IProfileView>();
             var service = new Mock<IUserService>();
 
-            var presenter = new ProfilePresenter(view.Object, service.Object);
-            var randomStringId = "11111111";
-            var eventArgs = new Mock<EventArgs>();
+            var eventArgs = new Mock<IModelIdEventArgs>();
 
             var user = new FakeUser();
-            user.Id = "11111111";
+            user.Id = Guid.NewGuid().ToString();
             view.Setup(x => x.Model.User).Returns(user as User);
             service.Setup(x => x.GetById(user.Id));
-            presenter.GetUser(randomStringId, eventArgs.Object);
+            eventArgs.Setup(x => x.UserId).Returns(user.Id);
+            var presenter = new ProfilePresenter(view.Object, service.Object);
+
+            presenter.GetUser(user.Id, eventArgs.Object);
 
             service.Verify(x => x.GetById(user.Id), Times.Once);
         }

@@ -12,13 +12,9 @@
         Display="Dynamic">
     </asp:RequiredFieldValidator>
     <asp:Button ID="ButtonLoad" runat="server" OnClick="ButtonLoad_Click" Text="Upload photo" CssClass="btn btn-warning" />
-    <asp:FormView runat="server" ID="DetailsView" AutoGenerateRows="false">
+    <asp:FormView runat="server" ID="DetailsView" AutoGenerateRows="false" ItemType="<%# Context.User.Identity%>">
         <ItemTemplate>
-            <div>
-                <%# Context.User.Identity.GetUserName() %>
-                <br />
-                <%# Context.User.Identity.Name %>
-            </div>
+       
         </ItemTemplate>
     </asp:FormView>
 </asp:Content>
