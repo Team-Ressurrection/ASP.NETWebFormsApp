@@ -1,4 +1,6 @@
-﻿namespace SalaryCalculator.Mvp.EventsArguments
+﻿using System;
+
+namespace SalaryCalculator.Mvp.EventsArguments
 {
     public interface ISelfEmploymentEventArgs
     {
@@ -7,5 +9,7 @@
         decimal AdditionalSocialSecurityIncome { get; set; }
 
         bool IsInsuredForGeneralDiseaseAndMaternity { get; set; }
+
+        DateTime CreatedDate { get; set; }
     }
 }

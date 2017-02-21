@@ -29,7 +29,8 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
 
             var obj = new object { };
             var salary = new decimal();
-            var e = new Mock<SelfEmploymentEventArgs>(salary, 0m, false);
+            var date = new DateTime(2016, 12, 24);
+            var e = new Mock<SelfEmploymentEventArgs>(salary, date, 0m, false);
             var insurance = new FakeSelfEmployment();
             view.SetupProperty(x => x.Model.Employee, new FakeEmployee() { Id = 100 });
             view.SetupGet(x => x.Model.SelfEmployment).Returns(insurance);
@@ -53,7 +54,8 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
 
             var obj = new object { };
             var salary = new decimal();
-            var e = new Mock<SelfEmploymentEventArgs>(salary, 0m, false);
+            var date = new DateTime(2017, 1, 30);
+            var e = new Mock<SelfEmploymentEventArgs>(salary, date, 0m, false);
             SelfEmployment insurance = null;
             view.SetupGet(x => x.Model.SelfEmployment).Returns(insurance);
             modelFactory.Setup(x => x.GetSelfEmployment()).Returns(new FakeSelfEmployment());

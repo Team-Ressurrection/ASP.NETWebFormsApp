@@ -61,7 +61,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
             Guard.WhenArgument<decimal>(e.GrossSalary, "GrossSalary").IsLessThan(0).Throw();
 
             var remunerationBill = this.modelFactory.GetRemunerationBill();
-            remunerationBill.CreatedDate = DateTime.Now;
+            remunerationBill.CreatedDate = e.CreatedDate;
             remunerationBill.EmployeeId = this.View.Model.Employee.Id;
             remunerationBill.GrossSalary = e.GrossSalary;
 

@@ -1,4 +1,6 @@
-﻿namespace SalaryCalculator.Mvp.EventsArguments
+﻿using System;
+
+namespace SalaryCalculator.Mvp.EventsArguments
 {
     public interface IPaycheckEventArgs
     {
@@ -7,5 +9,7 @@
         decimal GrossFixedBonus { get; set; }
 
         decimal GrossNonFixedBonus { get; set; }
+
+        DateTime CreatedDate { get; set; }
     }
 }

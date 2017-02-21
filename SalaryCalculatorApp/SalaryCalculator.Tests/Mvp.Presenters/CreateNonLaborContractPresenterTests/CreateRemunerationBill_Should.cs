@@ -28,7 +28,8 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
             var presenter = new CreateNonLaborContractPresenter(view.Object, billService.Object,employeeService.Object,modelFactory.Object, calculate);
             var obj = new object { };
             var salary = new decimal();
-            var e = new Mock<RemunerationBillEventArgs>(salary);
+            var date = new DateTime(2017, 1, 1);
+            var e = new Mock<RemunerationBillEventArgs>(salary,date);
             var bill = new FakeRemunerationBill();
             view.SetupGet(x => x.Model.RemunerationBill).Returns(bill);
 
@@ -48,7 +49,8 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateNonLaborContractPresenterT
             
             var obj = new object { };
             var salary = new decimal();
-            var e = new Mock<RemunerationBillEventArgs>(salary);
+            var date = new DateTime(2016, 12, 12);
+            var e = new Mock<RemunerationBillEventArgs>(salary,date);
             FakeRemunerationBill bill = null;
             view.SetupGet(x => x.Model.RemunerationBill).Returns(bill);
 

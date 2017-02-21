@@ -59,7 +59,7 @@ namespace SalaryCalculator.JobContracts
             var employeeArgs = this.eventArgsFactory.GetEmployeeEventArgs(this.FirstName.Text, this.MiddleName.Text, this.LastName.Text, this.PersonalId.Text);
             this.GetEmployee?.Invoke(this, employeeArgs);
 
-            var args = this.eventArgsFactory.GetSelfEmploymentEventArgs((decimal.Parse)(this.SocialSecurityIncome.Text), 0, false);
+            var args = this.eventArgsFactory.GetSelfEmploymentEventArgs((decimal.Parse)(this.SocialSecurityIncome.Text),DateTime.Parse(this.CreatedDate.Text), 0, false);
 
             this.CalculateSelfEmployment?.Invoke(this, args);
             this.CreateSelfEmployment?.Invoke(this.Model.SelfEmployment, args);

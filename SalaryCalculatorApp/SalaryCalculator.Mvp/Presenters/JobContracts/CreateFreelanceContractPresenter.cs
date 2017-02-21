@@ -61,7 +61,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
             Guard.WhenArgument<decimal>(e.SocialSecurityIncome, "SocialSecurityIncome").IsLessThan(0).Throw();
 
             var selfEmployment = this.modelFactory.GetSelfEmployment();
-            selfEmployment.CreatedDate = DateTime.Now;
+            selfEmployment.CreatedDate = e.CreatedDate;
             selfEmployment.EmployeeId = this.View.Model.Employee.Id;
             selfEmployment.GrossSalary = e.SocialSecurityIncome;
 

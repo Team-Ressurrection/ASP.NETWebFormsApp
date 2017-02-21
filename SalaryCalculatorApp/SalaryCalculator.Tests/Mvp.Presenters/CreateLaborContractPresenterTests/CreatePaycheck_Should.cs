@@ -26,7 +26,8 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
 
             var obj = new object { };
             var salary = new decimal();
-            var e = new Mock<PaycheckEventArgs>(salary, salary, salary);
+            var date = new DateTime(2017, 1, 1);
+            var e = new Mock<PaycheckEventArgs>(salary, salary, salary,date);
             var paycheck = new FakeEmployeePaycheck();
             view.SetupGet(x => x.Model.EmployeePaycheck).Returns(paycheck);
 
@@ -48,7 +49,8 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateLaborContractPresenterTest
 
             var obj = new object { };
             var salary = new decimal();
-            var e = new Mock<PaycheckEventArgs>(salary, salary, salary);
+            var date = new DateTime(2017, 2, 2);
+            var e = new Mock<PaycheckEventArgs>(salary, salary, salary,date);
             FakeEmployeePaycheck paycheck = null;
             view.SetupGet(x => x.Model.EmployeePaycheck).Returns(paycheck);
 

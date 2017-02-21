@@ -64,7 +64,7 @@ namespace SalaryCalculator.Mvp.Presenters.JobContracts
             Guard.WhenArgument<decimal>(e.GrossSalary, "GrossSalary").IsLessThan(0).Throw();
 
             var paycheck = this.modelFactory.GetEmployeePaycheck();
-            paycheck.CreatedDate = DateTime.Now;
+            paycheck.CreatedDate = e.CreatedDate;
             paycheck.EmployeeId = this.View.Model.Employee.Id;
             paycheck.GrossFixedBonus = e.GrossFixedBonus;
             paycheck.GrossNonFixedBonus = e.GrossNonFixedBonus;

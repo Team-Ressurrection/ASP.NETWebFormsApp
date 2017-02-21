@@ -68,7 +68,7 @@ namespace SalaryCalculator.JobContracts
 
             this.GetEmployee?.Invoke(this, employeeArgs);
 
-            var args = this.EventArgsFactory.GetPaycheckEventArgs((decimal.Parse)(this.GrossBaseSalary.Text), (decimal.Parse)(this.FixedBonus.Text), (decimal.Parse)(this.NonFixedBonus.Text));
+            var args = this.EventArgsFactory.GetPaycheckEventArgs((decimal.Parse)(this.GrossBaseSalary.Text), (decimal.Parse)(this.FixedBonus.Text), (decimal.Parse)(this.NonFixedBonus.Text),DateTime.Parse(this.CreatedDate.Text));
 
             this.CalculatePaycheck?.Invoke(this, args);
             this.CreatePaycheck?.Invoke(this.Model.EmployeePaycheck, args);

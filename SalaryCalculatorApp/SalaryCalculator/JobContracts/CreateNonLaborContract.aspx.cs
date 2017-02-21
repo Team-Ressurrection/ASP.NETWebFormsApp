@@ -62,7 +62,7 @@ namespace SalaryCalculator.JobContracts
             var employeeArgs = this.EventArgsFactory.GetEmployeeEventArgs(this.FirstName.Text, this.MiddleName.Text, this.LastName.Text, this.PersonalId.Text);
             this.GetEmployee?.Invoke(this, employeeArgs);
 
-            var args = this.EventArgsFactory.GetRemunerationBillEventArgs(decimal.Parse(this.ContractValue.Text));
+            var args = this.EventArgsFactory.GetRemunerationBillEventArgs(decimal.Parse(this.ContractValue.Text),DateTime.Parse(this.CreatedDate.Text));
             this.CalculateRemunerationBill?.Invoke(this, args);
             this.CreateRemunerationBill?.Invoke(this.Model.RemunerationBill, args);
 

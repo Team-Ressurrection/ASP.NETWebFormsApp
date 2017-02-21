@@ -15,19 +15,19 @@ namespace SalaryCalculator.Mvp.Factories
             return new ModelIdEventArgs(id);
         }
 
-        public IPaycheckEventArgs GetPaycheckEventArgs(decimal grossSalary, decimal fixedBonus, decimal nonFixedBonus)
+        public IPaycheckEventArgs GetPaycheckEventArgs(decimal grossSalary, decimal fixedBonus, decimal nonFixedBonus, DateTime createdDate)
         {
-           return new PaycheckEventArgs(grossSalary, fixedBonus, nonFixedBonus);
+           return new PaycheckEventArgs(grossSalary, fixedBonus, nonFixedBonus, createdDate);
         }
 
-        public IRemunerationBillEventArgs GetRemunerationBillEventArgs(decimal grossSalary)
+        public IRemunerationBillEventArgs GetRemunerationBillEventArgs(decimal grossSalary, DateTime createdDate)
         {
-            return new RemunerationBillEventArgs(grossSalary);
+            return new RemunerationBillEventArgs(grossSalary ,createdDate);
         }
 
-        public ISelfEmploymentEventArgs GetSelfEmploymentEventArgs(decimal socialSecurityIncome, decimal additionalSocialSecurityIncome = 0, bool isInsuredForGDM = false)
+        public ISelfEmploymentEventArgs GetSelfEmploymentEventArgs(decimal socialSecurityIncome, DateTime createdDate,decimal additionalSocialSecurityIncome = 0, bool isInsuredForGDM = false)
         {
-            return new SelfEmploymentEventArgs(socialSecurityIncome, additionalSocialSecurityIncome, isInsuredForGDM);
+            return new SelfEmploymentEventArgs(socialSecurityIncome, createdDate, additionalSocialSecurityIncome, isInsuredForGDM);
         }
 
         public IEmployeeEventArgs GetEmployeeEventArgs(string firstName, string middleName, string lastName, string personalId)
