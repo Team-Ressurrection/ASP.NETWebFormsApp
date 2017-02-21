@@ -73,22 +73,6 @@
             ControlToValidate="ContractValue"
             SetFocusOnError="true" Display="Dynamic" CssClass="text-danger"></asp:RequiredFieldValidator>
         <asp:Button ID="CalculateWage" runat="server" Text="Calculate" CssClass="btn btn-info" Visible="true" OnClick="CalculateWage_Click" />
-        <asp:Button ID="SaveDocument" runat="server" Text="Save" CssClass="btn btn-danger" Visible="false" OnClick="SaveDocument_Click" />
-        <asp:Literal ID="SmetkaIzplateniSumi" runat="server" Visible="false">
-            <h2>СМЕТКА ЗА ИЗПЛАТЕНИ СУМИ</h2>
-            <p>1. Сума по тази сметка</p>
-            <p>2. Нормативно признати разходи за дейността (25% или 40% от ред 1)</p>
-            <p>3. Облагаем доход по тази сметка (ред 1 – ред 2)</p>
-            <p>4. Облагаема част от сумата на ред 3 (попълва се от физическото лице)</p>
-            <p>5. Осигурителен доход от сумата на ред 1, върху който се дължат осигурителни вноски (попълва се от физическото лице)</p>
-            <p>6. Задължителни осигурителни вноски, в т.ч. за:	</p>
-            <p>а) за фондовете на ДОО ( ….% от ред 5, съгласно т. 1 от забележката)</p>
-            <p>б) допълнително задължително пенсионно осигуряване (ДЗПО) в универсален</p>
-            <p>в) здравно осигуряване (3.2% от ред 5 )</p>
-            <p>7. Сума, подлежаща на авансово облагане (ред 4 - ред 6)</p>
-            <p>8. Дължим авансов данък (10% от ред 7)</p>
-            <p>9. Сума за получаване (ред 1 – ред 6 – ред 8)</p>
-        </asp:Literal>
     </div>
     <asp:GridView ID="DetailsViewRemunerationBill"
         runat="server"

@@ -10,6 +10,8 @@ using SalaryCalculator.Mvp.Models.JobContracts;
 using SalaryCalculator.Mvp.Presenters.JobContracts;
 using SalaryCalculator.Mvp.Views.JobContracts;
 using SalaryCalculator.Mvp.EventsArguments;
+using SalaryCalculator.Data.Models;
+using System.Web.ModelBinding;
 
 namespace SalaryCalculator.JobContracts
 {
@@ -67,8 +69,7 @@ namespace SalaryCalculator.JobContracts
             this.DetailsViewRemunerationBill.DataSource = new[] { this.Model.RemunerationBill };
             this.DetailsViewRemunerationBill.DataBind();
 
-            this.SaveDocument.Visible = true;
-            this.SmetkaIzplateniSumi.Visible = true;
+            //this.SmetkaIzplateniSumi.Visible = true;
         }
 
         protected void SaveDocument_Click(object sender, EventArgs e)
