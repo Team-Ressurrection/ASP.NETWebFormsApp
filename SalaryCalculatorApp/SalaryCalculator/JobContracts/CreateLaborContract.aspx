@@ -80,9 +80,21 @@
     </div>
     <asp:GridView ID="DetailsViewPaycheck"
         runat="server"
-        AutoGenerateColumns="true"
+        AutoGenerateColumns="false"
         CssClass="table table-responsive table-striped table-bordered table-hover table-condensed table-background">
         <Columns>
+            <asp:BoundField DataField="Id" HeaderText="ID" />
+            <asp:BoundField DataField="CreatedDate" HeaderText="Created Date" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="Employee.FirstName" HeaderText="First Name" />
+            <asp:BoundField DataField="Employee.MiddleName" HeaderText="Middle Name" />
+            <asp:BoundField DataField="Employee.LastName" HeaderText="Last Name" />
+            <asp:BoundField DataField="GrossSalary" HeaderText="Gross Salary" DataFormatString="{0:F2}"/>
+            <asp:BoundField DataField="GrossFixedBonus" HeaderText="Gross Fixed Bonus" DataFormatString="{0:F2}"/>
+            <asp:BoundField DataField="GrossNonFixedBonus" HeaderText="Gross Non-Fixed Bonus" DataFormatString="{0:F2}"/>
+            <asp:BoundField DataField="SocialSecurityIncome" HeaderText="Social security income" DataFormatString="{0:F2}"/>
+            <asp:BoundField DataField="PersonalInsurance" HeaderText="Personal insurance" DataFormatString="{0:F2}"/>
+            <asp:BoundField DataField="IncomeTax" HeaderText="Income Tax" DataFormatString="{0:F2}"/>
+            <asp:BoundField DataField="NetWage" HeaderText="Net Wage" DataFormatString="{0:F2}"/>
         </Columns>
     </asp:GridView>
 </asp:Content>
