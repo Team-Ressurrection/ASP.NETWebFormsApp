@@ -22,6 +22,8 @@ This is a simple online salary calculator that allows people to calculate their 
 
 You can view the youtube video here:
 
+- [Youtube](https://www.youtube.com/watch?v=EYgRIzkijdc&feature=youtu.be)
+
 ## Usage
 
 #### Basic usage
