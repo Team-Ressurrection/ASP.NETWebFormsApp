@@ -16,15 +16,9 @@ namespace SalaryCalculator.JobContracts
     [PresenterBinding(typeof(CreateFreelanceContractPresenter))]
     public partial class CreateFreelanceContract : MvpPage<CreateFreelanceContractModel>, ICreateFreelanceContractView
     {
-        protected CreateFreelanceContract()
+        public CreateFreelanceContract()
         {
 
-        }
-
-        [Inject]
-        public CreateFreelanceContract(ISalaryCalculatorEventArgsFactory eventArgsFactory)
-        {
-            this.eventArgsFactory = eventArgsFactory;
         }
 
         [Inject]

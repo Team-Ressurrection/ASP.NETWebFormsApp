@@ -57,6 +57,7 @@ namespace SalaryCalculator.Tests.Mvp.Presenters.CreateFreelanceContractPresenter
             var date = new DateTime(2017, 1, 30);
             var e = new Mock<SelfEmploymentEventArgs>(salary, date, 0m, false);
             SelfEmployment insurance = null;
+
             view.SetupGet(x => x.Model.SelfEmployment).Returns(insurance);
             modelFactory.Setup(x => x.GetSelfEmployment()).Returns(new FakeSelfEmployment());
 
